@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmateo <pmateo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 17:06:52 by annabrag          #+#    #+#             */
-/*   Updated: 2024/12/05 19:11:13 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/01/05 20:33:52 by pmateo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 void	capitalizeStr(std::string str)
 {
-	for (size_t i = 0; i < str.length(); i++)
-		str[i] = toupper(str[i]);
+	size_t	i;
+
+	for (i = 0 ; i < str.length(); i++)
+		str[i] = std::toupper(str[i]);
 	std::cout << str << std::endl;
 }
 
