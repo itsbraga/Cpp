@@ -6,14 +6,15 @@
 /*   By: pmateo <pmateo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 22:22:25 by pmateo            #+#    #+#             */
-/*   Updated: 2025/01/05 22:54:03 by pmateo           ###   ########.fr       */
+/*   Updated: 2025/01/06 22:12:42 by pmateo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
+	(void)argv;
 	PhoneBook	artemisBook;
 	void		(PhoneBook::*f[])(void) = {&PhoneBook::addContact,
 											&PhoneBook::searchContact,
@@ -22,6 +23,8 @@ int	main(void)
 	std::string	input;
 	std::string	choice[] = {"ADD", "SEARCH", "EXIT"};
 
+	if (argc > 1)
+		return (FAILURE);
 	while (true)
 	{
 		std::getline(std::cin, input);
@@ -40,4 +43,5 @@ int	main(void)
 			// print options
 		input.clear();
 	}
+	return (SUCCESS);
 }

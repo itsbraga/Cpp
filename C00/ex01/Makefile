@@ -15,14 +15,16 @@ PURPLE		:=	\e[38;2;224;176;255m
 #******************************************************************************#
 
 NAME		=	phonebook
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+
+CPP			=	c++
+CPPFLAG		=	-Wall -Wextra -Werror -std=c++98
 DFLAGS		=	-MMD -MP
 
 #******************************************************************************#
 #	SOURCES
 #******************************************************************************#
 
-SRCS		=	PhoneBook.cpp Contact.cpp main.cpp
+SRCS		=	PhoneBook.cpp PhoneBook_utils.cpp Contact.cpp main.cpp
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))
 DEPS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.d))
@@ -35,11 +37,11 @@ all: $(NAME)
 
 $(OBJS_DIR)%.o: %.cpp
 				@mkdir -p $(OBJS_DIR)
-				$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+				$(CPP) $(CPPFLAG) $(DFLAGS) -c $< -o $@
 -include $(DEPS_F)
 
 $(NAME): $(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+			$(CPP) $(CPPFLAG) $(OBJS) -o $(NAME)
 			@printf "\n\n===============$(shell bash ../rbw.sh " PhoneBook ")"
 			@printf "===============\n\n$(BLINK)$(PURPLE)\t\t   READY!$(RESET)\n\n"
 			@printf "$(BOLD)=========================================\n\n$(RESET)"
