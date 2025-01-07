@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmateo <pmateo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:30:25 by annabrag          #+#    #+#             */
-/*   Updated: 2025/01/05 21:30:56 by pmateo           ###   ########.fr       */
+/*   Updated: 2025/01/07 21:43:31 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,40 +16,39 @@ Contact::Contact(void)
 {
 	std::cout << "Contact: Constructor called :)" << std::endl;
 	return ;
-};
+}
 
 Contact::~Contact(void)
 {
 	std::cout << "Contact: Destructor called :(" << std::endl;
 	return ;
-};
+}
 
 std::string Contact::getContactInfo(std::string target)
 {
-	if (this->first_name == target)
+	if (target == "first_name")
 		return (this->first_name);
-	else if (this->last_name == target)
+	else if (target == "last_name")
 		return (this->last_name);	
-	else if (this->nickname == target)
+	else if (target == "nickname")
 		return (this->nickname);
-	else if (this->phone_nb == target)
+	else if (target == "phone_nb")
 		return (this->phone_nb);
-	else if (this->dark_secret == target)
+	else if (target == "dark_secret")
 		return (this->dark_secret);
-	else
-		return (NULL);
+	return (NULL);
 }
 
 void	Contact::setContactInfo(std::string target, std::string newValue)
 {
-	if (this->first_name == target)
+	if (target == "first_name")
 		this->first_name = newValue;
-	else if (this->last_name == target)
+	else if (target == "last_name")
 		this->last_name = newValue;
-	else if (this->nickname == target)
+	else if (target == "nickname")
 		this->nickname = newValue;
-	else if (this->phone_nb == target)
+	else if (target == "phone_nb")
 		this->phone_nb = newValue;
-	else if (this->dark_secret == target)
+	else if (target == "dark_secret")
 		this->dark_secret = newValue;
 }

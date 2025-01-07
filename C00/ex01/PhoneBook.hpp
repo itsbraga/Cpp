@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmateo <pmateo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:30:55 by annabrag          #+#    #+#             */
-/*   Updated: 2025/01/06 22:09:12 by pmateo           ###   ########.fr       */
+/*   Updated: 2025/01/07 21:52:14 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define SUCCESS 0
 # define FAILURE 1
 
+# define MAX_CONTACTS 8
 # define ERR_PREFIX BOLD RED "Error: " RESET
 # define BANNER "________________________________________"
 
@@ -55,7 +56,7 @@ class PhoneBook
 		void	exitPhoneBook(void);
 
 	private:
-		Contact		array[8];
+		Contact		array[MAX_CONTACTS];
 		size_t		Head;
 		int			ContactAmount;
 		void		showContactList(void);
