@@ -24,7 +24,8 @@ DFLAGS		=	-MMD -MP
 #	SOURCES
 #******************************************************************************#
 
-SRCS		=	PhoneBook.cpp PhoneBook_utils.cpp Contact.cpp main.cpp
+SRCS		=	checkInput.cpp showContacts.cpp Contact.cpp PhoneBook.cpp
+				main.cpp
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))
 DEPS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.d))

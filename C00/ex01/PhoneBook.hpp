@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:30:55 by annabrag          #+#    #+#             */
-/*   Updated: 2025/01/07 21:52:14 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/01/09 18:09:20 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # include <cstdlib>
 # include "colors.hpp"
 
-bool	isValidInput(std::string input, std::string field);
+bool	checkInput(std::string input, std::string field);
 
 class Contact
 {
@@ -57,8 +57,8 @@ class PhoneBook
 
 	private:
 		Contact		array[MAX_CONTACTS];
-		size_t		Head;
-		int			ContactAmount;
+		size_t		head;
+		int			contactAmount;
 		void		showContactList(void);
 		void		showContact(size_t choice);
 };
