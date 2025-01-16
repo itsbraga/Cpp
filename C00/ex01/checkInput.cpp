@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 21:36:10 by art3mis           #+#    #+#             */
-/*   Updated: 2025/01/09 19:08:10 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/01/16 18:20:40 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static bool	__checkWithSpecialChar(std::string input)
 				std::cout << "Phone number format must be as follows:" << std::endl;
 				std::cout << "1) XX XX XX XX XX" << std::endl;
 				std::cout << "2) XX-XX-XX-XX-XX" << std::endl;
-				std::cout << "3) XX.XX.XX.XX.XX" << std::endl;
+				std::cout << "3) XX.XX.XX.XX.XX\n" << std::endl;
 				return (false);
 			}
 		}
@@ -34,7 +34,7 @@ static bool	__checkWithSpecialChar(std::string input)
 		{
 			if (std::isdigit(input[i]) == false)
 			{
-				std::cout << ERR_PREFIX "Phone number can only contain digits"
+				std::cout << ERR_PREFIX "Phone number can only contain digits\n"
 							<< std::endl;
 				return (false);
 			}
@@ -53,12 +53,11 @@ static bool	__checkNumericField(std::string input)
 		{
 			if (std::isdigit(input[i]) == false)
 			{
-				std::cout << ERR_PREFIX "Phone number can only contain digits"
+				std::cout << ERR_PREFIX "Phone number can only contain digits\n"
 						  << std::endl;
                 return (false);
 			}
 		}
-		return (true);
 	}
 	// Version avec espaces, tirets ou points
 	else if (input.length() == 14)
@@ -71,16 +70,18 @@ static bool	__checkNumericField(std::string input)
 		std::cout << ERR_PREFIX "Invalid format" << std::endl;
 		std::cout << "Phone number must be in format:" << std::endl;
 		std::cout << "1) XXXXXXXXXX" << std::endl << "2) XX XX XX XX XX" << std::endl;
-		std::cout << "3) XX-XX-XX-XX-XX" << std::endl << "4) XX.XX.XX.XX.XX" << std::endl;
+		std::cout << "3) XX-XX-XX-XX-XX" << std::endl << "4) XX.XX.XX.XX.XX\n"
+				  << std::endl;
 		return (false);
 	}
+	return (true);
 }
 
-static bool	__checkAlphaFields(std::string input)
+static bool	__checkNameFields(std::string input)
 {
 	if (std::isspace(input[0]) == true || input[0] == '-')
 	{
-		std::cout << ERR_PREFIX "First word cannot start with space or hyphen"
+		std::cout << ERR_PREFIX "Name cannot start with space or hyphen\n"
 				  << std::endl;
 		return (false);
 	}
@@ -88,23 +89,59 @@ static bool	__checkAlphaFields(std::string input)
 	{
 		if (std::isalpha(input[i]) == false && input[i] != '-' && input[i] != ' ')
 		{
-			std::cout << ERR_PREFIX "Words can only contain letters, spaces and hyphen"
-					  << std::endl;
+			std::cout << ERR_PREFIX "Name can only contain letters, spaces "
+					  << "or hyphen\n" << std::endl;
 			return (false);
 		}
 		if (i > 0 && (input[i] == '-' || input[i] == ' '))
 		{
 			if (input[i - 1] == '-' || input[i - 1] == ' ')
 			{
-				std::cout << ERR_PREFIX "Cannot have consecutive spaces or hyphens"
-						  << std::endl;
+				std::cout << ERR_PREFIX "Cannot have consecutive spaces "
+						  << "or hyphens\n" << std::endl;
 				return (false);
 			}
 		}
 	}
-	if (input.back() == '-' || input.back() == ' ')
+	if (input[input.length() - 1] == '-' || input[input.length() - 1] == ' ')
 	{
-		std::cout << ERR_PREFIX "Word cannot end with space or hyphen"
+		std::cout << ERR_PREFIX "Name cannot end with space or hyphen\n"
+				  << std::endl;
+		return (false);
+	}
+	return (true);
+}
+
+static bool	__checkStringField(std::string input)
+{
+	if (std::isspace(input[0]) == true || input[0] == '-')
+	{
+		std::cout << ERR_PREFIX "String cannot start with space or hyphen\n"
+				  << std::endl;
+		return (false);
+	}
+	for (size_t i = 0; i < input.length(); i++)
+	{
+		if (std::isalpha(input[i]) == false && input[i] != '\''
+			&& input[i] != '"' && input[i] != '-' && input[i] != ' ')
+		{
+			std::cout << ERR_PREFIX "String can only contain letters, "
+					  << "apostrophes, spaces or hyphen\n" << std::endl;
+			return (false);
+		}
+		if (i > 0 && (input[i] == '-' || input[i] == ' '))
+		{
+			if (input[i - 1] == '-' || input[i - 1] == ' ')
+			{
+				std::cout << ERR_PREFIX "Cannot have consecutive spaces "
+						  << "or hyphens\n" << std::endl;
+				return (false);
+			}
+		}
+	}
+	if (input[input.length() - 1] == '-' || input[input.length() - 1] == ' ')
+	{
+		std::cout << ERR_PREFIX "Name cannot end with space or hyphen\n"
 				  << std::endl;
 		return (false);
 	}
@@ -115,7 +152,7 @@ bool	checkInput(std::string input, std::string field)
 {
 	if (input.empty() == true)
 	{
-		std::cout << ERR_PREFIX "All fields must be filled" << std::endl;
+		std::cout << ERR_PREFIX "All fields must be filled\n" << std::endl;
 		return (false);
 	}
 	if (field == "phone_nb")
@@ -123,9 +160,14 @@ bool	checkInput(std::string input, std::string field)
 		if (__checkNumericField(input) == false)
 			return (false);
 	}
+	else if (field == "dark_secret")
+	{
+		if (__checkStringField(input) == false)
+			return (false);
+	}
 	else
 	{
-		if (__checkAlphaFields(input) == false)
+		if (__checkNameFields(input) == false)
 			return (false);
 	}
 	return (true);

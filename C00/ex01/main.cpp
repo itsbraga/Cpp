@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 22:22:25 by art3mis           #+#    #+#             */
-/*   Updated: 2025/01/09 16:09:07 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/01/16 18:14:49 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int argc, char **argv)
 	(void)argv;
 	PhoneBook	artemisBook;
 	std::string	input;
-	bool		validOption = false;
 	std::string	choice[] = {"ADD", "SEARCH", "EXIT"};
 	void		(PhoneBook::*f[])(void) = {&PhoneBook::addContact,
 											&PhoneBook::searchContact,
@@ -27,10 +26,11 @@ int	main(int argc, char **argv)
 		return (FAILURE);
 
 	std::cout << "Welcome to ARTEMIS PhoneBook!" << std::endl;
-	std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
+	std::cout << "Available commands: ADD, SEARCH, EXIT\n" << std::endl;
 
 	while (true)
 	{
+		bool validOption = false;
 		std::cout << "> ";
 		std::getline(std::cin, input);
 		if (std::cin.eof() == true)
@@ -45,8 +45,11 @@ int	main(int argc, char **argv)
 			}
 		}
 		if (validOption == false)
-			std::cout << ERR_PREFIX "Invalid option, please try again" << std::endl;
-				// print options
+		{
+			std::cout << ERR_PREFIX "Invalid option, please try again"
+					  << std::endl;
+			std::cout << "Try: ADD, SEARCH, EXIT\n" << std::endl;
+		}
 		input.clear();
 	}
 	return (SUCCESS);

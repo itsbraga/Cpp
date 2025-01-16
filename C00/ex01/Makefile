@@ -24,7 +24,7 @@ DFLAGS		=	-MMD -MP
 #	SOURCES
 #******************************************************************************#
 
-SRCS		=	checkInput.cpp showContacts.cpp Contact.cpp PhoneBook.cpp
+SRCS		=	checkInput.cpp showContacts.cpp Contact.cpp PhoneBook.cpp \
 				main.cpp
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))
@@ -44,7 +44,7 @@ $(OBJS_DIR)%.o: %.cpp
 $(NAME): $(OBJS)
 			$(CPP) $(CPPFLAG) $(OBJS) -o $(NAME)
 			@printf "\n\n===============$(shell bash ../rbw.sh " PhoneBook ")"
-			@printf "===============\n\n$(BLINK)$(PURPLE)\t\t   READY!$(RESET)\n\n"
+			@printf "===============\n\n$(BLINK)$(PURPLE)\t\t READY!$(RESET)\n\n"
 			@printf "$(BOLD)=========================================\n\n$(RESET)"
 
 clean:

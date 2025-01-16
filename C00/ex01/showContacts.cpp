@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:17:50 by art3mis           #+#    #+#             */
-/*   Updated: 2025/01/09 18:18:18 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/01/16 18:26:46 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static std::string	__truncateStr(std::string str)
 	if (str.length() > 10)
 	{
 		substracted = str.substr(0, 9);
-		str.push_back('.');
+		substracted.push_back('.');
 	}
 	else
 		return (str);
@@ -28,11 +28,11 @@ static std::string	__truncateStr(std::string str)
 
 void	PhoneBook::showContactList(void)
 {
-	std::cout << BANNER << std::endl;
-	std::cout << "|" << std::setw(10) << "INDEX"
-			  << "|" << std::setw(10) << "FIRST_NAME"
-			  << "|" << std::setw(10) << "LAST_NAME"
-			  << "|" << std::setw(10) << "NICKNAME"
+	std::cout << TOP_BANNER << std::endl;
+	std::cout << "|" << std::setw(10) << "Index"
+			  << "|" << std::setw(10) << "First name"
+			  << "|" << std::setw(10) << "Last name"
+			  << "|" << std::setw(10) << "Nickname"
 			  << "|" << std::endl;
 
 	for (int counter = 0; counter < this->contactAmount; counter++)
@@ -46,19 +46,20 @@ void	PhoneBook::showContactList(void)
 				  << __truncateStr(this->array[counter].getContactInfo("nickname"))
 				  << "|" << std::endl;
 	}
-	std::cout << BANNER << std::endl;
+	std::cout << BOTTOM_BANNER << "\n" << std::endl;
 }
 
 void	PhoneBook::showContact(size_t choice)
 {
-	std::cout << std::setw(14) << "FIRST_NAME|" << std::setw(14)
+	std::cout << std::setw(14) << "First name\t|" << std::setw(14)
 			  << this->array[choice].getContactInfo("first_name") << std::endl;
-	std::cout << std::setw(14) << "LAST_NAME|" << std::setw(14)
+	std::cout << std::setw(14) << "Last name\t|" << std::setw(14)
 			  << this->array[choice].getContactInfo("last_name") << std::endl;
-	std::cout << std::setw(14) << "NICKNAME|" << std::setw(14)
+	std::cout << std::setw(14) << "Nickname\t|" << std::setw(14)
 			  << this->array[choice].getContactInfo("nickname") << std::endl;
-	std::cout << std::setw(14) << "PHONE NUMBER|" << std::setw(14)
+	std::cout << std::setw(14) << "Phone number\t|" << std::setw(14)
 			  << this->array[choice].getContactInfo("phone_nb") << std::endl;
-	std::cout << std::setw(14) << "DARKEST SECRET|" << std::setw(14)
-			  << this->array[choice].getContactInfo("dark_secret") << std::endl;
+	std::cout << std::setw(14) << "Darkest secret\t|" << std::setw(14)
+			  << this->array[choice].getContactInfo("dark_secret")
+			  << "\n" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:29:54 by annabrag          #+#    #+#             */
-/*   Updated: 2025/01/09 19:19:59 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/01/16 18:24:01 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,13 @@ void	PhoneBook::addContact(void)
 		if (checkInput(input, field[i]) == true)
 			this->array[this->head].setContactInfo(field[i], input);
 		else
-		{
-			std::cout << ERR_PREFIX "Invalid input. Please try again" << std::endl;
 			i--;
-		}
 		input.clear();
 	}
 	this->head = (this->head + 1) % MAX_CONTACTS; // incremente en circulaire
 	if (this->contactAmount < MAX_CONTACTS)
 		this->contactAmount++;
-	std::cout << "Contact added successfully!" << std::endl;
+	std::cout << "\nContact added successfully!\n" << std::endl;
 }
 
 void	PhoneBook::searchContact(void)
@@ -57,7 +54,7 @@ void	PhoneBook::searchContact(void)
 
 	if (this->contactAmount == 0)
 	{
-		std::cout << "No contacts to display." << std::endl;
+		std::cout << "Artemis phonebook is empty\n" << std::endl;
 		return ;
 	}
 	showContactList();
@@ -76,14 +73,15 @@ void	PhoneBook::searchContact(void)
 			if (std::isdigit(input[i]) == true)
 				index = std::atoi(input.c_str());
 			else
-				std::cout << ERR_PREFIX "Only numbers are allowed" << std::endl;
+				std::cout << ERR_PREFIX "Only numbers from 1 to " << contactAmount
+						  << " are allowed" << std::endl;
 		}
 		if (index > 0 && index <= this->contactAmount)
 		{
 			showContact(index - 1);
 			return ;
 		}
-		std::cout << ERR_PREFIX "Invalid index. Please try again: " << std::endl;
+		std::cout << ERR_PREFIX "Invalid index, please try again\n" << std::endl;
 	}
 }
 
