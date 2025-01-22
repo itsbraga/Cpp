@@ -44,7 +44,7 @@ void	PhoneBook::addContact(void)
 	this->head = (this->head + 1) % MAX_CONTACTS; // incremente en circulaire
 	if (this->contactAmount < MAX_CONTACTS)
 		this->contactAmount++;
-	std::cout << "\nContact added successfully!\n" << std::endl;
+	std::cout << BOLD GREEN "\nContact added successfully!\n" RESET << std::endl;
 }
 
 void	PhoneBook::searchContact(void)
@@ -54,11 +54,11 @@ void	PhoneBook::searchContact(void)
 
 	if (this->contactAmount == 0)
 	{
-		std::cout << "Artemis phonebook is empty\n" << std::endl;
+		std::cout << ERR_PREFIX "This Phonebook is empty" << std::endl;
 		return ;
 	}
 	showContactList();
-	std::cout << "Enter index (1-" << contactAmount << ") or 'menu' to return"
+	std::cout << "Enter index (1-" << contactAmount << ") or 'back' to return\n"
 			  << std::endl;
 	while (true)
 	{
@@ -66,27 +66,26 @@ void	PhoneBook::searchContact(void)
 		std::getline(std::cin, input);
 		if (std::cin.eof() == true)
 			std::exit(FAILURE);
-		if (input == "menu")
+		if (input == "back")
 			return ;
-		for (size_t i = 0; i < input.length(); i++)
+		else if (input.length() == 1 && std::isdigit(input[0]) != 0)
 		{
-			if (std::isdigit(input[i]) == true)
-				index = std::atoi(input.c_str());
-			else
-				std::cout << ERR_PREFIX "Only numbers from 1 to " << contactAmount
-						  << " are allowed" << std::endl;
+			index = std::atoi(input.c_str());
+			if (index > 0 && index <= this->contactAmount)
+			{
+				showContact(index - 1);
+				return ;
+			}
+			std::cout << ERR_PREFIX "Invalid index, please try again" << std::endl;
 		}
-		if (index > 0 && index <= this->contactAmount)
-		{
-			showContact(index - 1);
-			return ;
-		}
-		std::cout << ERR_PREFIX "Invalid index, please try again\n" << std::endl;
+		else
+			std::cout << ERR_PREFIX "Only numbers from 1 to " << contactAmount
+					  << " are allowed" << std::endl;
 	}
 }
 
 void	PhoneBook::exitPhoneBook(void)
 {
-	std::cout << "Goodbye!" << std::endl;
+	std::cout << BOLD BLUE "Goodbye!" RESET << std::endl;
 	std::exit(SUCCESS);
 }

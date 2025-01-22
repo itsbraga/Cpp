@@ -12,6 +12,18 @@
 
 #include "PhoneBook.hpp"
 
+static void	__showMenu(void)
+{
+	std::cout << BOLD PP CMD_HEADER << BAR_EMPT << "\n" << FRONT
+			  << BOLD PY "ADD: " RESET << "register a new contact"
+			  << BOLD PP BACK1 FRONT
+			  << BOLD PY "SEARCH: " RESET << "display the given contact"
+			  << BOLD PP BACK2 FRONT
+			  << BOLD PY "EXIT: " RESET << "exit the phonebook "
+			  << "and all contacts are deleted" << BOLD PP BACK3
+			  << BAR_EMPT CMD_BOTTOM RESET << std::endl;
+}
+
 int	main(int argc, char **argv)
 {
 	(void)argv;
@@ -23,10 +35,14 @@ int	main(int argc, char **argv)
 											&PhoneBook::exitPhoneBook};
 
 	if (argc > 1)
+	{
+		std::cout << ERR_PREFIX "Program cannot contain arguments" << std::endl;
 		return (FAILURE);
+	}
 
-	std::cout << "Welcome to ARTEMIS PhoneBook!" << std::endl;
-	std::cout << "Available commands: ADD, SEARCH, EXIT\n" << std::endl;
+	std::cout << PINK WELCOME ASCII_ART RESET << std::endl;
+	std::cout << BOLD PP "Available commands: " RESET << "ADD, SEARCH, EXIT\n"
+			  << std::endl;
 
 	while (true)
 	{
@@ -46,9 +62,11 @@ int	main(int argc, char **argv)
 		}
 		if (validOption == false)
 		{
-			std::cout << ERR_PREFIX "Invalid option, please try again"
-					  << std::endl;
-			std::cout << "Try: ADD, SEARCH, EXIT\n" << std::endl;
+			if (input == "menu")
+				__showMenu();
+			else
+				std::cout << ERR_PREFIX "Invalid option, please try again "
+						<< "or type 'menu' to get all the options" << std::endl;
 		}
 		input.clear();
 	}

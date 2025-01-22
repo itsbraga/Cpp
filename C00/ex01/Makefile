@@ -58,4 +58,4 @@ fclean:	clean
 re:	fclean all
 		@printf "\n$(BOLD)$(YELLOW)make re: $(RESET)All files have been rebuilt! ✨\n\n"
 
-.PHONY:	all clean fclean re
+.PHONY: all clean fclean re 

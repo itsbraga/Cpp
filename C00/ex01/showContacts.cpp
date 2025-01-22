@@ -33,7 +33,7 @@ void	PhoneBook::showContactList(void)
 			  << "|" << std::setw(10) << "First name"
 			  << "|" << std::setw(10) << "Last name"
 			  << "|" << std::setw(10) << "Nickname"
-			  << "|" << std::endl;
+			  << "|\n" << BOTTOM_BANNER << std::endl;
 
 	for (int counter = 0; counter < this->contactAmount; counter++)
 	{
@@ -51,15 +51,15 @@ void	PhoneBook::showContactList(void)
 
 void	PhoneBook::showContact(size_t choice)
 {
-	std::cout << std::setw(14) << "First name\t|" << std::setw(14)
+	std::cout << std::setw(16) << BOLD PINK "\n[First name]" RESET << "\t\t"
 			  << this->array[choice].getContactInfo("first_name") << std::endl;
-	std::cout << std::setw(14) << "Last name\t|" << std::setw(14)
+	std::cout << std::setw(16) << BOLD PINK "[Last name]" RESET << "\t\t"
 			  << this->array[choice].getContactInfo("last_name") << std::endl;
-	std::cout << std::setw(14) << "Nickname\t|" << std::setw(14)
+	std::cout << std::setw(16) << BOLD PINK "[Nickname]" RESET << "\t\t"
 			  << this->array[choice].getContactInfo("nickname") << std::endl;
-	std::cout << std::setw(14) << "Phone number\t|" << std::setw(14)
+	std::cout << std::setw(16) << BOLD PINK "[Phone number]" RESET << "\t\t"
 			  << this->array[choice].getContactInfo("phone_nb") << std::endl;
-	std::cout << std::setw(14) << "Darkest secret\t|" << std::setw(14)
-			  << this->array[choice].getContactInfo("dark_secret")
-			  << "\n" << std::endl;
+	std::cout << std::setw(16) << BOLD PINK "[Darkest secret]" RESET << "\t"
+			  << this->array[choice].getContactInfo("dark_secret") << "\n"
+			  << std::endl;
 }

@@ -20,6 +20,7 @@
 # define SUCCESS 0
 # define FAILURE 1
 # define ERR_PREFIX BOLD RED "Error: " RESET
+# define MAX_CONTACTS 8
 
 /******************************************************************************\
  * LIBRARIES
@@ -29,18 +30,7 @@
 # include <iomanip>
 # include <iostream>
 # include <cstdlib>
-# include "Contact.hpp"
-# include "colors.hpp"
-
-/******************************************************************************\
- * STRUCT for HISTORY
-\******************************************************************************/
-
-typedef struct history_List
-{
-	std::string 		input;
-	struct history_List	*next;
-}				history;
+# include "custom.hpp"
 
 /******************************************************************************\
  * TOOLS
@@ -49,8 +39,25 @@ typedef struct history_List
 bool	checkInput(std::string input, std::string field);
 
 /******************************************************************************\
- * CLASS
+ * CLASSES
 \******************************************************************************/
+
+class Contact
+{
+	public:
+		Contact(void);
+		~Contact(void);
+
+		void			setContactInfo(std::string target, std::string newValue);
+		std::string		getContactInfo(std::string target);
+
+	private:
+		std::string 	first_name;
+		std::string 	last_name;
+		std::string 	nickname;
+		std::string 	phone_nb;
+		std::string 	dark_secret;
+};
 
 class PhoneBook
 {
@@ -58,16 +65,16 @@ class PhoneBook
 		PhoneBook(void);
 		~PhoneBook(void);
 
-		void	addContact(void);
-		void	searchContact(void);
-		void	exitPhoneBook(void);
+		void		addContact(void);
+		void		searchContact(void);
+		void		exitPhoneBook(void);
+		void		showContactList(void);
+		void		showContact(size_t choice);
 
 	private:
 		Contact		array[MAX_CONTACTS];
 		size_t		head;
 		int			contactAmount;
-		void		showContactList(void);
-		void		showContact(size_t choice);
 };
 
 #endif
