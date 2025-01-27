@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:29:54 by annabrag          #+#    #+#             */
-/*   Updated: 2025/01/16 18:24:01 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/01/27 18:25:31 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,11 @@ void	PhoneBook::searchContact(void)
 				showContact(index - 1);
 				return ;
 			}
-			std::cout << ERR_PREFIX "Invalid index, please try again" << std::endl;
+			std::cout << ERR_PREFIX "Invalid index" << std::endl;
 		}
 		else
-			std::cout << ERR_PREFIX "Only numbers from 1 to " << contactAmount
-					  << " are allowed" << std::endl;
+			std::cout << ERR_PREFIX "Invalid input, please try again"
+					  << std::endl;
 	}
 }
 

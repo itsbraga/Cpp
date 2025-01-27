@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:30:25 by annabrag          #+#    #+#             */
-/*   Updated: 2025/01/09 15:49:01 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/01/27 18:57:47 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	Contact::setContactInfo(std::string target, std::string newValue)
 		this->dark_secret = newValue;
 }
 
-std::string Contact::getContactInfo(std::string target)
+std::string Contact::getContactInfo(std::string target) const
 {
 	if (target == "first_name")
 		return (this->first_name);
@@ -48,5 +48,5 @@ std::string Contact::getContactInfo(std::string target)
 		return (this->phone_nb);
 	else if (target == "dark_secret")
 		return (this->dark_secret);
-	return (NULL);
+	return ("");
 }

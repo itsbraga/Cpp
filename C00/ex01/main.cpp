@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 22:22:25 by art3mis           #+#    #+#             */
-/*   Updated: 2025/01/16 18:14:49 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/01/27 19:46:06 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ int	main(int argc, char **argv)
 				__showMenu();
 			else
 				std::cout << ERR_PREFIX "Invalid option, please try again "
-						<< "or type 'menu' to get all the options" << std::endl;
+						  << "or type 'menu' to get all the options"
+						  << std::endl;
 		}
 		input.clear();
 	}

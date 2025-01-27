@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:30:55 by annabrag          #+#    #+#             */
-/*   Updated: 2025/01/16 18:38:42 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/01/27 18:57:01 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class Contact
 		~Contact(void);
 
 		void			setContactInfo(std::string target, std::string newValue);
-		std::string		getContactInfo(std::string target);
+		std::string		getContactInfo(std::string target) const;
 
 	private:
 		std::string 	first_name;

@@ -14,8 +14,7 @@ PURPLE		:=	\e[38;2;224;176;255m
 #	COMPILATION
 #******************************************************************************#
 
-NAME		=	phonebook
-
+NAME		=	PhoneBook
 CPP			=	c++
 CPPFLAG		=	-Wall -Wextra -Werror -std=c++98
 DFLAGS		=	-MMD -MP
@@ -39,7 +38,7 @@ all: $(NAME)
 $(OBJS_DIR)%.o: %.cpp
 				@mkdir -p $(OBJS_DIR)
 				$(CPP) $(CPPFLAG) $(DFLAGS) -c $< -o $@
--include $(DEPS_F)
+-include $(DEPS)
 
 $(NAME): $(OBJS)
 			$(CPP) $(CPPFLAG) $(OBJS) -o $(NAME)
