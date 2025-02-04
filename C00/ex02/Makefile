@@ -15,7 +15,7 @@ CYAN		:=	\e[36m
 #	COMPILATION
 #******************************************************************************#
 
-NAME		=	GlobalBanksters
+NAME		=	GBU
 CPP			=	c++
 CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98
 DFLAGS		=	-MMD -MP
@@ -44,7 +44,7 @@ $(NAME): $(OBJS)
 			$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 			@printf "\n\n============$(BLUE2) GlobalBanksters United $(RESET)"
 			@printf "============\n\n$(BLINK)$(GREEN)\t\t   READY!$(RESET)\n\n"
-			@printf "$(BOLD)===============================================\n\n$(RESET)"
+			@printf "$(BOLD)================================================\n\n$(RESET)"
 
 clean:
 		rm -rf $(OBJS_DIR)

@@ -6,31 +6,44 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 18:37:52 by art3mis           #+#    #+#             */
-/*   Updated: 2025/01/27 21:41:34 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:22:18 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
-#include <iostream>		// std::cout
-#include <iomanip>		// std::put_time
-#include <ctime>		// std::time_t, struct std::tm, std::localtime
-
-Account::Account(int initial_deposit)
-{
-	(void)initial_deposit;
-	// std::cout << "Account: Constructor called :)" << std::endl;
-}
+#include "colors.hpp"
+#include <iostream>
+#include <iomanip>
+#include <ctime>	// std::time_t, struct std::tm, std::localtime
 
 int Account::_nbAccounts = 0;
-int Account::_totalAmount = 0;
+int	Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-Account::~Account(void)
+Account::Account(int initial_deposit)
 {
-	// std::cout << "Account: Destructor called :(" << std::endl;
+	_accountIndex = _nbAccounts++;
+	_amount = initial_deposit;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
+	_totalAmount += initial_deposit;
+
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";"
+			  << "amount:" << initial_deposit << ";"
+			  << "created"
+			  << std::endl;
 }
 
+Account::~Account(void)
+{
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";"
+			  << "amount:" << _amount << ";"
+			  << "closed"
+			  << std::endl;
+}
 
 int	Account::getNbAccounts(void)
 {
@@ -52,7 +65,7 @@ int	Account::getNbWithdrawals(void)
 	return (_totalNbWithdrawals);
 }
 
-void	_displayTimestamp(void)
+void	Account::_displayTimestamp(void)
 {
 	std::time_t	currentTime = std::time(NULL);
 	std::tm		*localTime = std::localtime(&currentTime);
@@ -70,28 +83,68 @@ void	_displayTimestamp(void)
 void	Account::displayAccountsInfos(void)
 {
 	_displayTimestamp();
-	std::cout << "accounts: " << getNbAccounts() << std::endl;
-	std::cout << "total: " << getTotalAmount() << std::endl;
-	std::cout << "deposits: " << getNbDeposits() << std::endl;
-	std::cout << "withdrawals: " << getNbWithdrawals() << std::endl;
+	std::cout << "accounts:" << getNbAccounts() << ";"
+			  << "total:" << getTotalAmount() << ";"
+			  << "deposits:" << getNbDeposits() << ";"
+			  << "withdrawals:" << getNbWithdrawals()
+			  << std::endl;
 }
 
-// void	Account::displayStatus(void) const
-// {
-	
-// }
+void	Account::displayStatus(void) const
+{
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";"
+			  << "amount:" << _amount << ";"
+			  << "deposits:" << _nbDeposits << ";"
+			  << "withdrawals:" << _nbWithdrawals
+			  << std::endl;
+}
 
-// int	Account::checkAmount(void) const
-// {
-	
-// }
+int	Account::checkAmount(void) const
+{
+	return (_amount);
+}
 
-// void	Account::makeDeposit(int deposit)
-// {
+void	Account::makeDeposit(int deposit)
+{
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";"
+			  << "p_amount:" << _amount << ";"
+			  << "deposit:" << deposit << ";";
 	
-// }
+	_amount += deposit;
+	_nbDeposits++;
+	_totalAmount += deposit;
+	_totalNbDeposits++;
 
-// bool	Account::makeWithdrawal(int withdrawal)
-// {
-	
-// }
+	std::cout << "amount:" << _amount << ";"
+			  << "nb_deposits:" << _nbDeposits
+			  << std::endl;
+}
+
+bool	Account::makeWithdrawal(int withdrawal)
+{
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";"
+			  << "p_amount:" << _amount << ";"
+			  << "withdrawal:";
+
+	if (_amount >= withdrawal)
+	{
+		std::cout << withdrawal << ";";
+		_amount -= withdrawal;
+		_nbWithdrawals++;
+		_totalAmount -= withdrawal;
+		_totalNbWithdrawals++;
+
+		std::cout << "amount:" << _amount << ";"
+				  << "nb_withdrawals:" << _nbWithdrawals
+				  << std::endl;
+		return (true);
+	}
+	else
+	{
+		std::cout << BOLD RED "refused (insufficient funds)" RESET << std::endl;
+		return (false);
+	}
+}
