@@ -14,7 +14,7 @@ PURPLE		:=	\e[38;2;224;176;255m
 #	COMPILATION
 #******************************************************************************#
 
-NAME		=	PhoneBook
+NAME		=	ZombieLand
 CPP			=	c++
 CPPFLAG		=	-Wall -Wextra -Werror -std=c++98
 DFLAGS		=	-MMD -MP
@@ -23,8 +23,7 @@ DFLAGS		=	-MMD -MP
 #	SOURCES
 #******************************************************************************#
 
-SRCS		=	checkInput.cpp showContacts.cpp Contact.cpp PhoneBook.cpp \
-				main.cpp
+SRCS		=	Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))
 DEPS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.d))
@@ -42,7 +41,7 @@ $(OBJS_DIR)%.o: %.cpp
 
 $(NAME): $(OBJS)
 			$(CPP) $(CPPFLAG) $(OBJS) -o $(NAME)
-			@printf "\n\n===============$(shell bash ../rbw.sh " PhoneBook ")"
+			@printf "\n\n===============$(shell bash ../rbw.sh " Zombie Land ")"
 			@printf "===============\n\n$(BLINK)$(PURPLE)\t\t READY!$(RESET)\n\n"
 			@printf "$(BOLD)=========================================\n\n$(RESET)"
 
@@ -57,4 +56,4 @@ fclean:	clean
 re:	fclean all
 		@printf "\n$(BOLD)$(YELLOW)make re: $(RESET)All files have been rebuilt! ✨\n\n"
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re
