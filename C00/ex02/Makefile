@@ -10,15 +10,14 @@ YELLOW		:=	\e[38;2;255;234;150m
 BLUE		:=	\e[34m
 BLUE2		:=	\e[38;2;179;235;242m
 CYAN		:=	\e[36m
-PINK		:=	\e[38;2;255;182;193m
 
 #******************************************************************************#
 #	COMPILATION
 #******************************************************************************#
 
-NAME		=	gbu
-CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+NAME		=	GBU
+CPP			=	c++
+CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98
 DFLAGS		=	-MMD -MP
 
 #******************************************************************************#
@@ -38,14 +37,14 @@ all: $(NAME)
 
 $(OBJS_DIR)%.o: %.cpp
 				@mkdir -p $(OBJS_DIR)
-				$(CC) $(CFLAGS) $(DFLAGS) -IAccount.hpp -c $< -o $@
--include $(DEPS_F)
+				$(CPP) $(CPPFLAGS) $(DFLAGS) -c $< -o $@
+-include $(DEPS)
 
 $(NAME): $(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-			@printf "\n\n============$(BLUE2) GlobalBankster United $(RESET)"
+			$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+			@printf "\n\n============$(BLUE2) GlobalBanksters United $(RESET)"
 			@printf "============\n\n$(BLINK)$(GREEN)\t\t   READY!$(RESET)\n\n"
-			@printf "$(BOLD)===============================================\n\n$(RESET)"
+			@printf "$(BOLD)================================================\n\n$(RESET)"
 
 clean:
 		rm -rf $(OBJS_DIR)
