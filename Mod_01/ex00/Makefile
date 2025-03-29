@@ -16,7 +16,7 @@ PURPLE		:=	\e[38;2;224;176;255m
 
 NAME		=	ZombieLand
 CPP			=	c++
-CPPFLAG		=	-Wall -Wextra -Werror -std=c++98
+CPPFLAG		=	-Wall -Wextra -Werror -std=c++98 -g3
 DFLAGS		=	-MMD -MP
 
 #******************************************************************************#
@@ -41,9 +41,9 @@ $(OBJS_DIR)%.o: %.cpp
 
 $(NAME): $(OBJS)
 			$(CPP) $(CPPFLAG) $(OBJS) -o $(NAME)
-			@printf "\n\n===============$(shell bash ../rbw.sh " Zombie Land ")"
-			@printf "===============\n\n$(BLINK)$(PURPLE)\t\t READY!$(RESET)\n\n"
-			@printf "$(BOLD)=========================================\n\n$(RESET)"
+			@printf "\n\n$(BOLD)====================$(shell bash ../rbw.sh " Zombie Land ")"
+			@printf "====================\n\n$(BLINK)$(PURPLE)\t\t READY!$(RESET)\n\n"
+			@printf "$(BOLD)========================================\n\n$(RESET)"
 
 clean:
 		rm -rf $(OBJS_DIR)
