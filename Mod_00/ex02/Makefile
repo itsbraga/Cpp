@@ -25,6 +25,7 @@ DFLAGS		=	-MMD -MP
 #******************************************************************************#
 
 SRCS		=	Account.cpp tests.cpp
+
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))
 DEPS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.d))
@@ -42,8 +43,8 @@ $(OBJS_DIR)%.o: %.cpp
 
 $(NAME): $(OBJS)
 			$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
-			@printf "\n\n============$(BLUE2) GlobalBanksters United $(RESET)"
-			@printf "============\n\n$(BLINK)$(GREEN)\t\t   READY!$(RESET)\n\n"
+			@printf "\n\n$(BOLD)============$(BLUE2) GlobalBanksters United $(RESET)"
+			@printf "$(BOLD)============\n\n$(BLINK)$(GREEN)\t\t   READY!$(RESET)\n\n"
 			@printf "$(BOLD)================================================\n\n$(RESET)"
 
 clean:

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 15:42:54 by art3mis           #+#    #+#             */
-/*   Updated: 2025/04/01 01:45:57 by panther          ###   ########.fr       */
+/*   Created: 2025/04/01 01:34:28 by panther           #+#    #+#             */
+/*   Updated: 2025/04/01 02:08:22 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
 /******************************************************************************\
  * LIBRARIES
@@ -20,29 +20,25 @@
 # include <string>
 # include <iostream>
 # include "colors.hpp"
+# include "Weapon.hpp"
 
 /******************************************************************************\
  * CLASS
 \******************************************************************************/
 
-class Zombie
+class HumanA
 {
 	public:
 
-		Zombie(void);
-		~Zombie(void);
-
-		void		announce(void);
-		void		setName(std::string name);
-		std::string	getName(void);
+		HumanA(std::string name, Weapon &weapon);
+		~HumanA(void);
+		void	attack(void);
 
 
 	private:
-	
-		std::string	name;
-};
 
-Zombie  *newZombie(std::string name);
-void	randomChump(std::string name);
+		std::string	name;
+		Weapon		&weapon;
+};
 
 #endif

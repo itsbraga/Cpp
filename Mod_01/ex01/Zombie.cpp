@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/29 22:16:57 by panther           #+#    #+#             */
-/*   Updated: 2025/04/01 01:23:18 by panther          ###   ########.fr       */
+/*   Created: 2025/04/01 00:29:26 by panther           #+#    #+#             */
+/*   Updated: 2025/04/01 00:32:01 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(void)
+void	Zombie::announce(void)
 {
-	std::cout << BOLD PG "[Constructor] " RESET << "a Zombie is born"
-			  << std::endl;
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-Zombie::~Zombie(void)
+void	Zombie::setName(std::string name)
 {
-	std::cout << BOLD RED "[Destructor] " RESET << this->name << " died"
-			  << std::endl;
+	if (name.empty() == false)
+		this->name = name;
 }
 
-int	main(int argc, char **argv)
+std::string	Zombie::getName(void)
 {
-	(void)argv;
-	Zombie*	zombie;
-
-	if (argc > 1)
-		return (EXIT_FAILURE);
-	zombie = newZombie("Einstein");
-	zombie->announce();
-	delete(zombie);
-	randomChump("Yakitori");
-	return (EXIT_SUCCESS);
+	return (this->name);
 }

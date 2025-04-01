@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/29 22:16:57 by panther           #+#    #+#             */
-/*   Updated: 2025/04/01 01:23:18 by panther          ###   ########.fr       */
+/*   Created: 2025/04/01 01:36:21 by panther           #+#    #+#             */
+/*   Updated: 2025/04/01 02:22:45 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-Zombie::Zombie(void)
+Weapon::Weapon(const std::string& type) : type(type)
 {
-	std::cout << BOLD PG "[Constructor] " RESET << "a Zombie is born"
+	std::cout << BOLD "WEAPON" PG " [Constructor] " RESET << "called"
 			  << std::endl;
 }
 
-Zombie::~Zombie(void)
+Weapon::~Weapon(void)
 {
-	std::cout << BOLD RED "[Destructor] " RESET << this->name << " died"
+	std::cout << BOLD "WEAPON" RED " [Destructor] " RESET << "called"
 			  << std::endl;
 }
 
-int	main(int argc, char **argv)
+void	Weapon::setType(const std::string& newType)
 {
-	(void)argv;
-	Zombie*	zombie;
+	if (type.empty() == false)
+		this->type = newType;
+}
 
-	if (argc > 1)
-		return (EXIT_FAILURE);
-	zombie = newZombie("Einstein");
-	zombie->announce();
-	delete(zombie);
-	randomChump("Yakitori");
-	return (EXIT_SUCCESS);
+std::string	const &	Weapon::getType(void)
+{
+	return (this->type);
 }

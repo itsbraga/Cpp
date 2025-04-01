@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 15:42:54 by art3mis           #+#    #+#             */
-/*   Updated: 2025/04/01 01:45:57 by panther          ###   ########.fr       */
+/*   Created: 2025/04/01 01:34:28 by panther           #+#    #+#             */
+/*   Updated: 2025/04/01 02:22:14 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
 /******************************************************************************\
  * LIBRARIES
@@ -25,24 +25,19 @@
  * CLASS
 \******************************************************************************/
 
-class Zombie
+class Weapon
 {
 	public:
 
-		Zombie(void);
-		~Zombie(void);
-
-		void		announce(void);
-		void		setName(std::string name);
-		std::string	getName(void);
+		Weapon(const std::string& type);
+		~Weapon(void);
+		void				setType(const std::string& newType);
+		const std::string&	getType(void);
 
 
 	private:
 	
-		std::string	name;
+		std::string	type;
 };
-
-Zombie  *newZombie(std::string name);
-void	randomChump(std::string name);
 
 #endif

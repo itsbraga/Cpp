@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 15:42:54 by art3mis           #+#    #+#             */
-/*   Updated: 2025/04/01 01:45:57 by panther          ###   ########.fr       */
+/*   Created: 2025/04/01 00:31:50 by panther           #+#    #+#             */
+/*   Updated: 2025/04/01 01:45:48 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ class Zombie
 		std::string	name;
 };
 
-Zombie  *newZombie(std::string name);
-void	randomChump(std::string name);
+Zombie*	zombieHorde(int N, std::string name);
 
 #endif
