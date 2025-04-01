@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 22:16:57 by panther           #+#    #+#             */
-/*   Updated: 2025/04/01 02:34:10 by panther          ###   ########.fr       */
+/*   Updated: 2025/04/01 02:44:33 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 	club.setType("crude spiked club"); // reset for next Human
 
 	HumanB	jim("Jim");
+	jim.attack();
 	jim.setWeapon(club);
 	jim.attack();
 	club.setType("some other type of club");
