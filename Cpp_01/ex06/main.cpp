@@ -6,21 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 21:06:09 by panther           #+#    #+#             */
-/*   Updated: 2025/04/24 14:03:49 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/04/24 14:43:33 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-
-Harl::Harl(void)
-{
-	// std::cout << BOLD PG "[Constructor] " RESET << "called" << std::endl;
-}
-
-Harl::~Harl(void)
-{
-	// std::cout << BOLD RED "[Destructor] " RESET << "called" << std::endl;
-}
 
 int	main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 16:26:19 by annabrag          #+#    #+#             */
-/*   Updated: 2025/04/22 18:27:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:33:00 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void	openAndReplace(const std::string& filename, const std::string& s1,
 	infile.open(filename.c_str());
 	if (!infile)
 	{
-		std::cerr << "Error: Cannot open file '" << filename << "'\n";
+		std::cerr << BOLD RED "Error: " RESET << "Cannot open file '"
+				  << filename << "'\n";
 		std::exit(FAILURE);
 	}
 	while (std::getline(infile, line))
@@ -62,8 +63,8 @@ void	openAndReplace(const std::string& filename, const std::string& s1,
 	outfile.open((filename + ".replace").c_str());
 	if (!outfile)
 	{
-		std::cerr << "Error: Cannot create output file '" << filename
-				  << ".replace'\n";
+		std::cerr << BOLD RED "Error: " RESET << "Cannot create output file '"
+				  << filename << ".replace'\n";
 		std::exit(FAILURE);
 	}
 	outfile << replaced;

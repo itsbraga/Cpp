@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 01:34:28 by panther           #+#    #+#             */
-/*   Updated: 2025/04/24 14:30:17 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/04/24 16:35:55 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ class Harl
 
 	private:
 	
-		void	debug(void);
-		void	info(void);
-		void	warning(void);
-		void	error(void);
+		void	_debug(void);
+		void	_info(void);
+		void	_warning(void);
+		void	_error(void);
 };
 
 #endif

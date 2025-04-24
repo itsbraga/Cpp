@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   harlFilter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 00:29:58 by panther           #+#    #+#             */
-/*   Updated: 2025/04/24 00:32:42 by panther          ###   ########.fr       */
+/*   Updated: 2025/04/24 15:34:21 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void	Harl::filter(std::string level)
 	switch (levelIndex)
 	{
 		case 0: // DEBUG
-			this->debug();
+			this->_debug();
 		case 1: // INFO
-			this->info();
+			this->_info();
 		case 2: // WARNING
-			this->warning();
+			this->_warning();
 		case 3: // ERROR
-			this->error();
+			this->_error();
 			break;
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]"

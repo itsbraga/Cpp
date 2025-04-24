@@ -3,27 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 21:51:18 by panther           #+#    #+#             */
-/*   Updated: 2025/03/29 22:41:43 by panther          ###   ########.fr       */
+/*   Updated: 2025/04/24 15:28:38 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+Zombie::Zombie(void)
+{
+	std::cout << BOLD PG "[Constructor] " RESET << "a Zombie is born"
+			  << std::endl;
+}
+
+Zombie::~Zombie(void)
+{
+	std::cout << BOLD RED "[Destructor] " RESET << this->_name << " died"
+			  << std::endl;
+}
+
 void	Zombie::announce(void)
 {
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 void	Zombie::setName(std::string name)
 {
 	if (name.empty() == false)
-		this->name = name;
+		this->_name = name;
 }
 
-std::string	Zombie::getName(void)
+const std::string	Zombie::getName(void) const
 {
-	return (this->name);
+	return (this->_name);
 }

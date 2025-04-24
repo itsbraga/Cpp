@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:42:54 by art3mis           #+#    #+#             */
-/*   Updated: 2025/04/24 14:30:17 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/04/24 16:35:55 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ class Zombie
 		Zombie(void);
 		~Zombie(void);
 
-		void		announce(void);
-		void		setName(std::string name);
-		std::string	getName(void);
+		void				announce(void);
+		void				setName(std::string name);
+		const std::string	getName(void) const;
 
 
 	private:
 	
-		std::string	name;
+		std::string	_name;
 };
 
 Zombie  *newZombie(std::string name);
