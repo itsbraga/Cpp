@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:30:55 by annabrag          #+#    #+#             */
-/*   Updated: 2025/02/05 15:48:08 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/04/28 23:26:21 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ class Contact
 {
 	public:
 	
-		Contact(void);
-		~Contact(void);
+		Contact();
+		~Contact();
 
 		void			setContactInfo(std::string target, std::string newValue);
 		std::string		getContactInfo(std::string target) const;
@@ -60,13 +60,13 @@ class PhoneBook
 {
 	public:
 	
-		PhoneBook(void);
-		~PhoneBook(void);
+		PhoneBook();
+		~PhoneBook();
 
-		void		addContact(void);
-		void		searchContact(void);
-		void		exitPhoneBook(void);
-		void		showContactList(void);
+		void		addContact();
+		void		searchContact();
+		void		exitPhoneBook();
+		void		showContactList();
 		void		showContact(size_t choice);
 
 

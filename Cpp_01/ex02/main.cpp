@@ -62,6 +62,7 @@ int	main(void)
 	std::cout << BOLD PY "content: " RESET << string << "\n\n";
 	__print_ptr(stringPTR);
 	__print_ref(stringREF);	
+
 	std::cout << std::endl;
 	string = "That's what she said";
 	std::cout << "--------------------------------" << std::endl;
@@ -72,7 +73,9 @@ int	main(void)
 	std::cout << BOLD PY "content: " RESET << string << std::endl;
 	std::cout << "--------------------------------\n\n";
 	std::cout << std::endl;
+
 	__print_ptr(stringPTR);
 	__print_ref(stringREF);
+
 	return (EXIT_SUCCESS);
 }

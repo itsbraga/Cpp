@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:29:54 by annabrag          #+#    #+#             */
-/*   Updated: 2025/01/27 18:25:31 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/04/28 23:26:23 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void) : head(0), contactAmount(0)
+PhoneBook::PhoneBook() : head(0), contactAmount(0)
 {
 	// std::cout << "PhoneBook: Constructor called :)" << std::endl;
 }
 
-PhoneBook::~PhoneBook(void)
+PhoneBook::~PhoneBook()
 {
 	// std::cout << "PhoneBook: Destructor called :(" << std::endl;
 }
 
-void	PhoneBook::addContact(void)
+void	PhoneBook::addContact()
 {
 	size_t		i;
 	std::string	input;
@@ -47,7 +47,7 @@ void	PhoneBook::addContact(void)
 	std::cout << BOLD GREEN "\nContact added successfully!\n" RESET << std::endl;
 }
 
-void	PhoneBook::searchContact(void)
+void	PhoneBook::searchContact()
 {
 	int			index;
 	std::string	input;
@@ -84,7 +84,7 @@ void	PhoneBook::searchContact(void)
 	}
 }
 
-void	PhoneBook::exitPhoneBook(void)
+void	PhoneBook::exitPhoneBook()
 {
 	std::cout << BOLD BLUE "Goodbye!" RESET << std::endl;
 	std::exit(SUCCESS);

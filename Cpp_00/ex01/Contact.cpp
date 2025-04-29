@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:30:25 by annabrag          #+#    #+#             */
-/*   Updated: 2025/01/27 18:57:47 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/04/28 23:26:36 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-Contact::Contact(void)
+Contact::Contact()
 {
 	// std::cout << "Contact: Constructor called :)" << std::endl;
 }
 
-Contact::~Contact(void)
+Contact::~Contact()
 {
 	// std::cout << "Contact: Destructor called :(" << std::endl;
 }

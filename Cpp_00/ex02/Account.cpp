@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 18:37:52 by annabrag          #+#    #+#             */
-/*   Updated: 2025/04/24 14:29:40 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/04/28 23:26:17 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Account::Account(int initial_deposit)
 			  << std::endl;
 }
 
-Account::~Account(void)
+Account::~Account()
 {
 	_displayTimestamp();
 	std::cout << "index:" << BOLD PB << _accountIndex << RESET ";"
@@ -45,27 +45,27 @@ Account::~Account(void)
 			  << std::endl;
 }
 
-int	Account::getNbAccounts(void)
+int	Account::getNbAccounts()
 {
 	return (_nbAccounts);
 }
 
-int	Account::getTotalAmount(void)
+int	Account::getTotalAmount()
 {
 	return (_totalAmount);
 }
 
-int	Account::getNbDeposits(void)
+int	Account::getNbDeposits()
 {
 	return (_totalNbDeposits);
 }
 
-int	Account::getNbWithdrawals(void)
+int	Account::getNbWithdrawals()
 {
 	return (_totalNbWithdrawals);
 }
 
-void	Account::_displayTimestamp(void)
+void	Account::_displayTimestamp()
 {
 	std::time_t	currentTime = std::time(0);
 	std::tm		*localTime = std::localtime(&currentTime);
@@ -75,7 +75,7 @@ void	Account::_displayTimestamp(void)
 	std::cout << "[" << buffer << "] ";
 }
 
-void	Account::displayAccountsInfos(void)
+void	Account::displayAccountsInfos()
 {
 	_displayTimestamp();
 	std::cout << "accounts:" << BOLD PB << getNbAccounts() << RESET ";"
@@ -85,7 +85,7 @@ void	Account::displayAccountsInfos(void)
 			  << std::endl;
 }
 
-void	Account::displayStatus(void) const
+void	Account::displayStatus() const
 {
 	_displayTimestamp();
 	std::cout << "index:" << BOLD PB << _accountIndex << RESET ";"
@@ -95,7 +95,7 @@ void	Account::displayStatus(void) const
 			  << std::endl;
 }
 
-int	Account::checkAmount(void) const
+int	Account::checkAmount() const
 {
 	return (_amount);
 }

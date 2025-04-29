@@ -5,23 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/23 21:06:09 by panther           #+#    #+#             */
-/*   Updated: 2025/04/29 00:05:28 by art3mis          ###   ########.fr       */
+/*   Created: 2025/03/29 22:16:57 by panther           #+#    #+#             */
+/*   Updated: 2025/04/29 00:12:12 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	Harl	Harl;
+	Weapon	club = Weapon("crude spiked club");
+	HumanA	bob("Bob", club);
 
-	if (argc != 2)
-	{
-		std::cerr << BOLD RED "Error" PY << std::endl;
-		std::cout << "Usage: " RESET << argv[0] << " <level>" << std::endl;
-		return (FAILURE);
-	}
-	Harl.filter(argv[1]);
+	bob.attack();
+	club.setType("some other type of club");
+	bob.attack();
+	club.setType("crude spiked club"); // reset for next Human
+
+	HumanB	jim("Jim");
+
+	jim.attack();
+	jim.setWeapon(club);
+	jim.attack();
+	club.setType("some other type of club");
+	jim.attack();
+
 	return (SUCCESS);
 }

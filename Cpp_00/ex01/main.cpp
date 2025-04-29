@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 22:22:25 by annabrag          #+#    #+#             */
-/*   Updated: 2025/01/27 19:46:06 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/04/28 23:26:34 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-static void	__showMenu(void)
+static void	__showMenu()
 {
 	std::cout << BOLD PP CMD_HEADER << BAR_EMPT << "\n" << FRONT
 			  << BOLD PY "ADD: " RESET << "register a new contact"
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	PhoneBook	artemisBook;
 	std::string	input;
 	std::string	choice[] = {"ADD", "SEARCH", "EXIT"};
-	void		(PhoneBook::*f[])(void) = {&PhoneBook::addContact,
+	void		(PhoneBook::*f[])() = {&PhoneBook::addContact,
 											&PhoneBook::searchContact,
 											&PhoneBook::exitPhoneBook};
 

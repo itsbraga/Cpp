@@ -18,6 +18,7 @@
 \******************************************************************************/
 
 # include <iostream>
+# include <cmath>
 # include "../../colors.hpp"
 
 # define SUCCESS 0
@@ -31,13 +32,42 @@ class Fixed
 {
 	public:
 
-		Fixed(); // Default constructor
-		Fixed(const Fixed& toCopy); // Copy constructor
-		Fixed&	operator=(const Fixed& toCopy); // Copy assignment operator
+		Fixed();
+		Fixed(const Fixed& toCopy); 			// Copy constructor
+		Fixed&	operator=(const Fixed& toCopy);	// Copy assignment operator
+		Fixed(const int nbr);
+		Fixed(const float nbr);
 		~Fixed();
 
 		void	setRawBits(const int raw);
 		int		getRawBits() const;
+		float	toFloat() const;
+		int		toInt() const;
+
+		// Comparison operators
+		bool	operator>(const Fixed& other) const;
+		bool	operator<(const Fixed& other) const;
+		bool	operator>=(const Fixed& other) const;
+		bool	operator<=(const Fixed& other) const;
+		bool	operator==(const Fixed& other) const;
+		bool	operator!=(const Fixed& other) const;
+
+		// Arithmetic operators
+		Fixed	operator+(const Fixed& other) const;
+		Fixed	operator-(const Fixed& other) const;
+		Fixed	operator*(const Fixed& other) const;
+		Fixed	operator/(const Fixed& other) const;
+
+		// Increment/Decrement operators
+		Fixed&	operator++(); 					// Prefix increment
+		Fixed	operator++(int); 				// Postfix increment
+		Fixed&	operator--(); 					// Prefix decrement
+		Fixed	operator--(int); 				// Postfix decrement
+		
+		static Fixed&		min(Fixed& a, Fixed& b);
+		static const Fixed&	min(const Fixed& a, const Fixed& b);
+		static Fixed&		max(Fixed& a, Fixed& b);
+		static const Fixed&	max(const Fixed& a, const Fixed& b);
 
 
 	private:
@@ -45,5 +75,11 @@ class Fixed
 		int					_nbr;
 		static const int	_fractionnalBits = 8;
 };
+
+/******************************************************************************\
+ * FUNCTIONS
+\******************************************************************************/
+
+std::ostream&	operator<<(std::ostream& os, const Fixed& RHS);
 
 #endif

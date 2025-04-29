@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/04/29 01:05:00 by art3mis          ###   ########.fr       */
+/*   Created: 2025/04/01 01:34:28 by panther           #+#    #+#             */
+/*   Updated: 2025/04/29 00:10:31 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
 /******************************************************************************\
  * LIBRARIES
 \******************************************************************************/
 
+# include <string>
 # include <iostream>
 # include "../../colors.hpp"
+# include "Weapon.hpp"
 
 # define SUCCESS 0
 # define FAILURE 1
@@ -27,23 +29,20 @@
  * CLASS
 \******************************************************************************/
 
-class Fixed
+class HumanA
 {
 	public:
 
-		Fixed(); // Default constructor
-		Fixed(const Fixed& toCopy); // Copy constructor
-		Fixed&	operator=(const Fixed& toCopy); // Copy assignment operator
-		~Fixed();
+		HumanA(std::string name, Weapon &weapon);
+		~HumanA(void);
 
-		void	setRawBits(const int raw);
-		int		getRawBits() const;
+		void	attack(void);
 
 
 	private:
-	
-		int					_nbr;
-		static const int	_fractionnalBits = 8;
+
+		std::string	_name;
+		Weapon		&_weapon;
 };
 
 #endif

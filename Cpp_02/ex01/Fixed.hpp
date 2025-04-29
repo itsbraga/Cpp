@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/04/24 18:43:19 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/04/29 01:05:00 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,23 @@ class Fixed
 {
 	public:
 
-		Fixed(void);
-		Fixed(int const nbr);
-		Fixed(float const nbr);
-		Fixed(const Fixed& toCopy);
-		Fixed&	operator=(const Fixed& RHS);
-		~Fixed(void);
+		Fixed(); 								// Default constructor
+		Fixed(const Fixed& toCopy); 			// Copy constructor
+		Fixed(const int nbr); 					// const intructor
+		Fixed(const float nbr); 				// const floatructor
+		Fixed&	operator=(const Fixed& toCopy);	// Copy assignment operator
+		~Fixed();
 
-		void	setRawBits(int const raw);
-		int		getRawBits(void) const;
-		float	toFloat(void) const;
-		int		toInt(void) const;
+		void	setRawBits(const int raw);
+		int		getRawBits() const;
+		float	toFloat() const;
+		int		toInt() const;
 
 
 	private:
 	
 		int					_nbr;
-		static const int	_fracBitsNb = 8;
+		static const int	_fractionnalBits = 8;
 };
 
 /******************************************************************************\

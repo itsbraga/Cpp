@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/29 21:51:18 by panther           #+#    #+#             */
-/*   Updated: 2025/04/28 23:26:11 by art3mis          ###   ########.fr       */
+/*   Created: 2025/04/01 01:36:21 by panther           #+#    #+#             */
+/*   Updated: 2025/04/29 00:21:43 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-Zombie::Zombie()
+Weapon::Weapon(const std::string& type) : _type(type)
 {
-	std::cout << BOLD PG "[Constructor] " RESET << "a Zombie is born"
+	std::cout << BOLD PO "WEAPON" PG " [Constructor] " RESET << "called"
 			  << std::endl;
 }
 
-Zombie::~Zombie()
+Weapon::~Weapon(void)
 {
-	std::cout << BOLD RED "[Destructor] " RESET << this->_name << " died"
+	std::cout << BOLD PO "WEAPON" RED " [Destructor] " RESET << "called"
 			  << std::endl;
 }
 
-void	Zombie::announce()
+void	Weapon::setType(const std::string& newType)
 {
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	this->_type = newType;
 }
 
-void	Zombie::setName(std::string name)
+const std::string&	Weapon::getType(void) const
 {
-	if (name.empty() == false)
-		this->_name = name;
-}
-
-const std::string	Zombie::getName() const
-{
-	return (this->_name);
+	return (this->_type);
 }

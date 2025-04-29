@@ -5,23 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/23 21:06:09 by panther           #+#    #+#             */
-/*   Updated: 2025/04/29 00:05:28 by art3mis          ###   ########.fr       */
+/*   Created: 2025/04/28 20:27:55 by art3mis           #+#    #+#             */
+/*   Updated: 2025/04/29 01:05:28 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "Fixed.hpp"
 
-int	main(int argc, char **argv)
+int main(void)
 {
-	Harl	Harl;
+	Fixed		a;
+	Fixed const	b(Fixed(5.05f) * Fixed(2));
 
-	if (argc != 2)
-	{
-		std::cerr << BOLD RED "Error" PY << std::endl;
-		std::cout << "Usage: " RESET << argv[0] << " <level>" << std::endl;
-		return (FAILURE);
-	}
-	Harl.filter(argv[1]);
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
+
 	return (SUCCESS);
 }

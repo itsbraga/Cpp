@@ -3,33 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 00:21:26 by panther           #+#    #+#             */
-/*   Updated: 2025/04/24 15:34:38 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/04/28 23:25:44 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-Harl::Harl(void)
+Harl::Harl()
 {
 	// std::cout << BOLD PG "[Constructor] " RESET << "called" << std::endl;
 }
 
-Harl::~Harl(void)
+Harl::~Harl()
 {
 	// std::cout << BOLD RED "[Destructor] " RESET << "called" << std::endl;
 }
 
-void	Harl::_debug(void)
+void	Harl::_debug()
 {
 	std::cout << BOLD PY "[ DEBUG ]" RESET << std::endl;
 	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-"
 			  << "pickle-special- ketchup burger. I really do!\n\n";
 }
 
-void	Harl::_info(void)
+void	Harl::_info()
 {
 	std::cout << BOLD PB "[ INFO ]" RESET << std::endl;
 	std::cout << "I cannot believe adding extra bacon costs more money. "
@@ -37,7 +37,7 @@ void	Harl::_info(void)
 			  << "I wouldn’t be asking for more!\n\n";
 }
 
-void	Harl::_warning(void)
+void	Harl::_warning()
 {
 	std::cout << BOLD ORANGE "[ WARNING ]" RESET << std::endl;
 	std::cout << "I think I deserve to have some extra bacon for free. "
@@ -45,7 +45,7 @@ void	Harl::_warning(void)
 			  << "here since last month.\n\n";
 }
 
-void	Harl::_error(void)
+void	Harl::_error()
 {
 	std::cout << BOLD RED "[ ERROR ]" RESET << std::endl;
 	std::cout << "This is unacceptable! I want to speak to the manager"

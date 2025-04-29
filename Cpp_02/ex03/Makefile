@@ -14,7 +14,7 @@ PURPLE		:=	\e[38;2;224;176;255m
 #	COMPILATION
 #******************************************************************************#
 
-NAME		=	program
+NAME		=	bsp
 CPP			=	c++
 CPPFLAG		=	-Wall -Wextra -Werror -std=c++98 -g3
 DFLAGS		=	-MMD -MP
@@ -23,7 +23,7 @@ DFLAGS		=	-MMD -MP
 #	SOURCES
 #******************************************************************************#
 
-SRCS		=	main.cpp
+SRCS		=	Fixed.cpp Point.cpp bsp.cpp main.cpp
 
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))
@@ -43,7 +43,7 @@ $(OBJS_DIR)%.o: %.cpp
 $(NAME): $(OBJS)
 			$(CPP) $(CPPFLAG) $(OBJS) -o $(NAME)
 			@printf "\n\n$(BOLD)========$(shell bash ../rbw.sh " ex03 ")"
-			@printf "$(BOLD)========\n\n$(BLINK)$(PURPLE)\t     READY!$(RESET)\n\n"
+			@printf "$(BOLD)========\n\n$(BLINK)$(PURPLE)\tREADY!$(RESET)\n\n"
 			@printf "$(BOLD)======================\n\n$(RESET)"
 
 clean:

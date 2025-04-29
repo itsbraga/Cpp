@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/29 21:51:18 by panther           #+#    #+#             */
-/*   Updated: 2025/04/28 23:26:11 by art3mis          ###   ########.fr       */
+/*   Created: 2025/04/01 01:36:42 by panther           #+#    #+#             */
+/*   Updated: 2025/04/29 00:11:41 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-Zombie::Zombie()
+HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon)
 {
-	std::cout << BOLD PG "[Constructor] " RESET << "a Zombie is born"
+	std::cout << BOLD PINK "HUMAN_A" PG " [Constructor] " RESET << "called"
 			  << std::endl;
 }
 
-Zombie::~Zombie()
+HumanA::~HumanA(void)
 {
-	std::cout << BOLD RED "[Destructor] " RESET << this->_name << " died"
+	std::cout << BOLD PINK "HUMAN_A" RED " [Destructor] " RESET << "called"
 			  << std::endl;
 }
 
-void	Zombie::announce()
+void	HumanA::attack(void)
 {
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void	Zombie::setName(std::string name)
-{
-	if (name.empty() == false)
-		this->_name = name;
-}
-
-const std::string	Zombie::getName() const
-{
-	return (this->_name);
+	std::cout << this->_name << " attacks with their "
+			  << this->_weapon.getType() << std::endl;
 }

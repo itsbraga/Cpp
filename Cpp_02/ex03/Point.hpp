@@ -1,55 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 15:42:54 by art3mis           #+#    #+#             */
-/*   Updated: 2025/04/29 00:22:21 by art3mis          ###   ########.fr       */
+/*   Created: 2025/04/29 00:49:22 by art3mis           #+#    #+#             */
+/*   Updated: 2025/04/29 01:13:01 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef POINT_HPP
+# define POINT_HPP
 
-/******************************************************************************\
- * LIBRARIES
-\******************************************************************************/
-
-# include <string>
-# include <iostream>
-# include "../../colors.hpp"
-
-# define SUCCESS 0
-# define FAILURE 1
+# include "Fixed.hpp"
 
 /******************************************************************************\
  * CLASS
 \******************************************************************************/
 
-class Zombie
+class Point
 {
 	public:
 
-		Zombie();
-		~Zombie();
+		Point();
+		Point(const float x, const float y);	// Const const floatructor
+		Point(const Point& toCopy); 			// Copy constructor
+		Point&	operator=(const Point& toCopy);	// Copy assignment operator
+		~Point();
 
-		void				announce();
-		void				setName(std::string name);
-		const std::string	getName() const;
+		const Fixed&	getX() const;
+		const Fixed&	getY() const;
 
 
 	private:
 	
-		std::string	_name;
+		Fixed const	_x;
+		Fixed const	_y;
 };
 
 /******************************************************************************\
  * FUNCTIONS
 \******************************************************************************/
 
-Zombie  *newZombie(std::string name);
-void	randomChump(std::string name);
+bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif

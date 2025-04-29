@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   showContacts.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:17:50 by annabrag          #+#    #+#             */
-/*   Updated: 2025/01/16 18:26:46 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/04/28 23:26:19 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static std::string	__truncateStr(std::string str)
 	return (substracted);
 }
 
-void	PhoneBook::showContactList(void)
+void	PhoneBook::showContactList()
 {
 	std::cout << TOP_BANNER << std::endl;
 	std::cout << "|" << std::setw(10) << "Index"
