@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 02:09:21 by art3mis           #+#    #+#             */
-/*   Updated: 2025/04/29 02:41:06 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/05/05 19:05:26 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,18 @@ void	ClapTrap::attack(const std::string& target)
 	if (this->_energyPoints > 0 || this->_hitPoints > 0)
 	{
 		std::cout << BOLD PP "ClapTrap " << this->_name << RESET " attacks "
-			  << target << ", causing " RED << this->_attackDamage
-			  << " points of damage! 🩸" RESET << std::endl;
+			  << BOLD PINK << target << RESET ", causing " RED
+			  << this->_attackDamage << RESET " points of damage! 🩸"
+			  << std::endl;
 		this->_energyPoints--;
 	}
 	else
-		std::cout << BOLD PP "ClapTrap " << this->_name << RESET "can't do "
+	{
+		std::cout << BOLD ORANGE "Warning: " << RESET "No energy/hit points left"
+				  << std::endl;
+		std::cout << BOLD PY "ClapTrap " << this->_name << RESET "can't do "
 				  << "anything" << std::endl;
+	}
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -71,10 +76,10 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	if (this->_energyPoints > 0 || this->_hitPoints > 0)
 	{
 		std::cout << BOLD ITAL PB "ClapTrap " << this->_name
-				  << RESET ITAL "is being repaired..." RESET << std::endl;
-		std::cout << "Its regaining " PG << amount << " hit points 🔋" RESET
+				  << RESET ITAL " is being repaired..." RESET << std::endl;
+		std::cout << "Regaining " PG << amount << RESET " hit points 🔋"
 				  << std::endl;
-		this->_energyPoints--;
+		this->_energyPoints--; // loses 1 energy point
 	}
 	else
 		std::cout << BOLD PP "ClapTrap " << this->_name << RESET "can't do "
