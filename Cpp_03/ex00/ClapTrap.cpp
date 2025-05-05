@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 02:09:21 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/05 19:05:26 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/05/05 19:20:36 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ ClapTrap::~ClapTrap()
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (this->_energyPoints > 0 || this->_hitPoints > 0)
+	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{
 		std::cout << BOLD PP "ClapTrap " << this->_name << RESET " attacks "
 			  << BOLD PINK << target << RESET ", causing " RED
@@ -58,30 +58,53 @@ void	ClapTrap::attack(const std::string& target)
 	}
 	else
 	{
-		std::cout << BOLD ORANGE "Warning: " << RESET "No energy/hit points left"
+		std::cout << BOLD ORANGE "/!\\ Warning: ";
+		if (this->_energyPoints <= 0)
+			std::cout << "No energy points left" << std::endl;
+		if (this->_hitPoints <= 0)
+			std::cout << "No hit points left" << std::endl;
+		std::cout << BOLD BLUE "ClapTrap " << this->_name << RESET " can't attack!"
 				  << std::endl;
-		std::cout << BOLD PY "ClapTrap " << this->_name << RESET "can't do "
-				  << "anything" << std::endl;
 	}
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << BOLD PB "ClapTrap " << this->_name << RESET
+				  << " is already down!" << std::endl;
+		return;
+	}
+	this->_hitPoints -= amount;
+	if (this->_hitPoints < 0)
+		this->_hitPoints = 0;
 	std::cout << BOLD PB "ClapTrap " << this->_name << RESET " loses " RED
 			  << amount << " hit points 🪫" RESET << std::endl;
+	if (this->_hitPoints <= 0)
+		std::cout << BOLD RED "ClapTrap " << this->_name
+				  << " is knocked out!" RESET << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_energyPoints > 0 || this->_hitPoints > 0)
+	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{
+		this->_hitPoints += amount;
+		this->_energyPoints--;
 		std::cout << BOLD ITAL PB "ClapTrap " << this->_name
 				  << RESET ITAL " is being repaired..." RESET << std::endl;
 		std::cout << "Regaining " PG << amount << RESET " hit points 🔋"
 				  << std::endl;
-		this->_energyPoints--; // loses 1 energy point
 	}
 	else
-		std::cout << BOLD PP "ClapTrap " << this->_name << RESET "can't do "
-				  << "anything" << std::endl;
+	{
+		std::cout << BOLD ORANGE "/!\\ Warning: ";
+		if (this->_energyPoints <= 0)
+			std::cout << "No energy points left" << std::endl;
+		if (this->_hitPoints <= 0)
+			std::cout << "No hit points left" << std::endl;
+		std::cout << BOLD BLUE "ClapTrap " << this->_name << RESET
+				  << " can't be repaired!" << std::endl;
+	}
 }
