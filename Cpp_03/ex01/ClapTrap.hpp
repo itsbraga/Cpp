@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/07 18:40:55 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/07 19:29:04 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class ClapTrap
 		void	beRepaired(unsigned int amount);
 
 
-	private:
+	protected:
 	
 		std::string		_name;
 		int				_hitPoints;
