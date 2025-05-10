@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:08:54 by panther           #+#    #+#             */
-/*   Updated: 2025/05/10 21:12:04 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/10 21:11:50 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,6 @@ void	ScavTrap::beRepaired(unsigned int amount)
 
 void	ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap is now in " << BOLD PG "Gate keeper" RESET
+	std::cout << "[ScavTrap] is now in " << BOLD PG "Gate keeper" RESET
 			  << " mode" << std::endl;
 }

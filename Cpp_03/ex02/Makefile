@@ -14,7 +14,7 @@ PURPLE		:=	\e[38;2;224;176;255m
 #	COMPILATION
 #******************************************************************************#
 
-NAME		=	program
+NAME		=	FragTrap
 CPP			=	c++
 CPPFLAG		=	-Wall -Wextra -Werror -std=c++98 -g3
 DFLAGS		=	-MMD -MP
@@ -23,7 +23,7 @@ DFLAGS		=	-MMD -MP
 #	SOURCES
 #******************************************************************************#
 
-SRCS		=	main.cpp ClapTrap.cpp
+SRCS		=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))

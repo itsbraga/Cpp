@@ -14,16 +14,17 @@ PURPLE		:=	\e[38;2;224;176;255m
 #	COMPILATION
 #******************************************************************************#
 
-NAME		=	program
+NAME		=	DiamondTrap
 CPP			=	c++
 CPPFLAG		=	-Wall -Wextra -Werror -std=c++98 -g3
+NEWFLAG		=	-Wshadow
 DFLAGS		=	-MMD -MP
 
 #******************************************************************************#
 #	SOURCES
 #******************************************************************************#
 
-SRCS		=	main.cpp ClapTrap.cpp
+SRCS		=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))
@@ -37,11 +38,11 @@ all: $(NAME)
 
 $(OBJS_DIR)%.o: %.cpp
 				@mkdir -p $(OBJS_DIR)
-				$(CPP) $(CPPFLAG) $(DFLAGS) -c $< -o $@
+				$(CPP) $(CPPFLAG) $(NEWFLAG) $(DFLAGS) -c $< -o $@
 -include $(DEPS)
 
 $(NAME): $(OBJS)
-			$(CPP) $(CPPFLAG) $(OBJS) -o $(NAME)
+			$(CPP) $(CPPFLAG) $(NEWFLAG) $(OBJS) -o $(NAME)
 			@printf "\n\n$(BOLD)========$(shell bash ../rbw.sh " ex03 ")"
 			@printf "$(BOLD)========\n\n$(BLINK)$(PURPLE)\tREADY!$(RESET)\n\n"
 			@printf "$(BOLD)======================\n\n$(RESET)"

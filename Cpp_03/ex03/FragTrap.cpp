@@ -1,60 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 19:08:54 by panther           #+#    #+#             */
-/*   Updated: 2025/05/10 21:12:04 by panther          ###   ########.fr       */
+/*   Created: 2025/05/10 18:56:05 by panther           #+#    #+#             */
+/*   Updated: 2025/05/10 21:11:25 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
-	std::cout << BOLD GREEN "[ScavTrap " << name << "]" RESET PG " created"
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
+	std::cout << BOLD GREEN "[FragTrap " << name << "]" RESET PG " created"
 			  << RESET << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& toCopy) : ClapTrap(toCopy)
+FragTrap::FragTrap(const FragTrap& toCopy) : ClapTrap(toCopy)
 {
-	std::cout << BOLD PG "[ScavTrap " << this->_name << "]" RESET
+	std::cout << BOLD PG "[FragTrap " << this->_name << "]" RESET
 			  << PG " created" RESET << std::endl;
 }
 
-ScavTrap&	ScavTrap::operator=(const ScavTrap& toCopy)
+FragTrap&	FragTrap::operator=(const FragTrap& toCopy)
 {
 	if (this != &toCopy)
 		ClapTrap::operator=(toCopy);
 	return (*this);
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << BOLD PO "[ScavTrap " << this->_name << "]" RESET
+	std::cout << BOLD PO "[FragTrap " << this->_name << "]" RESET
 			  << PO " destroyed" RESET << std::endl;
 }
 
-int		ScavTrap::get_hitPoints() const
+int		FragTrap::get_hitPoints() const
 {
 	return (this->_hitPoints);
 }
 
-int		ScavTrap::get_energyPoints() const
+int		FragTrap::get_energyPoints() const
 {
 	return (this->_energyPoints);
 }
 
-void	ScavTrap::attack(const std::string& target)
+void	FragTrap::attack(const std::string& target)
 {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{
-		std::cout << BOLD PP "ScavTrap " << this->_name << RESET " attacks "
+		std::cout << BOLD PP "FragTrap " << this->_name << RESET " attacks "
 			  << BOLD PINK << target << RESET ", causing " RED
 			  << this->_attackDamage << RESET " points of damage! 🩸"
 			  << std::endl;
@@ -67,34 +67,34 @@ void	ScavTrap::attack(const std::string& target)
 			std::cout << "No energy points left" << std::endl;
 		if (this->_hitPoints <= 0)
 			std::cout << "No hit points left" << std::endl;
-		std::cout << BOLD BLUE "ScavTrap " << this->_name << RESET " can't attack!"
+		std::cout << BOLD BLUE "FragTrap " << this->_name << RESET " can't attack!"
 				  << std::endl;
 	}
 }
 
-void	ScavTrap::takeDamage(unsigned int amount)
+void	FragTrap::takeDamage(unsigned int amount)
 {
 	if (amount == 0)
 		return ;
 	if (this->_hitPoints <= 0)
 	{
-		std::cout << BOLD PB "ScavTrap " << this->_name << RESET
+		std::cout << BOLD PB "FragTrap " << this->_name << RESET
 				  << " is already down!" << std::endl;
 		return ;
 	}
 	this->_hitPoints -= amount;
 	if (this->_hitPoints < 0)
 		this->_hitPoints = 0;
-	std::cout << BOLD PB "ScavTrap " << this->_name << RESET " loses " RED
+	std::cout << BOLD PB "FragTrap " << this->_name << RESET " loses " RED
 			  << amount << " hit points 🪫" RESET << std::endl;
 	std::cout << "Hit points remaining : [" BOLD << get_hitPoints()
 			  << RESET "]" << std::endl;
 	if (this->_hitPoints == 0)
-		std::cout << BOLD RED "ScavTrap " << this->_name
+		std::cout << BOLD RED "FragTrap " << this->_name
 				  << " is knocked out!" RESET << std::endl;
 }
 
-void	ScavTrap::beRepaired(unsigned int amount)
+void	FragTrap::beRepaired(unsigned int amount)
 {
 	unsigned int	maxRepair = 0;
 
@@ -108,7 +108,7 @@ void	ScavTrap::beRepaired(unsigned int amount)
 		else
 			this->_hitPoints += amount;
 		this->_energyPoints--;
-		std::cout << BOLD ITAL PB "ScavTrap " << this->_name
+		std::cout << BOLD ITAL PB "FragTrap " << this->_name
 				  << RESET ITAL " is being repaired..." RESET << std::endl;
 		std::cout << "Regaining " PG << amount << RESET " hit points 🔋"
 				  << std::endl;
@@ -120,13 +120,13 @@ void	ScavTrap::beRepaired(unsigned int amount)
 			std::cout << "No energy points left" << std::endl;
 		if (this->_hitPoints <= 0)
 			std::cout << "No hit points left" << std::endl;
-		std::cout << BOLD BLUE "ScavTrap " << this->_name << RESET
+		std::cout << BOLD BLUE "FragTrap " << this->_name << RESET
 				  << " can't be repaired!" << std::endl;
 	}
 }
 
-void	ScavTrap::guardGate()
+void	FragTrap::highFivesGuys()
 {
-	std::cout << "ScavTrap is now in " << BOLD PG "Gate keeper" RESET
-			  << " mode" << std::endl;
+	std::cout << LIGHT_GRAY2 "[FragTrap] " RESET << "Give me a high five, bro!"
+			  << std::endl;
 }

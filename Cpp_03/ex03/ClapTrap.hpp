@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/10 20:00:46 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/07 19:29:04 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 /******************************************************************************\
  * LIBRARIES
 \******************************************************************************/
 
 # include <iostream>
-# include <cmath>
 # include "../../colors.hpp"
 
 # define SUCCESS 0
@@ -28,33 +27,28 @@
  * CLASS
 \******************************************************************************/
 
-class Fixed
+class ClapTrap
 {
 	public:
 
-		Fixed(); 								// Default constructor
-		Fixed(const Fixed& toCopy); 			// Copy constructor
-		Fixed(const int nbr); 					// Const int constructor
-		Fixed(const float nbr); 				// Const float constructor
-		Fixed&	operator=(const Fixed& toCopy);	// Copy assignment operator
-		~Fixed();
+		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap& toCopy);
+		ClapTrap&	operator=(const ClapTrap& toCopy);
+		~ClapTrap();
 
-		void	setRawBits(const int raw);
-		int		getRawBits() const;
-		float	toFloat() const;
-		int		toInt() const;
+		int		get_hitPoints() const;
+		int		get_energyPoints() const;
+		void	attack(const std::string& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 
 
-	private:
+	protected:
 	
-		int					_nbr;
-		static const int	_fractionnalBits = 8;
+		std::string		_name;
+		int				_hitPoints;
+		int				_energyPoints;
+		int				_attackDamage;
 };
-
-/******************************************************************************\
- * FUNCTIONS
-\******************************************************************************/
-
-std::ostream&	operator<<(std::ostream& os, const Fixed& RHS);
 
 #endif

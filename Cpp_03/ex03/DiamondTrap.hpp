@@ -1,39 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:09:07 by panther           #+#    #+#             */
-/*   Updated: 2025/05/10 19:09:59 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/10 20:57:00 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
 /******************************************************************************\
  * CLASS
 \******************************************************************************/
 
-class ScavTrap : public ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 	public:
 
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap& toCopy);
-		ScavTrap&	operator=(const ScavTrap& toCopy);
-		~ScavTrap();
+		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap& toCopy);
+		DiamondTrap&	operator=(const DiamondTrap& toCopy);
+		~DiamondTrap();
 
 		int		get_hitPoints() const;
 		int		get_energyPoints() const;
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
-		void	guardGate();
+		void	whoAmI();
+
+	
+	private:
+
+		std::string		_name;
 };
 
 #endif
