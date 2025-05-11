@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 04:17:17 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 05:01:58 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 Dog::Dog() : Animal()
 {
 	this->_type = "Dog";
-	std::cout << BOLD GREEN "[Dog " << this->_type << "]" RESET PG " created"
+	std::cout << BOLD GREEN "[" << this->_type << "]" RESET PG " created"
 			  << RESET << std::endl;
 }
 
 Dog::Dog(const Dog& toCopy) : Animal(toCopy)
 {
-	std::cout << BOLD PG "[Dog " << this->_type << "]" RESET
-			  << PG " created" RESET << std::endl;
+	std::cout << BOLD PG "[ " << this->_type << "]" RESET << PG " created"
+			  << RESET << std::endl;
 }
 
 Dog&	Dog::operator=(const Dog& toCopy)
@@ -34,16 +34,16 @@ Dog&	Dog::operator=(const Dog& toCopy)
 
 Dog::~Dog()
 {
-	std::cout << BOLD RED "[Dog " << this->_type << "]" RESET
-			  << RED " destroyed" RESET << std::endl;
+	std::cout << BOLD ORANGE "[" << this->_type << "]" RESET << RED " destroyed"
+			  << RESET << std::endl;
 }
 
-std::string	Animal::getType() const
+std::string		Dog::getType() const
 {
 	return (this->_type);
 }
 
-void	Dog::makeSound()
+void	Dog::makeSound() const
 {
-	std::cout << LIGHT_GRAY2 "[Doggie] " RESET "Woof woof..." << std::endl;
+	std::cout << PURPLE "[Doggie] " RESET "Woof woof..." << std::endl;
 }

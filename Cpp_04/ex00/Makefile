@@ -14,7 +14,7 @@ PURPLE		:=	\e[38;2;224;176;255m
 #	COMPILATION
 #******************************************************************************#
 
-NAME		=	ScavTrap
+NAME		=	Animals
 CPP			=	c++
 CPPFLAG		=	-Wall -Wextra -Werror -std=c++98 -g3
 MULT_HERIT	=	-Wshadow
@@ -24,7 +24,7 @@ DFLAGS		=	-MMD -MP
 #	SOURCES
 #******************************************************************************#
 
-SRCS		=	main.cpp dog.cpp cat.cpp animal.cpp
+SRCS		=	main.cpp Dog.cpp Cat.cpp Animal.cpp
 
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))
@@ -44,7 +44,7 @@ $(OBJS_DIR)%.o: %.cpp
 $(NAME): $(OBJS)
 			$(CPP) $(CPPFLAG) $(MULT_HERIT) $(OBJS) -o $(NAME)
 			@printf "\n\n$(BOLD)========$(shell bash ../rbw.sh " Polymorphism ")"
-			@printf "$(BOLD)========\n\n$(BLINK)$(PURPLE)\tREADY!$(RESET)\n\n"
+			@printf "$(BOLD)========\n\n$(BLINK)$(PURPLE)\t   READY!$(RESET)\n\n"
 			@printf "$(BOLD)==============================\n\n$(RESET)"
 
 clean:

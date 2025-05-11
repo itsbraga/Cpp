@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:31:30 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 04:27:12 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 04:50:52 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Animal
 		virtual ~Animal();
 
 		std::string		getType() const;
-		void			makeSound();
+		virtual void	makeSound() const;
 
 
 	protected:

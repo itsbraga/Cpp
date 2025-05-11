@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/10 20:00:57 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 04:41:26 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ int	main(void)
 	FragTrap e("Freeze Corleone");
 	e = c; // Assignment operator
 	e.attack("Tiakola");
+
+	ClapTrap	*ptr = new FragTrap("Patrick");
+	delete ptr;
 
 	std::cout << BOLD PY "\n======[ End of program, destructors called ]======" RESET
 			  << std::endl;

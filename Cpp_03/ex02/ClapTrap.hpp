@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/07 19:29:04 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 04:39:28 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class ClapTrap
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& toCopy);
 		ClapTrap&	operator=(const ClapTrap& toCopy);
-		~ClapTrap();
+		virtual ~ClapTrap();
 
 		int		get_hitPoints() const;
 		int		get_energyPoints() const;
