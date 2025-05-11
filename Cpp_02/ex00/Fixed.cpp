@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:47:57 by annabrag          #+#    #+#             */
-/*   Updated: 2025/04/29 01:05:00 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/05/11 05:25:01 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Fixed&	Fixed::operator=(const Fixed& toCopy)
 {
 	if (this != &toCopy)
 		this->_nbr = toCopy._nbr;
-	std::cout << BOLD PY "[Copy assignment operator] " RESET << "called"
+	std::cout << BOLD PY "[Assignment operator] " RESET << "called"
 			  << std::endl;
 	return (*this);
 }

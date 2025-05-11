@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 18:56:05 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 04:51:36 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 05:19:39 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 FragTrap::FragTrap(const FragTrap& toCopy) : ClapTrap(toCopy)
 {
 	std::cout << BOLD PG "[FragTrap " << this->_name << "]" RESET
-			  << PG " created" RESET << std::endl;
+			  << PG " copy created" RESET << std::endl;
 }
 
 FragTrap&	FragTrap::operator=(const FragTrap& toCopy)

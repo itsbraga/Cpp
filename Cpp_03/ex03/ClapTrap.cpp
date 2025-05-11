@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 02:09:21 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/07 21:56:16 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 05:19:55 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(const ClapTrap& toCopy) : _name(toCopy._name),
 											 _attackDamage(toCopy._attackDamage)
 {
 	std::cout << BOLD PGG "[ClapTrap " << this->_name << "]" RESET
-			  << PGG " created" RESET << std::endl;
+			  << PGG " copy created" RESET << std::endl;
 }
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& toCopy)

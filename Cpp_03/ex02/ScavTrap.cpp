@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:08:54 by panther           #+#    #+#             */
-/*   Updated: 2025/05/10 21:11:57 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 05:19:47 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 ScavTrap::ScavTrap(const ScavTrap& toCopy) : ClapTrap(toCopy)
 {
 	std::cout << BOLD PG "[ScavTrap " << this->_name << "]" RESET
-			  << PG " created" RESET << std::endl;
+			  << PG " copy created" RESET << std::endl;
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& toCopy)

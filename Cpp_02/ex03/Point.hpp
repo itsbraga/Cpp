@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 00:49:22 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/10 20:00:46 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 05:25:40 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Point
 	public:
 
 		Point();
-		Point(const float x, const float y);	// Const const floatructor
+		Point(const float x, const float y);	// Const Float constructor
 		Point(const Point& toCopy); 			// Copy constructor
 		Point&	operator=(const Point& toCopy);	// Copy assignment operator
 		~Point();

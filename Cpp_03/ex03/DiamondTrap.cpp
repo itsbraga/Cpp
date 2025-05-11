@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 18:56:05 by panther           #+#    #+#             */
-/*   Updated: 2025/05/10 21:06:19 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 05:19:59 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap& toCopy) : ClapTrap(toCopy),
 														_name(toCopy._name)
 {
 	std::cout << BOLD PG "[DiamondTrap " << this->_name << "]" RESET
-			  << PG " created" RESET << std::endl;
+			  << PG " copy created" RESET << std::endl;
 }
 
 DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& toCopy)

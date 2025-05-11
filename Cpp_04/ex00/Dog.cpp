@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 05:01:58 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 05:18:51 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Dog::Dog() : Animal()
 
 Dog::Dog(const Dog& toCopy) : Animal(toCopy)
 {
-	std::cout << BOLD PG "[ " << this->_type << "]" RESET << PG " created"
+	std::cout << BOLD PG "[ " << this->_type << "]" RESET << PG " copy created"
 			  << RESET << std::endl;
 }
 

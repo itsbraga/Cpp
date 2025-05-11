@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:35:19 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 05:18:40 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 05:26:25 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ Animal&	Animal::operator=(const Animal& toCopy)
 {
 	if (this != &toCopy)
 		this->_type = toCopy._type;
+	std::cout << BOLD PY "[Assignment operator]" RESET << " called"
+			  << std::endl;
 	return (*this);
 }
 
@@ -45,5 +47,5 @@ std::string		Animal::getType() const
 
 void	Animal::makeSound() const
 {
-	std::cout << "Booo..." << std::endl;
+	std::cout << LIGHT_GRAY2 ITAL "Booo..." RESET << std::endl;
 }
