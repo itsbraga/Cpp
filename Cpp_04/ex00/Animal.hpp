@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/11 04:32:38 by panther          ###   ########.fr       */
+/*   Created: 2025/05/11 03:31:30 by panther           #+#    #+#             */
+/*   Updated: 2025/05/11 04:27:12 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 /******************************************************************************\
  * LIBRARIES
@@ -27,28 +27,22 @@
  * CLASS
 \******************************************************************************/
 
-class ClapTrap
+class Animal
 {
 	public:
 
-		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap& toCopy);
-		ClapTrap&	operator=(const ClapTrap& toCopy);
-		virtual ~ClapTrap();
+		Animal();
+		Animal(const Animal& toCopy);
+		Animal&	operator=(const Animal& toCopy);
+		virtual ~Animal();
 
-		int		get_hitPoints() const;
-		int		get_energyPoints() const;
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		std::string		getType() const;
+		void			makeSound();
 
 
 	protected:
-	
-		std::string		_name;
-		int				_hitPoints;
-		int				_energyPoints;
-		int				_attackDamage;
+
+		std::string		_type;
 };
 
 #endif

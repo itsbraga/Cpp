@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/10 20:36:36 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 04:31:22 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	main(void)
 {
 	std::cout << BOLD PY "======[ DiamondTrap creation ]======" RESET << std::endl;
-	DiamondTrap a("Nicki Minaj");
-	DiamondTrap b("Rihanna");
+	DiamondTrap	a("Nicki Minaj");
+	DiamondTrap	b("Rihanna");
 	DiamondTrap c("Megan Thee Stallion");
 
 	std::cout << BOLD PY "\n======[ Who am I ]======" RESET << std::endl;
@@ -57,6 +57,9 @@ int	main(void)
 	DiamondTrap e("Jacques");
 	e = b; // Assignment operator
 	e.whoAmI();
+
+	ClapTrap	*ptr = new DiamondTrap("Bob");
+	delete ptr;
 
 	std::cout << BOLD PY "\n======[ End of program, destructors called ]======" RESET
 			  << std::endl;
