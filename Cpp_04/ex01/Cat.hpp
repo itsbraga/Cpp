@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:57 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 05:11:16 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/12 20:31:38 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ class Cat : virtual public Animal
 
 		std::string		getType() const;
 		void			makeSound() const;
+		Brain*			getBrain() const;
 
 
 	private:
 
-		Brain*		_Brain;
+		Brain*	_Brain;
 };
 
 #endif

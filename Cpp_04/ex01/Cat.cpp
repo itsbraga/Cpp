@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 05:18:25 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/12 20:32:01 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Cat::Cat() : Animal()
 {
 	this->_type = "Cat";
-	_Brain = new Brain();
+	this->_Brain = new Brain();
 	std::cout << BOLD GREEN "[" << this->_type << "]" RESET PG " created"
 			  << RESET << std::endl;
 }
@@ -35,7 +35,8 @@ Cat&	Cat::operator=(const Cat& toCopy)
 
 Cat::~Cat()
 {
-	std::cout << BOLD PO "[" << this->_type << "]" RESET << RED " destroyed"
+	delete this->_Brain;
+	std::cout << BOLD PO "[" << this->_type << "]" RESET PO " destroyed"
 			  << RESET << std::endl;
 }
 
@@ -47,4 +48,9 @@ std::string		Cat::getType() const
 void	Cat::makeSound() const
 {
 	std::cout << PP "[Cat] " RESET "Meooow... :3" << std::endl;
+}
+
+Brain*	Cat::getBrain() const
+{
+	return (this->_Brain);
 }

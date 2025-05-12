@@ -3,28 +3,89 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/11 05:06:43 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/12 21:38:08 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Dog.hpp"
+#include "Cat.hpp"
 #include "Brain.hpp"
 
 int	main(void)
 {
-	// const Animal*	meta = new Animal();
-	// const Animal*	j = new Dog();
-	// const Animal*	i = new Cat();
+	Animal*	Animals[10];
 
-	// std::cout << j->getType() << " " << std::endl;
-	// std::cout << i->getType() << " " << std::endl;
-	// i->makeSound();
-	// j->makeSound();
-	// meta->makeSound();
-	// delete i;
-	// delete j;
-	// delete meta;
+	for (int i = 0; i < 10; i++)
+	{
+		if (i % 2 == 0)
+			Animals[i] = new Dog();
+		else
+			Animals[i] = new Cat();
+		std::cout << BOLD "Created Animal type: " RESET << Animals[i]->getType()
+				  << std::endl;
+	}
+
+	std::cout << BOLD "\n-----[ Setting and Getting Ideas ]-----\n"
+			  << RESET << std::endl;
+   if (Animals[0] != NULL)
+   {
+		Dog*	currDog = dynamic_cast<Dog*>(Animals[0]);
+		if (currDog)
+		{
+			Brain*	dogBrain = currDog->getBrain();
+			if (dogBrain)
+			{
+				dogBrain->setIdea(0, "I love bones!");
+				dogBrain->setIdea(1, "Time for a walk!");
+				std::cout << BOLD YELLOW "[" << currDog->getType()
+							<< " - Animal 0]" RESET << " ideas:" << std::endl;
+				for (int j = 0; j < 6; j++)
+					std::cout << "  - " << dogBrain->getIdea(j) << std::endl;
+			}
+		}
+	}
+	if (Animals[1] != NULL)
+	{
+		Cat*	currCat = dynamic_cast<Cat*>(Animals[1]);
+		if (currCat)
+		{
+			Brain*	catBrain = currCat->getBrain();
+			if (catBrain)
+			{
+				catBrain->setIdea(0, "Napping is life... Zzzz...");
+				catBrain->setIdea(1, "I love you human :3");
+				catBrain->setIdea(2, "Pet meeee !!!");
+				std::cout << BOLD YELLOW "[" << currCat->getType()
+						<< " - Animal 1]" RESET << " ideas:" << std::endl;
+				for (int j = 0; j < 6; j++)
+					std::cout << "  - " << catBrain->getIdea(j) << std::endl;
+			}
+		}
+	}
+	// if (Animals[3] != NULL)
+	// {
+	// 	Dog*	currDog2 = dynamic_cast<Dog*>(Animals[3]);
+	// 	if (currDog2)
+	// 	{
+	// 		Brain*	dogBrain2 = currDog2->getBrain();
+	// 		if (dogBrain2)
+	// 		{
+	// 			dogBrain2->setIdea(0, "Hey human!");
+	// 			dogBrain2->setIdea(1, "Give me some treats pleaaase");
+	// 			std::cout << BOLD YELLOW "[" << currDog2->getType()
+	// 						<< " - Animal 3]" RESET << " ideas:" << std::endl;
+	// 			for (int j = 0; j < 6; j++)
+	// 				std::cout << "  - " << dogBrain2->getIdea(j) << std::endl;
+	// 		}
+	// 	}
+	// }
+	
+	std::cout << BOLD "\n-----[ Deleting Animals ]-----\n"
+			  << RESET << std::endl;
+	for (int j = 0; j < 10; j++)
+		delete Animals[j];
 	return (SUCCESS);
 }

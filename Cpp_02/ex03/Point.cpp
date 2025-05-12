@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 00:49:10 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/11 05:23:59 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/12 18:55:42 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Point::Point(const Point& toCopy) : _x(toCopy._x), _y(toCopy._y)
 Point&	Point::operator=(const Point& toCopy)
 {
 	(void)toCopy;
-	// std::cout << BOLD PY "[Assignment operator] " RESET << "called"
+	// std::cout << BOLD PY "[Copy assignment operator] " RESET << "called"
 	// 		  << std::endl;
 	return (*this);
 }

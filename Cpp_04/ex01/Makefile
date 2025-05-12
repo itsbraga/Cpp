@@ -43,9 +43,9 @@ $(OBJS_DIR)%.o: %.cpp
 
 $(NAME): $(OBJS)
 			$(CPP) $(CPPFLAG) $(MULT_HERIT) $(OBJS) -o $(NAME)
-			@printf "\n\n$(BOLD)========$(shell bash ../rbw.sh " Polymorphism ")"
-			@printf "$(BOLD)========\n\n$(BLINK)$(PURPLE)\t   READY!$(RESET)\n\n"
-			@printf "$(BOLD)==============================\n\n$(RESET)"
+			@printf "\n\n$(BOLD)========$(shell bash ../rbw.sh " Brain ")"
+			@printf "$(BOLD)========\n\n$(BLINK)$(PURPLE)\t READY!$(RESET)\n\n"
+			@printf "$(BOLD)========================\n\n$(RESET)"
 
 clean:
 		rm -rf $(OBJS_DIR)

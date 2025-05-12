@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/10 20:00:46 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/12 18:55:42 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Fixed
 		Fixed(const Fixed& toCopy); 			// Copy constructor
 		Fixed(const int nbr); 					// Const int constructor
 		Fixed(const float nbr); 				// Const float constructor
-		Fixed&	operator=(const Fixed& toCopy);	// Copy assignment operator
+		Fixed&	operator=(const Fixed& toCopy);	// Copy Copy assignment operator
 		~Fixed();
 
 		void	setRawBits(const int raw);
