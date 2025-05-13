@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 17:01:02 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/13 18:37:11 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Dog::Dog() : Animal()
 {
 	this->_type = "Dog";
-	_Brain = new Brain();
+	this->_Brain = new Brain();
 	std::cout << BOLD GREEN "[" << this->_type << "]" RESET PG " created"
 			  << RESET << std::endl;
 }
@@ -35,8 +35,8 @@ Dog&	Dog::operator=(const Dog& toCopy)
 
 Dog::~Dog()
 {
-	delete _Brain;
-	std::cout << BOLD ORANGE "[" << this->_type << "]" RESET << RED " destroyed"
+	delete this->_Brain;
+	std::cout << BOLD ORANGE "[" << this->_type << "]" RESET ORANGE " destroyed"
 			  << RESET << std::endl;
 }
 
@@ -48,4 +48,9 @@ const std::string	Dog::getType() const
 void	Dog::makeSound() const
 {
 	std::cout << PURPLE "[Doggie] " RESET "Woof woof 🐶" << std::endl;
+}
+
+Brain*	Dog::getBrain() const
+{
+	return (this->_Brain);
 }

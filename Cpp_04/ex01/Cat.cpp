@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 17:00:40 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/13 18:34:12 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Cat::Cat() : Animal()
 {
 	this->_type = "Cat";
-	_Brain = new Brain();
+	this->_Brain = new Brain();
 	std::cout << BOLD GREEN "[" << this->_type << "]" RESET PG " created"
 			  << RESET << std::endl;
 }
@@ -35,8 +35,8 @@ Cat&	Cat::operator=(const Cat& toCopy)
 
 Cat::~Cat()
 {
-	delete _Brain;
-	std::cout << BOLD PO "[" << this->_type << "]" RESET << RED " destroyed"
+	delete this->_Brain;
+	std::cout << BOLD PO "[" << this->_type << "]" RESET PO " destroyed"
 			  << RESET << std::endl;
 }
 
@@ -48,4 +48,9 @@ const std::string	Cat::getType() const
 void	Cat::makeSound() const
 {
 	std::cout << PP "[Cat] " RESET "Meooow... 🐱" << std::endl;
+}
+
+Brain*	Cat::getBrain() const
+{
+	return (this->_Brain);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/10 20:00:57 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/12 18:55:42 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(void)
 	ClapTrap d = a; // Copy constructor
 	d.attack("Brice2Nice");
 	ClapTrap e("Bernard");
-	e = c; // Assignment operator
+	e = c; // Copy assignment operator
 	e.attack("Anne-Sophie");
 
 	std::cout << BOLD PY "\n=====[ End of program, destructors called ]=====" RESET

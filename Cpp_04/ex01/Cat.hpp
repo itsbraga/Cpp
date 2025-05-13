@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:57 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 17:00:47 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/13 18:34:56 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ class Cat : virtual public Animal
 
 		const std::string	getType() const;
 		void				makeSound() const;
+		Brain*				getBrain() const;
 
 
 	private:
 
-		Brain*		_Brain;
+		Brain*	_Brain;
 };
 
 #endif

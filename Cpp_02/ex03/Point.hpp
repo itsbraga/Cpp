@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 00:49:22 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/11 05:25:40 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/12 18:55:42 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Point
 		Point();
 		Point(const float x, const float y);	// Const Float constructor
 		Point(const Point& toCopy); 			// Copy constructor
-		Point&	operator=(const Point& toCopy);	// Copy assignment operator
+		Point&	operator=(const Point& toCopy);	// Copy Copy assignment operator
 		~Point();
 
 		const Fixed&	getX() const;
