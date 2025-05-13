@@ -1,49 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 16:59:48 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 17:00:16 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog() : Animal()
+WrongCat::WrongCat() : WrongAnimal()
 {
-	this->_type = "Dog";
+	this->_type = "WrongCat";
 	std::cout << BOLD GREEN "[" << this->_type << "]" RESET PG " created"
 			  << RESET << std::endl;
 }
 
-Dog::Dog(const Dog& toCopy) : Animal(toCopy)
+WrongCat::WrongCat(const WrongCat& toCopy) : WrongAnimal(toCopy)
 {
-	std::cout << BOLD PG "[ " << this->_type << "]" RESET << PG " copy created"
+	std::cout << BOLD PG "[" << this->_type << "]" RESET << PG " copy created"
 			  << RESET << std::endl;
 }
 
-Dog&	Dog::operator=(const Dog& toCopy)
+WrongCat&	WrongCat::operator=(const WrongCat& toCopy)
 {
 	if (this != &toCopy)
-		Animal::operator=(toCopy);
+		WrongAnimal::operator=(toCopy);
 	return (*this);
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	std::cout << BOLD ORANGE "[" << this->_type << "]" RESET << RED " destroyed"
+	std::cout << BOLD PO "[" << this->_type << "]" RESET << RED " destroyed"
 			  << RESET << std::endl;
 }
 
-const std::string	Dog::getType() const
+const std::string	WrongCat::getType() const
 {
 	return (this->_type);
 }
 
-void	Dog::makeSound() const
+void	WrongCat::makeSound() const
 {
-	std::cout << PURPLE "[Doggie] " RESET "Woof woof 🐶" << std::endl;
+	std::cout << PP "[WrongCat] " RESET "Roaaarrr 🦁" << std::endl;
 }

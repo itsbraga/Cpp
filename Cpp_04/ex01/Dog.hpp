@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:57 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 05:13:30 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 17:00:53 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Dog : virtual public Animal
 		Dog&	operator=(const Dog& toCopy);
 		~Dog();
 
-		std::string		getType() const;
-		void			makeSound() const;
+		const std::string	getType() const;
+		void				makeSound() const;
 
 
 	private:

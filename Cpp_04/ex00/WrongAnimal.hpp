@@ -1,35 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/11 03:43:57 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 16:59:41 by panther          ###   ########.fr       */
+/*   Created: 2025/05/11 03:31:30 by panther           #+#    #+#             */
+/*   Updated: 2025/05/11 17:00:04 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-# include "Animal.hpp"
+/******************************************************************************\
+ * LIBRARIES
+\******************************************************************************/
+
+# include <iostream>
+# include "../../colors.hpp"
+
+# define SUCCESS 0
+# define FAILURE 1
 
 /******************************************************************************\
  * CLASS
 \******************************************************************************/
 
-class Dog : virtual public Animal
+class WrongAnimal
 {
 	public:
 
-		Dog();
-		Dog(const Dog& toCopy);
-		Dog&	operator=(const Dog& toCopy);
-		~Dog();
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal& toCopy);
+		WrongAnimal&	operator=(const WrongAnimal& toCopy);
+		virtual ~WrongAnimal();
 
 		const std::string	getType() const;
 		void				makeSound() const;
+
+
+	protected:
+
+		std::string		_type;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:31:30 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 04:50:52 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/11 16:58:14 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ class Animal
 		Animal&	operator=(const Animal& toCopy);
 		virtual ~Animal();
 
-		std::string		getType() const;
-		virtual void	makeSound() const;
+		const std::string	getType() const;
+		virtual void		makeSound() const;
 
 
 	protected:
