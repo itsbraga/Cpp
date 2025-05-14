@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 16:59:48 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:03:28 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Dog::~Dog()
 			  << RESET << std::endl;
 }
 
-const std::string	Dog::getType() const
+const std::string&	Dog::getType() const
 {
 	return (this->_type);
 }

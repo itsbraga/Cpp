@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 20:00:51 by annabrag          #+#    #+#             */
-/*   Updated: 2025/03/29 22:29:10 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/13 21:19:53 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define ORANGE			"\e[38;5;208m"
 # define BLUE			"\e[34m"
 # define PURPLE			"\e[35m"
+# define HOT_PINK		"\e[38;2;255;105;180m"
 # define PINK			"\e[38;2;255;182;193m"
 # define CYAN			"\e[36m"
 # define WHITE			"\e[37m"

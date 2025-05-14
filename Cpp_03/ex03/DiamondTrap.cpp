@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 18:56:05 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 05:19:59 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:10:28 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ DiamondTrap::~DiamondTrap()
 			  << PO " destroyed" RESET << std::endl;
 }
 
-int	DiamondTrap::get_hitPoints() const
+const int&	DiamondTrap::get_hitPoints() const
 {
 	return (this->_hitPoints);
 }
 
-int	DiamondTrap::get_energyPoints() const
+const int&	DiamondTrap::get_energyPoints() const
 {
 	return (this->_energyPoints);
 }

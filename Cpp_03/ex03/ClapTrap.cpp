@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 02:09:21 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/11 05:19:55 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:10:18 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ ClapTrap::~ClapTrap()
 			  << RED " destroyed" RESET << std::endl;
 }
 
-int	ClapTrap::get_hitPoints() const
+const int&	ClapTrap::get_hitPoints() const
 {
 	return (this->_hitPoints);
 }
 
-int	ClapTrap::get_energyPoints() const
+const int&	ClapTrap::get_energyPoints() const
 {
 	return (this->_energyPoints);
 }

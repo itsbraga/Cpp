@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 05:05:35 by panther           #+#    #+#             */
-/*   Updated: 2025/05/12 20:27:49 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/14 00:53:49 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Brain
 		std::string		ideas[100];
 
 		void				setIdea(unsigned int i, std::string idea);
-		const std::string	getIdea(unsigned int i) const;
+		const std::string&	getIdea(unsigned int i) const;
 };
 
 #endif

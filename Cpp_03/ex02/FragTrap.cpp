@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 18:56:05 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 05:19:39 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:10:02 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ FragTrap::~FragTrap()
 			  << PO " destroyed" RESET << std::endl;
 }
 
-int		FragTrap::get_hitPoints() const
+const int&	FragTrap::get_hitPoints() const
 {
 	return (this->_hitPoints);
 }
 
-int		FragTrap::get_energyPoints() const
+const int&	FragTrap::get_energyPoints() const
 {
 	return (this->_energyPoints);
 }

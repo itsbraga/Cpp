@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:09:07 by panther           #+#    #+#             */
-/*   Updated: 2025/05/10 20:57:00 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:02:01 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap&	operator=(const DiamondTrap& toCopy);
 		~DiamondTrap();
 
-		int		get_hitPoints() const;
-		int		get_energyPoints() const;
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-		void	whoAmI();
+		const int&		get_hitPoints() const;
+		const int&		get_energyPoints() const;
+		void			attack(const std::string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
+		void			whoAmI();
 
 	
 	private:

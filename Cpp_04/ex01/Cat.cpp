@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/13 18:34:12 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:04:24 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,26 @@ Cat::Cat() : Animal()
 {
 	this->_type = "Cat";
 	this->_Brain = new Brain();
-	std::cout << BOLD GREEN "[" << this->_type << "]" RESET PG " created"
+	std::cout << BOLD GREEN "[" << this->_type << "]" RESET GREEN " created"
 			  << RESET << std::endl;
 }
 
 Cat::Cat(const Cat& toCopy) : Animal(toCopy)
 {
-	std::cout << BOLD PG "[" << this->_type << "]" RESET << PG " copy created"
+	this->_Brain = new Brain(*toCopy._Brain);
+	this->_type = toCopy._type;
+	std::cout << BOLD PG "[" << this->_type << "]" RESET PG " copy created"
 			  << RESET << std::endl;
 }
 
 Cat&	Cat::operator=(const Cat& toCopy)
 {
 	if (this != &toCopy)
+	{
 		Animal::operator=(toCopy);
+		delete this->_Brain;
+		this->_Brain = new Brain(*toCopy._Brain);
+	}
 	return (*this);
 }
 
@@ -40,7 +46,7 @@ Cat::~Cat()
 			  << RESET << std::endl;
 }
 
-const std::string	Cat::getType() const
+const std::string&	Cat::getType() const
 {
 	return (this->_type);
 }

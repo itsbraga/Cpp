@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 17:00:16 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:03:57 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ WrongCat::~WrongCat()
 			  << RESET << std::endl;
 }
 
-const std::string	WrongCat::getType() const
+const std::string&	WrongCat::getType() const
 {
 	return (this->_type);
 }

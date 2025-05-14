@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 16:59:18 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:03:16 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Cat::~Cat()
 			  << RESET << std::endl;
 }
 
-const std::string	Cat::getType() const
+const std::string&	Cat::getType() const
 {
 	return (this->_type);
 }

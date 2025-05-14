@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:08:54 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 05:19:26 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:09:40 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ ScavTrap::~ScavTrap()
 			  << PO " destroyed" RESET << std::endl;
 }
 
-int		ScavTrap::get_hitPoints() const
+const int&	ScavTrap::get_hitPoints() const
 {
 	return (this->_hitPoints);
 }
 
-int		ScavTrap::get_energyPoints() const
+const int&	ScavTrap::get_energyPoints() const
 {
 	return (this->_energyPoints);
 }

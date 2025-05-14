@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:31:30 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 17:00:04 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:03:52 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class WrongAnimal
 		WrongAnimal&	operator=(const WrongAnimal& toCopy);
 		virtual ~WrongAnimal();
 
-		const std::string	getType() const;
+		const std::string&	getType() const;
 		void				makeSound() const;
 
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 01:37:01 by panther           #+#    #+#             */
-/*   Updated: 2025/04/29 00:19:47 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:38:46 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ HumanB::HumanB(std::string name) : _name(name), _weapon(NULL)
 			  << std::endl;
 }
 
-HumanB::~HumanB(void)
+HumanB::~HumanB()
 {
 	std::cout << BOLD PINK "HUMAN_B" RED " [Destructor] " RESET << "called"
 			  << std::endl;
 }
 
-void	HumanB::attack(void)
+void	HumanB::attack()
 {
 	if (this->_weapon != NULL)
 		std::cout << this->_name << " attacks with their "

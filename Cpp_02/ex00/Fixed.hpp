@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/12 18:55:42 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/14 01:07:37 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ class Fixed
 		Fixed&	operator=(const Fixed& toCopy); // Copy Copy assignment operator
 		~Fixed();
 
-		void	setRawBits(const int raw);
-		int		getRawBits() const;
+		void		setRawBits(const int raw);
+		const int&	getRawBits() const;
 
 
 	private:

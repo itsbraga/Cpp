@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/13 18:38:30 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/13 21:40:34 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,41 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 
+/*
+	static_cast vs dynamic_cast :
+
+		static_cast  :	Conversion à la compilation. Plus rapide mais pas de
+						vérification du type réel de l'objet. Dangereux si
+						on n'est pas sûr du type.
+
+		dynamic_cast :	Conversion à l'exécution. Plus lent mais vérifie le
+						type réel de l'objet. Retourne nullptr si la conversion
+						échoue.
+
+	Ici, on utilise dynamic_cast car :
+		1. On manipule un tableau de Animal* contient des Dog et des Cat
+		2. On a besoin de vérifier le type réel de l'objet avant la conversion
+		3. On veut éviter un comportement indéfini si la conversion échoue
+*/
 int	main(void)
 {
-	Animal*			Animals[10];
-	// const Animal*	j = new Dog();
-	// const Animal*	i = new Cat();
+	std::cout << BOLD "________________ MAIN FROM PROJECT ________________\n"
+			  << RESET << std::endl;
+	const Animal*	a = new Dog();
+	const Animal*	b = new Cat();
 
-	// delete j;
-	// delete i;
-	// delete [] Animals;
-	// Animal*	Animals[10];
+	std::cout << "\n";
+	a->makeSound();
+	b->makeSound();
+
+	std::cout << BOLD "\n-----[ Destroying a and b ]-----\n" << RESET
+			  << std::endl;
+	delete a; //should not create a leak
+	delete b;
+
+	std::cout << BOLD "\n\n\n_____________________ MY MAIN ______________________\n"
+			  << RESET << std::endl;
+	Animal*		Animals[10];
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -31,52 +56,88 @@ int	main(void)
 			Animals[i] = new Dog();
 		else
 			Animals[i] = new Cat();
-		std::cout << BOLD "Created Animal type: " RESET << Animals[i]->getType()
-				  << std::endl;
 	}
 
-	std::cout << BOLD "\n-----[ Setting and Getting Ideas ]-----\n"
-			  << RESET << std::endl;
-   if (Animals[0] != NULL)
-   {
-		Dog*	currDog = dynamic_cast<Dog*>(Animals[0]);
-		if (currDog)
+	std::cout << BOLD "\n\n-----[ Testing Deep Copy ]-----\n" << std::endl;
+	if (Animals[0] != NULL)
+	{
+		std::cout << UNDERLINE "  > firstDog" RESET << std::endl;
+		Dog*	firstDog = dynamic_cast<Dog*>(Animals[0]);
+		if (firstDog)
 		{
-			Brain*	dogBrain = currDog->getBrain();
-			if (dogBrain)
-			{
-				dogBrain->setIdea(0, "I love bones!");
-				dogBrain->setIdea(1, "Time for a walk!");
-				std::cout << BOLD YELLOW "[" << currDog->getType()
-							<< " - Animal 0]" RESET << " ideas:" << std::endl;
-				for (int j = 0; j < 6; j++)
-					std::cout << "  - " << dogBrain->getIdea(j) << std::endl;
-			}
+			std::cout << ITAL "Creating a copy of the first dog..." RESET
+					  << std::endl;
+			Dog	copyDog = *firstDog; // Stack usage
+			
+			std::cout << BOLD "\nOriginal dog's ideas:" RESET
+					  << std::endl;
+			for (int j = 0; j < 3; j++)
+				std::cout << "  - " << firstDog->getBrain()->getIdea(j)
+						  << std::endl;
+			
+			std::cout << ITAL "\nModifying copy dog's ideas..." RESET
+					  << std::endl;
+			copyDog.getBrain()->setIdea(0, "I want cuddles!");
+			copyDog.getBrain()->setIdea(1, "Where's my ball?");
+			
+			std::cout << BOLD "\nCopy dog's ideas after modification:" RESET
+					  << std::endl;
+			for (int j = 0; j < 3; j++)
+				std::cout << "  - " << copyDog.getBrain()->getIdea(j)
+						  << std::endl;
+			
+			std::cout << BOLD "\nOriginal dog's ideas (should be unchanged):"
+					  << RESET << std::endl;
+			for (int j = 0; j < 3; j++)
+				std::cout << "  - " << firstDog->getBrain()->getIdea(j)
+						  << std::endl;
+			
+			std::cout << ITAL "\nDestroying copy dog... " LIGHT_GRAY2
+					  << "_stack_" RESET << std::endl;
 		}
 	}
+
 	if (Animals[1] != NULL)
 	{
-		Cat*	currCat = dynamic_cast<Cat*>(Animals[1]);
-		if (currCat)
+		std::cout << BOLD UNDERLINE "\n\n  > firstCat" RESET << std::endl;
+		Cat*	firstCat = dynamic_cast<Cat*>(Animals[1]);
+		if (firstCat)
 		{
-			Brain*	catBrain = currCat->getBrain();
-			if (catBrain)
-			{
-				catBrain->setIdea(0, "Napping is life... Zzzz...");
-				catBrain->setIdea(1, "I love you human :3");
-				catBrain->setIdea(2, "Pet meeee !!!");
-				std::cout << BOLD YELLOW "[" << currCat->getType()
-						<< " - Animal 1]" RESET << " ideas:" << std::endl;
-				for (int j = 0; j < 6; j++)
-					std::cout << "  - " << catBrain->getIdea(j) << std::endl;
-			}
+			std::cout << ITAL "Creating a copy of the first cat..." RESET
+					  << std::endl;
+			Cat*	copyCat = new Cat(*firstCat); // Heap usage
+			
+			std::cout << BOLD "\nOriginal cat's ideas:" RESET
+					  << std::endl;
+			for (int j = 0; j < 3; j++)
+				std::cout << "  - " << firstCat->getBrain()->getIdea(j)
+						  << std::endl;
+			
+			std::cout << ITAL "\nModifying copy cat's ideas..." RESET
+					  << std::endl;
+			copyCat->getBrain()->setIdea(0, "Give me food!");
+			copyCat->getBrain()->setIdea(1, "Play with me!");
+
+			std::cout << BOLD "\nCopy cat's ideas after modification:" RESET
+					  << std::endl;
+			for (int j = 0; j < 3; j++)
+				std::cout << "  - " << copyCat->getBrain()->getIdea(j)
+						  << std::endl;
+
+			std::cout << BOLD "\nOriginal cat's ideas (should be unchanged):"
+					  << RESET << std::endl;
+			for (int j = 0; j < 3; j++)
+				std::cout << "  - " << firstCat->getBrain()->getIdea(j)
+						  << std::endl;
+
+			std::cout << ITAL "\nDestroying copy cat... " LIGHT_GRAY2
+					  << "_heap_" RESET << std::endl;
+			delete copyCat;
 		}
 	}
-
-	g
 	
-	std::cout << BOLD "\n-----[ Deleting Animals ]-----\n"
-			  << RESET << std::endl;
+	std::cout << BOLD "\n\n-----[ Destroying Animals ]-----\n" << RESET
+			  << std::endl;
 	for (int j = 0; j < 10; j++)
 		delete Animals[j];
 	return (SUCCESS);

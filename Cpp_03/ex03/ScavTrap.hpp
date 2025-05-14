@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:09:07 by panther           #+#    #+#             */
-/*   Updated: 2025/05/10 19:24:05 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:02:48 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ class ScavTrap : virtual public ClapTrap
 		ScavTrap&	operator=(const ScavTrap& toCopy);
 		~ScavTrap();
 
-		int		get_hitPoints() const;
-		int		get_energyPoints() const;
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-		void	guardGate();
+		const int&		get_hitPoints() const;
+		const int&		get_energyPoints() const;
+		void			attack(const std::string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
+		void			guardGate();
 };
 
 #endif

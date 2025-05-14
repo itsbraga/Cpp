@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:09:07 by panther           #+#    #+#             */
-/*   Updated: 2025/05/10 19:09:45 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:00:33 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ class FragTrap : public ClapTrap
 		FragTrap&	operator=(const FragTrap& toCopy);
 		~FragTrap();
 
-		int		get_hitPoints() const;
-		int		get_energyPoints() const;
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
-		void	highFivesGuys();
+		const int&		get_hitPoints() const;
+		const int&		get_energyPoints() const;
+		void			attack(const std::string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
+		void			highFivesGuys();
 };
 
 #endif

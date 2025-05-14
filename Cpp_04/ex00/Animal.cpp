@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:35:19 by panther           #+#    #+#             */
-/*   Updated: 2025/05/11 16:58:26 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:03:04 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Animal::~Animal()
 			  << RED " destroyed" RESET << std::endl;
 }
 
-const std::string	Animal::getType() const
+const std::string&	Animal::getType() const
 {
 	return (this->_type);
 }

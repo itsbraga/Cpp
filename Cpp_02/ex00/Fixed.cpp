@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:47:57 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/12 18:55:42 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/14 01:07:26 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	Fixed::setRawBits(const int raw)
 	this->_nbr = raw;
 }
 
-int		Fixed::getRawBits() const
+const int&	Fixed::getRawBits() const
 {
 	std::cout << BOLD ORANGE "[getRawBits member function] " RESET << "called"
 			  << std::endl;

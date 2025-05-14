@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 01:34:28 by panther           #+#    #+#             */
-/*   Updated: 2025/04/29 00:13:00 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:38:56 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ class Weapon
 	public:
 
 		Weapon(const std::string& type);
-		~Weapon(void);
+		~Weapon();
 
 		void				setType(const std::string& newType);
-		const std::string&	getType(void) const;
+		const std::string&	getType() const;
 
 
 	private:

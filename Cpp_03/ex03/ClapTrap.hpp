@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/11 04:32:38 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/14 01:01:32 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ class ClapTrap
 		ClapTrap&	operator=(const ClapTrap& toCopy);
 		virtual ~ClapTrap();
 
-		int		get_hitPoints() const;
-		int		get_energyPoints() const;
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		const int&		get_hitPoints() const;
+		const int&		get_energyPoints() const;
+		void			attack(const std::string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
 
 
 	protected:
