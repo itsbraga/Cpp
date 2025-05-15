@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/14 01:07:37 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/15 20:07:48 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,18 @@
 
 class Fixed
 {
-	public:
-
-		Fixed(); 								// Default constructor
-		Fixed(const Fixed& toCopy); 			// Copy constructor
-		Fixed&	operator=(const Fixed& toCopy); // Copy Copy assignment operator
-		~Fixed();
-
-		void		setRawBits(const int raw);
-		const int&	getRawBits() const;
-
-
 	private:
-	
-		int					_nbr;
-		static const int	_fractionnalBits = 8;
+			int					_nbr;
+			static const int	_fractionnalBits = 8;
+
+	public:
+			Fixed(); 								// Default constructor
+			Fixed(const Fixed& toCopy); 			// Copy constructor
+			Fixed&	operator=(const Fixed& toCopy); // Copy assignment operator
+			~Fixed();
+
+			void		setRawBits(const int raw);
+			const int&	getRawBits() const;
 };
 
 #endif

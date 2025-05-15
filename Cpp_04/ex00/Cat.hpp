@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:57 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:03:22 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/15 20:16:41 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@
  * CLASS
 \******************************************************************************/
 
-class Cat : virtual public Animal
+class Cat : public Animal
 {
 	public:
+			Cat();
+			Cat(const Cat& toCopy);
+			Cat&	operator=(const Cat& toCopy);
+			~Cat();
 
-		Cat();
-		Cat(const Cat& toCopy);
-		Cat&	operator=(const Cat& toCopy);
-		~Cat();
-
-		const std::string&	getType() const;
-		void				makeSound() const;
+			const std::string&	getType() const;
+			void				makeSound() const;
 };
 
 #endif

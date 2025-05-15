@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/14 00:56:54 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/15 20:10:29 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,23 @@
 
 class ClapTrap
 {
-	public:
-
-		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap& toCopy);
-		ClapTrap&	operator=(const ClapTrap& toCopy);
-		~ClapTrap();
-
-		const int&		get_hitPoints() const;
-		const int&		get_energyPoints() const;
-		void			attack(const std::string& target);
-		void			takeDamage(unsigned int amount);
-		void			beRepaired(unsigned int amount);
-
-
 	private:
-	
-		std::string		_name;
-		int				_hitPoints;
-		int				_energyPoints;
-		int				_attackDamage;
+			std::string		_name;
+			int				_hitPoints;
+			int				_energyPoints;
+			int				_attackDamage;
+
+	public:
+			ClapTrap(std::string name);
+			ClapTrap(const ClapTrap& toCopy);
+			ClapTrap&	operator=(const ClapTrap& toCopy);
+			~ClapTrap();
+
+			const int&		get_hitPoints() const;
+			const int&		get_energyPoints() const;
+			void			attack(const std::string& target);
+			void			takeDamage(unsigned int amount);
+			void			beRepaired(unsigned int amount);
 };
 
 #endif

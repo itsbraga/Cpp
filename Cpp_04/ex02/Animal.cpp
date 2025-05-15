@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:35:19 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:24:12 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/15 22:05:18 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,4 @@ Animal::~Animal()
 const std::string&	Animal::getType() const
 {
 	return (this->_type);
-}
-
-void	Animal::makeSound() const
-{
-	std::cout << LIGHT_GRAY2 ITAL "Booo..." RESET << std::endl;
 }

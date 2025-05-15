@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:57 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:03:38 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/15 20:20:13 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@
  * CLASS
 \******************************************************************************/
 
-class Dog : virtual public Animal
+class Dog : public Animal
 {
 	public:
+			Dog();
+			Dog(const Dog& toCopy);
+			Dog&	operator=(const Dog& toCopy);
+			~Dog();
 
-		Dog();
-		Dog(const Dog& toCopy);
-		Dog&	operator=(const Dog& toCopy);
-		~Dog();
-
-		const std::string&	getType() const;
-		void				makeSound() const;
+			const std::string&	getType() const;
+			void				makeSound() const;
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 01:34:28 by panther           #+#    #+#             */
-/*   Updated: 2025/04/28 23:25:46 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/05/15 20:06:45 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,17 @@
 
 class Harl
 {
-	public:
-
-		Harl();
-		~Harl();
-
-		void	complain(std::string level);
-
-
 	private:
-	
-		void	_debug();
-		void	_info();
-		void	_warning();
-		void	_error();
+			void	_debug();
+			void	_info();
+			void	_warning();
+			void	_error();
+
+	public:
+			Harl();
+			~Harl();
+
+			void	complain(std::string level);
 };
 
 #endif

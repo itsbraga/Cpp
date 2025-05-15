@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:28:56 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:56:04 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/15 18:52:27 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(std::string const& type) : AMateria(type)
+Cure::Cure() : AMateria("cure")
 {
-	this->_type = "cure";
 	std::cout << BOLD PGG "[" << this->_type << "]" RESET PGG " created"
 			  << RESET << std::endl;
 }

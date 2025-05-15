@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 20:00:51 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/13 21:19:53 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/15 22:21:10 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define RED			"\e[31m"
 # define GREEN			"\e[32m"
 # define YELLOW			"\e[33m"
+# define SAND			"\e[38;2;231;200;160m"
+# define DARK_SAND		"\e[38;2;212;163;115m"
 # define ORANGE			"\e[38;5;208m"
 # define BLUE			"\e[34m"
 # define PURPLE			"\e[35m"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:31:30 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:03:52 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/15 20:14:01 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,17 @@
 
 class WrongAnimal
 {
-	public:
-
-		WrongAnimal();
-		WrongAnimal(const WrongAnimal& toCopy);
-		WrongAnimal&	operator=(const WrongAnimal& toCopy);
-		virtual ~WrongAnimal();
-
-		const std::string&	getType() const;
-		void				makeSound() const;
-
-
 	protected:
+			std::string		_type;
 
-		std::string		_type;
+	public:
+			WrongAnimal();
+			WrongAnimal(const WrongAnimal& toCopy);
+			WrongAnimal&	operator=(const WrongAnimal& toCopy);
+			virtual ~WrongAnimal();
+
+			const std::string&	getType() const;
+			void				makeSound() const;
 };
 
 #endif

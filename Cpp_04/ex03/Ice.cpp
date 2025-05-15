@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:28:56 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:57:36 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/15 18:52:56 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(std::string const& type) : AMateria(type)
+Ice::Ice() : AMateria("ice")
 {
-	this->_type = "ice";
 	std::cout << BOLD PURPLE "[" << this->_type << "]" RESET PURPLE " created"
 			  << RESET << std::endl;
 }

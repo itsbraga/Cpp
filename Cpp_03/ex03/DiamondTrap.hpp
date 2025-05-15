@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:09:07 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:02:01 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/15 20:12:18 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,21 @@
 
 class DiamondTrap : public ScavTrap, public FragTrap
 {
-	public:
-
-		DiamondTrap(std::string name);
-		DiamondTrap(const DiamondTrap& toCopy);
-		DiamondTrap&	operator=(const DiamondTrap& toCopy);
-		~DiamondTrap();
-
-		const int&		get_hitPoints() const;
-		const int&		get_energyPoints() const;
-		void			attack(const std::string& target);
-		void			takeDamage(unsigned int amount);
-		void			beRepaired(unsigned int amount);
-		void			whoAmI();
-
-	
 	private:
+			std::string		_name;
 
-		std::string		_name;
+	public:
+			DiamondTrap(std::string name);
+			DiamondTrap(const DiamondTrap& toCopy);
+			DiamondTrap&	operator=(const DiamondTrap& toCopy);
+			~DiamondTrap();
+
+			const int&		get_hitPoints() const;
+			const int&		get_energyPoints() const;
+			void			attack(const std::string& target);
+			void			takeDamage(unsigned int amount);
+			void			beRepaired(unsigned int amount);
+			void			whoAmI();
 };
 
 #endif

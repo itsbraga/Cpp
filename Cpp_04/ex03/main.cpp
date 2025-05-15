@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:46:02 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:49:25 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/15 22:32:37 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "ICharacter.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
@@ -29,7 +29,7 @@ int main(void)
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 
-	ICharacter* bob = new Character("bob");
+	ICharacter*	bob = new Character("bob");
 	
 	me->use(0, *bob);
 	me->use(1, *bob);

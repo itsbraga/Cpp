@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:17:49 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:21:06 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/15 22:04:48 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,10 @@ AMateria::~AMateria()
 const std::string&	AMateria::getType() const
 {
 	return (this->_type);
+}
+
+void	AMateria::use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() << "’s wounds *"
+			  << std::endl;
 }
