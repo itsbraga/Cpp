@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:04:24 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/16 19:50:55 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ Cat::Cat() : Animal()
 
 Cat::Cat(const Cat& toCopy) : Animal(toCopy)
 {
-	this->_Brain = new Brain(*toCopy._Brain);
 	this->_type = toCopy._type;
+	this->_Brain = new Brain(*toCopy._Brain);
 	std::cout << BOLD PG "[" << this->_type << "]" RESET PG " copy created"
 			  << RESET << std::endl;
 }

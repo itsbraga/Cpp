@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:44:45 by panther           #+#    #+#             */
-/*   Updated: 2025/05/16 15:37:01 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/16 15:34:34 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIASOURCE_HPP
-#define MATERIASOURCE_HPP
+#ifndef IMATERIASOURCE_HPP
+#define IMATERIASOURCE_HPP
 
-# include "IMateriaSource.hpp"
-# define MAX 4
+# include "AMateria.hpp"
 
 /******************************************************************************\
  * CLASS
 \******************************************************************************/
 
-class MateriaSource : public IMateriaSource
+class IMateriaSource
 {
-	private:
-			AMateria*	_tab[MAX];
-
 	public:
-			MateriaSource();
-			MateriaSource(const MateriaSource& toCopy);
-			MateriaSource&		operator=(const MateriaSource& toCopy);
-			virtual ~MateriaSource();
+			IMateriaSource();
+			IMateriaSource(const IMateriaSource& toCopy);
+			IMateriaSource&		operator=(const IMateriaSource& toCopy);
+			virtual ~IMateriaSource();
 
-			void		learnMateria(AMateria*);
-			AMateria*	createMateria(std::string const& type);
+			virtual void		learnMateria(AMateria*) = 0;
+			virtual AMateria*	createMateria(std::string const& type) = 0;
 };
 
 #endif

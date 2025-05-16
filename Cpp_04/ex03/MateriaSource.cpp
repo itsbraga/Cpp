@@ -6,25 +6,25 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:15:13 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/15 22:27:12 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/16 15:38:04 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-IMateriaSource::IMateriaSource()
+MateriaSource::MateriaSource() : IMateriaSource()
 {
-	std::cout << BOLD DARK_SAND "[IMateriaSource]" RESET DARK_SAND " created"
+	std::cout << BOLD DARK_SAND "[MateriaSource]" RESET DARK_SAND " created"
 			  << RESET << std::endl;
 }
 
-IMateriaSource::IMateriaSource(const IMateriaSource& toCopy)
+MateriaSource::MateriaSource(const MateriaSource& toCopy) : IMateriaSource(toCopy)
 {
-	std::cout << BOLD SAND "[IMateriaSource]" RESET SAND " copy created"
+	std::cout << BOLD SAND "[MateriaSource]" RESET SAND " copy created"
 			  << RESET << std::endl;
 }
 
-IMateriaSource&		IMateriaSource::operator=(const IMateriaSource& toCopy)
+MateriaSource&	MateriaSource::operator=(const MateriaSource& toCopy)
 {
 	(void)toCopy;
 	std::cout << BOLD PY "[Copy assignment operator]" RESET << " called"
@@ -32,8 +32,19 @@ IMateriaSource&		IMateriaSource::operator=(const IMateriaSource& toCopy)
 	return (*this);
 }
 
-IMateriaSource::~IMateriaSource()
+MateriaSource::~MateriaSource()
 {
-	std::cout << BOLD ORANGE "[IMateriaSource]" RESET ORANGE " destroyed"
+	std::cout << BOLD ORANGE "[MateriaSource]" RESET ORANGE " destroyed"
 			  << RESET << std::endl;
+}
+
+void	MateriaSource::learnMateria(AMateria*)
+{
+	
+}
+
+AMateria*	MateriaSource::createMateria(std::string const& type)
+{
+	if (type != "ice" || type != "cure")
+		return (0);
 }

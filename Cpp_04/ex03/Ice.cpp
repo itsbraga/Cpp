@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:28:56 by panther           #+#    #+#             */
-/*   Updated: 2025/05/15 18:52:56 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/16 15:19:54 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 Ice::Ice() : AMateria("ice")
 {
-	std::cout << BOLD PURPLE "[" << this->_type << "]" RESET PURPLE " created"
+	std::cout << BOLD BLUE "[" << this->_type << "]" RESET BLUE " created"
 			  << RESET << std::endl;
 }
 
 Ice::Ice(const Ice& toCopy) : AMateria(toCopy)
 {
 	this->_type = toCopy._type;
-	std::cout << BOLD PP "[" << this->_type << "]" RESET PP " copy created"
+	std::cout << BOLD PB "[" << this->_type << "]" RESET PB " copy created"
 			  << RESET << std::endl;
 }
 
@@ -34,7 +34,7 @@ Ice&	Ice::operator=(const Ice& toCopy)
 
 Ice::~Ice()
 {
-	std::cout << BOLD ORANGE "[" << this->_type << "]" RESET ORANGE " destroyed"
+	std::cout << BOLD RED "[" << this->_type << "]" RESET RED " destroyed"
 			  << RESET << std::endl;
 }
 

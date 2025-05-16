@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/15 18:14:26 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/16 15:55:04 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 int	main(void)
 {
 	// Animal test();
+
 	std::cout << BOLD "________________ MAIN FROM PROJECT ________________\n"
 			  << RESET << std::endl;
 	const Animal*	a = new Dog();

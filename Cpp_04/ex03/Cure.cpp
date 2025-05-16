@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:28:56 by panther           #+#    #+#             */
-/*   Updated: 2025/05/15 18:52:27 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/16 15:19:36 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 Cure::Cure() : AMateria("cure")
 {
-	std::cout << BOLD PGG "[" << this->_type << "]" RESET PGG " created"
+	std::cout << BOLD BLUE "[" << this->_type << "]" RESET BLUE " created"
 			  << RESET << std::endl;
 }
 
 Cure::Cure(const Cure& toCopy) : AMateria(toCopy)
 {
 	this->_type = toCopy._type;
-	std::cout << BOLD PG "[" << this->_type << "]" RESET PG " copy created"
+	std::cout << BOLD PB "[" << this->_type << "]" RESET PB " copy created"
 			  << RESET << std::endl;
 }
 
@@ -34,7 +34,7 @@ Cure&	Cure::operator=(const Cure& toCopy)
 
 Cure::~Cure()
 {
-	std::cout << BOLD PO "[" << this->_type << "]" RESET PO " destroyed"
+	std::cout << BOLD RED "[" << this->_type << "]" RESET RED " destroyed"
 			  << RESET << std::endl;
 }
 

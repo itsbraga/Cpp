@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.cpp                                     :+:      :+:    :+:   */
+/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/15 20:24:40 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/16 15:08:45 by annabrag         ###   ########.fr       */
+/*   Created: 2025/05/15 22:15:13 by annabrag          #+#    #+#             */
+/*   Updated: 2025/05/16 15:33:05 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ICharacter.hpp"
+#include "IMateriaSource.hpp"
 
-ICharacter::ICharacter()
+IMateriaSource::IMateriaSource()
 {
-	std::cout << BOLD HOT_PINK "[ICharacter]" RESET HOT_PINK " created"
+	std::cout << BOLD DARK_SAND "[IMateriaSource]" RESET DARK_SAND " created"
 			  << RESET << std::endl;
 }
 
-ICharacter::ICharacter(const ICharacter& toCopy)
+IMateriaSource::IMateriaSource(const IMateriaSource& toCopy)
 {
-	std::cout << BOLD PINK "[ICharacter]" RESET PINK " copy created"
+	std::cout << BOLD SAND "[IMateriaSource]" RESET SAND " copy created"
 			  << RESET << std::endl;
 }
 
-ICharacter&		ICharacter::operator=(const ICharacter& toCopy)
+IMateriaSource&		IMateriaSource::operator=(const IMateriaSource& toCopy)
 {
 	(void)toCopy;
 	std::cout << BOLD PY "[Copy assignment operator]" RESET << " called"
@@ -32,8 +32,8 @@ ICharacter&		ICharacter::operator=(const ICharacter& toCopy)
 	return (*this);
 }
 
-ICharacter::~ICharacter()
+IMateriaSource::~IMateriaSource()
 {
-	std::cout << BOLD LIGHT_GRAY2 "[ICharacter]" RESET LIGHT_GRAY2 " destroyed"
+	std::cout << BOLD ORANGE "[IMateriaSource]" RESET ORANGE " destroyed"
 			  << RESET << std::endl;
 }
