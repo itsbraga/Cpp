@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:44:45 by panther           #+#    #+#             */
-/*   Updated: 2025/05/16 15:37:01 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/19 15:27:13 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define MATERIASOURCE_HPP
 
 # include "IMateriaSource.hpp"
-# define MAX 4
+# define MAX_ITEMS 4
 
 /******************************************************************************\
  * CLASS
@@ -23,7 +23,7 @@
 class MateriaSource : public IMateriaSource
 {
 	private:
-			AMateria*	_tab[MAX];
+			AMateria*	_inventory[MAX_ITEMS];
 
 	public:
 			MateriaSource();
@@ -31,7 +31,7 @@ class MateriaSource : public IMateriaSource
 			MateriaSource&		operator=(const MateriaSource& toCopy);
 			virtual ~MateriaSource();
 
-			void		learnMateria(AMateria*);
+			void		learnMateria(AMateria* m);
 			AMateria*	createMateria(std::string const& type);
 };
 

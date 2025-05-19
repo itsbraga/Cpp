@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:15:13 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/16 15:38:04 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/19 15:27:53 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,18 @@ MateriaSource::~MateriaSource()
 			  << RESET << std::endl;
 }
 
-void	MateriaSource::learnMateria(AMateria*)
+void	MateriaSource::learnMateria(AMateria* m)
 {
-	
+	if (m == nullptr)
+		return ;
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i] == nullptr)
+		{
+			_inventory[i] = m;
+			return ;
+		}
+	}
 }
 
 AMateria*	MateriaSource::createMateria(std::string const& type)
