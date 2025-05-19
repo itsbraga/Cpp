@@ -24,8 +24,8 @@ DFLAGS		=	-MMD -MP
 #	SOURCES
 #******************************************************************************#
 
-SRCS		=	main.cpp AMateria.cpp ICharacter.cpp Character.cpp Cure.cpp
-				Ice.cpp MateriaSource.cpp
+SRCS		=	main.cpp AMateria.cpp ICharacter.cpp Character.cpp Cure.cpp \
+				Ice.cpp IMateriaSource.cpp MateriaSource.cpp
 
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 00:49:34 by panther           #+#    #+#             */
-/*   Updated: 2025/05/19 15:29:21 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/19 16:24:03 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@
  * CLASS
 \******************************************************************************/
 
+class ICharacter;
+
 class Character : public ICharacter
 {
 	private:
 			std::string		_name;
-			un
+			unsigned int	_count;
 			AMateria*		_inventory[MAX_ITEMS];
 
 	public:

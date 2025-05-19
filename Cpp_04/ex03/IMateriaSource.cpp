@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:15:13 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/16 15:33:05 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/19 16:25:59 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ IMateriaSource::IMateriaSource()
 
 IMateriaSource::IMateriaSource(const IMateriaSource& toCopy)
 {
+	(void)toCopy;
 	std::cout << BOLD SAND "[IMateriaSource]" RESET SAND " copy created"
 			  << RESET << std::endl;
 }

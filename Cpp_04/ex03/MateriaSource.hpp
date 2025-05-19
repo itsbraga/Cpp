@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:44:45 by panther           #+#    #+#             */
-/*   Updated: 2025/05/19 15:27:13 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/19 16:03:51 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 class MateriaSource : public IMateriaSource
 {
 	private:
-			AMateria*	_inventory[MAX_ITEMS];
+			unsigned int	_count;
+			AMateria*		_inventory[MAX_ITEMS];
 
 	public:
 			MateriaSource();

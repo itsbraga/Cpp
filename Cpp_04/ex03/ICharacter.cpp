@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 20:24:40 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/16 15:08:45 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/19 16:26:12 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ ICharacter::ICharacter()
 
 ICharacter::ICharacter(const ICharacter& toCopy)
 {
+	(void)toCopy;
 	std::cout << BOLD PINK "[ICharacter]" RESET PINK " copy created"
 			  << RESET << std::endl;
 }

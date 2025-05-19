@@ -6,10 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:28:56 by panther           #+#    #+#             */
-/*   Updated: 2025/05/16 15:19:54 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/19 16:26:48 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ICharacter.hpp"
 #include "Ice.hpp"
 
 Ice::Ice() : AMateria("ice")

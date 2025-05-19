@@ -6,21 +6,22 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:17:49 by panther           #+#    #+#             */
-/*   Updated: 2025/05/16 15:23:54 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/19 16:30:20 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ICharacter.hpp"
 #include "AMateria.hpp"
 
 AMateria::AMateria(std::string const& type) : _type(type)
 {
-	std::cout << BOLD BLUE "[AMateria]" << this->_type << RESET BLUE " created"
-			  << RESET << std::endl;
+	std::cout << BOLD BLUE "[AMateria " UNDERLINE << this->_type << RESET "]"
+			  << BLUE " created" RESET << std::endl;
 }
 
 AMateria::AMateria(const AMateria& toCopy) : _type(toCopy._type)
 {
-	std::cout << BOLD PB "[AMateria " << this->_type << "]" RESET
+	std::cout << BOLD PB "[AMateria " UNDERLINE << this->_type << RESET "]"
 			  << PB " copy created" RESET << std::endl;
 }
 
@@ -53,7 +54,7 @@ void	AMateria::use(ICharacter& target)
 	}
 	else if (this->_type == "cure")
 	{
-		std::cout << "* heals " << target.getName() << "’s wounds *"
+		std::cout << "* heals " << target.getName() << "'s wounds *"
 				  << std::endl;
 	}
 }

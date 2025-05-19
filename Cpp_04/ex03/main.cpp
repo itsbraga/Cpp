@@ -6,11 +6,12 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:46:02 by panther           #+#    #+#             */
-/*   Updated: 2025/05/15 22:32:37 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/19 16:25:00 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
+#include "Character.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
