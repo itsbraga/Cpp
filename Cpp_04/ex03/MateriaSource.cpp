@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmateo <pmateo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:15:13 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/19 16:03:38 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/20 17:04:29 by pmateo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 MateriaSource::MateriaSource() : IMateriaSource(), _count(0)
 {
 	for (int i = 0; i < 4; i++)
-		this->_inventory[i] = NULL;
+		this->_inventory[i] = nullptr;
 	std::cout << BOLD DARK_SAND "[MateriaSource]" RESET DARK_SAND " created"
 			  << RESET << std::endl;
 }
@@ -25,10 +25,10 @@ MateriaSource::MateriaSource(const MateriaSource& toCopy) : IMateriaSource(toCop
 {
 	// for (int i = 0; i < 4; i++)
 	// {
-	// 	if (toCopy._inventory[i] != NULL)
+	// 	if (toCopy._inventory[i] != nullptr)
 	// 		this->_inventory[i] = toCopy._inventory[i]->clone();
 	// 	else
-	// 		this->_inventory[i] = NULL;
+	// 		this->_inventory[i] = nullptr;
 	// }
 	std::cout << BOLD SAND "[MateriaSource]" RESET SAND " copy created"
 			  << RESET << std::endl;
@@ -42,18 +42,18 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& toCopy)
 		this->_count = toCopy._count;
 		for (int i = 0; i < 4; i++)
 		{
-			if (this->_inventory[i] != NULL)
+			if (this->_inventory[i] != nullptr)
 			{
 				delete this->_inventory[i];
-				this->_inventory[i] = NULL;
+				this->_inventory[i] = nullptr;
 			}
 		}
 		for (int i = 0; i < 4; i++)
 		{
-			if (toCopy._inventory[i] != NULL)
+			if (toCopy._inventory[i] != nullptr)
 				this->_inventory[i] = toCopy._inventory[i]->clone();
 			else
-				this->_inventory[i] = NULL;
+				this->_inventory[i] = nullptr;
 		}
 	}
 	std::cout << BOLD PY "[Copy assignment operator]" RESET << " called"
@@ -69,11 +69,11 @@ MateriaSource::~MateriaSource()
 
 void	MateriaSource::learnMateria(AMateria* m)
 {
-	if (m == NULL || this->_count == 4)
+	if (m == nullptr || this->_count == 4)
 		return ;
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i] == NULL)
+		if (this->_inventory[i] == nullptr)
 		{
 			this->_inventory[i] = m;
 			this->_count++;
@@ -87,7 +87,7 @@ AMateria*	MateriaSource::createMateria(std::string const& type)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i] != NULL && this->_inventory[i]->getType() == type)
+		if (this->_inventory[i] != nullptr && this->_inventory[i]->getType() == type)
 			return (this->_inventory[i]->clone());
 	}
 	return (0);

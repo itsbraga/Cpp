@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pmateo <pmateo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 21:51:18 by panther           #+#    #+#             */
-/*   Updated: 2025/04/28 23:26:11 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/05/20 16:45:43 by pmateo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void	Zombie::announce()
 
 void	Zombie::setName(std::string name)
 {
-	if (name.empty() == false)
-		this->_name = name;
+	if (name.empty() == true)
+		return ;
+	this->_name = name;
 }
 
 const std::string	Zombie::getName() const

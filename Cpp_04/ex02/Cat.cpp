@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmateo <pmateo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/16 19:50:38 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/20 16:54:29 by pmateo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ Cat&	Cat::operator=(const Cat& toCopy)
 	{
 		Animal::operator=(toCopy);
 		delete this->_Brain;
+		// this->_Brain = nullptr;
 		this->_Brain = new Brain(*toCopy._Brain);
 	}
 	return (*this);
@@ -42,6 +43,7 @@ Cat&	Cat::operator=(const Cat& toCopy)
 Cat::~Cat()
 {
 	delete this->_Brain;
+	this->_Brain = nullptr;
 	std::cout << BOLD PO "[" << this->_type << "]" RESET PO " destroyed"
 			  << RESET << std::endl;
 }

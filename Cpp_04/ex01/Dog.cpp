@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmateo <pmateo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/16 19:50:47 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/20 16:53:21 by pmateo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ Dog&	Dog::operator=(const Dog& toCopy)
 	{
 		Animal::operator=(toCopy);
 		delete this->_Brain;
+		// this->_Brain = nullptr;
 		this->_Brain = new Brain(*toCopy._Brain);
 	}
 	return (*this);
@@ -42,6 +43,7 @@ Dog&	Dog::operator=(const Dog& toCopy)
 Dog::~Dog()
 {
 	delete this->_Brain;
+	this->_Brain = nullptr;
 	std::cout << BOLD ORANGE "[" << this->_type << "]" RESET ORANGE " destroyed"
 			  << RESET << std::endl;
 }

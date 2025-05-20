@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmateo <pmateo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:46:02 by panther           #+#    #+#             */
-/*   Updated: 2025/05/19 16:25:00 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/20 17:03:34 by pmateo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ int main(void)
 	me->use(1, *bob);
 
 	delete bob;
+	bob = nullptr;
 	delete me;
+	me = nullptr;
 	delete src;
+	src = nullptr;
 	return (SUCCESS);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pmateo <pmateo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 01:37:01 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:38:46 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/20 17:04:04 by pmateo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : _name(name), _weapon(NULL)
+HumanB::HumanB(std::string name) : _name(name), _weapon(nullptr)
 {
 	std::cout << BOLD PINK "HUMAN_B" PG " [Constructor] " RESET << "called"
 			  << std::endl;
@@ -26,7 +26,7 @@ HumanB::~HumanB()
 
 void	HumanB::attack()
 {
-	if (this->_weapon != NULL)
+	if (this->_weapon != nullptr)
 		std::cout << this->_name << " attacks with their "
 				  << this->_weapon->getType() << std::endl;
 	else
