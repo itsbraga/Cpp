@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 20:25:33 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 21:08:08 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,37 @@ Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name
 		throw GradeTooHighException();
 	else if (this->_grade > 150)
 		throw GradeTooLowException();
-	std::cout << BOLD BLUE "[Bureaucrat " UNDERLINE << this->_name << "]" RESET
-			  << BLUE " created" RESET << std::endl;
+	std::cout << BOLD HOT_PINK "[Bureaucrat " UNDERLINE << this->_name << RESET
+			  << BOLD HOT_PINK "]" RESET << HOT_PINK " created" RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& toCopy) : _name(toCopy._name), _grade(toCopy._grade)
 {
-	std::cout << BOLD PB "[Bureaucrat " UNDERLINE << this->_name << "]" RESET
-			  << PB " copy created" RESET << std::endl;
+	std::cout << BOLD PINK "[Bureaucrat " UNDERLINE << this->_name << RESET
+			  << BOLD PINK "]" RESET << PINK " copy created" RESET << std::endl;
 }
 
 Bureaucrat&		Bureaucrat::operator=(const Bureaucrat& toCopy)
 {
+	if (this != &toCopy)
+		this->_grade = toCopy._grade;
 	std::cout << BOLD PY "[Copy assignment operator]" RESET << " called" << std::endl;
+	return (*this);
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << BOLD RED "[Bureaucrat " UNDERLINE << this->_name << "]" RESET
-			  << RED " destroyed" RESET << std::endl;
+	std::cout << BOLD PO "[Bureaucrat " UNDERLINE << this->_name << RESET
+			  << BOLD PO "]" RESET << PO " destroyed" RESET << std::endl;
+}
+
+/*
+	----------------------------- [ Stream ] -----------------------------
+*/
+std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
+{
+	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
+	return (os);
 }
 
 /*
@@ -47,8 +59,10 @@ Bureaucrat::~Bureaucrat()
 */
 void	Bureaucrat::setGrade(unsigned int grade)
 {
-	// if (grade < 0 || grade > 150)
-	// 	return ;
+	if (this->_grade < 1)
+		throw GradeTooHighException();
+	else if (this->_grade > 150)
+		throw GradeTooLowException();
 	this->_grade = grade;
 }
 
@@ -80,10 +94,14 @@ const char*		Bureaucrat::GradeTooLowException::what() const throw()
 */
 void	Bureaucrat::getPromoted()
 {
+	if (this->_grade <= 1)
+		throw GradeTooHighException();
 	this->_grade--;
 }
 
 void	Bureaucrat::getDemoted()
 {
+	if (this->_grade >= 150)
+		throw GradeTooLowException();
 	this->_grade++;
 }

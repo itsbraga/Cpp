@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:14:07 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 20:36:20 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:48:01 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Bureaucrat
 			Bureaucrat(const Bureaucrat& toCopy);
 			Bureaucrat&		operator=(const Bureaucrat& toCopy);
 			~Bureaucrat();
-			
+
 			void					setGrade(unsigned int grade);
 			const std::string&		getName() const;
 			const unsigned int&		getGrade() const;
@@ -56,5 +56,11 @@ class Bureaucrat
 			void					getPromoted();
 			void					getDemoted();
 };
+
+/******************************************************************************\
+ * FUNCTIONS
+\******************************************************************************/
+
+std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif
