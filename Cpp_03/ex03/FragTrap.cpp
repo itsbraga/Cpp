@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 18:56:05 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:10:36 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/21 20:26:22 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	this->_hitPoints = 100;
@@ -40,6 +43,9 @@ FragTrap::~FragTrap()
 			  << PO " destroyed" RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Getters ] ----------------------------
+*/
 const int&	FragTrap::get_hitPoints() const
 {
 	return (this->_hitPoints);
@@ -50,6 +56,9 @@ const int&	FragTrap::get_energyPoints() const
 	return (this->_energyPoints);
 }
 
+/*
+	------------------------- [ Main functions ] -------------------------
+*/
 void	FragTrap::attack(const std::string& target)
 {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0)

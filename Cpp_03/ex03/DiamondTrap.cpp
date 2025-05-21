@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 18:56:05 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:10:28 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/21 20:26:19 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"),
 												ScavTrap(name),
 												FragTrap(name),
@@ -46,6 +49,9 @@ DiamondTrap::~DiamondTrap()
 			  << PO " destroyed" RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Getters ] ----------------------------
+*/
 const int&	DiamondTrap::get_hitPoints() const
 {
 	return (this->_hitPoints);
@@ -56,6 +62,9 @@ const int&	DiamondTrap::get_energyPoints() const
 	return (this->_energyPoints);
 }
 
+/*
+	------------------------- [ Main functions ] -------------------------
+*/
 void	DiamondTrap::attack(const std::string& target)
 {
 	ScavTrap::attack(target);

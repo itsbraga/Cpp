@@ -6,13 +6,16 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:28:56 by panther           #+#    #+#             */
-/*   Updated: 2025/05/19 16:26:48 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:20:43 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
 #include "Ice.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 Ice::Ice() : AMateria("ice")
 {
 	std::cout << BOLD BLUE "[" << this->_type << "]" RESET BLUE " created"
@@ -39,6 +42,9 @@ Ice::~Ice()
 			  << RESET << std::endl;
 }
 
+/*
+	------------------------- [ Main functions ] -------------------------
+*/
 AMateria*	Ice::clone() const
 {
 	return (new Ice(*this));

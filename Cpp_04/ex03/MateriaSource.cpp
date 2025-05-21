@@ -6,12 +6,15 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:15:13 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 17:39:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:20:31 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 MateriaSource::MateriaSource() : IMateriaSource(), _count(0)
 {
 	for (int i = 0; i < 4; i++)
@@ -67,6 +70,9 @@ MateriaSource::~MateriaSource()
 			  << RESET << std::endl;
 }
 
+/*
+	------------------------- [ Main functions ] -------------------------
+*/
 void	MateriaSource::learnMateria(AMateria* m)
 {
 	if (m == NULL || this->_count == 4)

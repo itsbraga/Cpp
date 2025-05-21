@@ -6,12 +6,15 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:35:19 by panther           #+#    #+#             */
-/*   Updated: 2025/05/15 22:05:18 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:27:46 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 Animal::Animal()
 {
 	this->_type = "None";
@@ -40,6 +43,9 @@ Animal::~Animal()
 			  << "]" RESET RED " destroyed" RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Getter ] -----------------------------
+*/
 const std::string&	Animal::getType() const
 {
 	return (this->_type);

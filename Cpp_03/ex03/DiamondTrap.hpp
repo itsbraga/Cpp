@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:09:07 by panther           #+#    #+#             */
-/*   Updated: 2025/05/15 20:12:18 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:32:24 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 
 			const int&		get_hitPoints() const;
 			const int&		get_energyPoints() const;
+
 			void			attack(const std::string& target);
 			void			takeDamage(unsigned int amount);
 			void			beRepaired(unsigned int amount);

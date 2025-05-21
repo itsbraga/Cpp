@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:35:19 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:03:47 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/21 20:26:59 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 WrongAnimal::WrongAnimal()
 {
 	this->_type = "None";
@@ -38,11 +41,17 @@ WrongAnimal::~WrongAnimal()
 			  << RED " destroyed" RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Getter ] -----------------------------
+*/
 const std::string&	WrongAnimal::getType() const
 {
 	return (this->_type);
 }
 
+/*
+	------------------------- [ Main function ] --------------------------
+*/
 void	WrongAnimal::makeSound() const
 {
 	std::cout << LIGHT_GRAY2 ITAL "Meeeuuuh 🐮" RESET << std::endl;

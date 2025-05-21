@@ -6,13 +6,16 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 20:24:40 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 17:39:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:28:16 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
 #include "Character.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 Character::Character(const std::string& name) : ICharacter(),
 												_name(name), _count(0)
 {
@@ -78,11 +81,17 @@ Character::~Character()
 			  << LIGHT_GRAY2 " destroyed" RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Getter ] -----------------------------
+*/
 std::string const&	Character::getName() const
 {
 	return (this->_name);
 }
 
+/*
+	------------------------- [ Main functions ] -------------------------
+*/
 void	Character::equip(AMateria* m)
 {
 	if (m == NULL || this->_count == 4)

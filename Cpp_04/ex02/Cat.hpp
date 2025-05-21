@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:57 by panther           #+#    #+#             */
-/*   Updated: 2025/05/15 20:20:41 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:35:09 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 
 class Cat : public Animal
 {
+	private:
+			Brain*	_Brain;
+
 	public:
 
 		Cat();
@@ -30,13 +33,9 @@ class Cat : public Animal
 		~Cat();
 
 		const std::string&	getType() const;
-		void				makeSound() const;
 		Brain*				getBrain() const;
 
-
-	private:
-
-		Brain*	_Brain;
+		void				makeSound() const;
 };
 
 #endif

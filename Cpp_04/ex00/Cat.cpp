@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:03:16 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/21 20:26:49 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 Cat::Cat() : Animal()
 {
 	this->_type = "Cat";
@@ -38,11 +41,17 @@ Cat::~Cat()
 			  << RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Getter ] -----------------------------
+*/
 const std::string&	Cat::getType() const
 {
 	return (this->_type);
 }
 
+/*
+	------------------------- [ Main function ] --------------------------
+*/
 void	Cat::makeSound() const
 {
 	std::cout << PP "[Cat] " RESET "Meooow... 🐱" << std::endl;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/20 15:14:07 by annabrag          #+#    #+#             */
+/*   Updated: 2025/05/21 20:36:20 by annabrag         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_H
 # define BUREAUCRAT_H
 
@@ -26,23 +38,23 @@ class Bureaucrat
 			Bureaucrat(const Bureaucrat& toCopy);
 			Bureaucrat&		operator=(const Bureaucrat& toCopy);
 			~Bureaucrat();
-
-			void					getPromoted();
-			void					getDemoted();
-
+			
 			void					setGrade(unsigned int grade);
 			const std::string&		getName() const;
 			const unsigned int&		getGrade() const;
-
+			
 			class GradeTooHighException : public std::exception
 			{
 				const char*		what() const throw();
 			};
-
+			
 			class GradeTooLowException : public std::exception
 			{
 				const char*		what() const throw();
 			};
+			
+			void					getPromoted();
+			void					getDemoted();
 };
 
 #endif

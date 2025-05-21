@@ -6,13 +6,16 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:28:56 by panther           #+#    #+#             */
-/*   Updated: 2025/05/19 16:30:29 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:20:50 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
 #include "Cure.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 Cure::Cure() : AMateria("cure")
 {
 	std::cout << BOLD BLUE "[" << this->_type << "]" RESET BLUE " created"
@@ -39,6 +42,9 @@ Cure::~Cure()
 			  << RESET << std::endl;
 }
 
+/*
+	------------------------- [ Main functions ] -------------------------
+*/
 AMateria*	Cure::clone() const
 {
 	return (new Cure(*this));

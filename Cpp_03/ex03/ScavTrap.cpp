@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:08:54 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:10:44 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/21 20:26:26 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	this->_hitPoints = 100;
@@ -40,6 +43,9 @@ ScavTrap::~ScavTrap()
 			  << PO " destroyed" RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Getters ] ----------------------------
+*/
 const int&	ScavTrap::get_hitPoints() const
 {
 	return (this->_hitPoints);
@@ -50,6 +56,9 @@ const int&	ScavTrap::get_energyPoints() const
 	return (this->_energyPoints);
 }
 
+/*
+	------------------------- [ Main functions ] -------------------------
+*/
 void	ScavTrap::attack(const std::string& target)
 {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0)

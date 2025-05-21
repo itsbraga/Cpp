@@ -6,12 +6,15 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 17:39:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:27:28 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 Cat::Cat() : Animal()
 {
 	this->_type = "Cat";
@@ -48,17 +51,23 @@ Cat::~Cat()
 			  << RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Getters ] ----------------------------
+*/
 const std::string&	Cat::getType() const
 {
 	return (this->_type);
 }
 
-void	Cat::makeSound() const
-{
-	std::cout << PP "[Cat] " RESET "Meooow... 🐱" << std::endl;
-}
-
 Brain*	Cat::getBrain() const
 {
 	return (this->_Brain);
+}
+
+/*
+	------------------------- [ Main function ] --------------------------
+*/
+void	Cat::makeSound() const
+{
+	std::cout << PP "[Cat] " RESET "Meooow... 🐱" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 17:38:47 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:31:46 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 
 			void		setRawBits(const int raw);
 			const int&	getRawBits() const;
+
 			float		toFloat() const;
 			int			toInt() const;
 

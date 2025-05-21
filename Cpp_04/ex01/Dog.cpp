@@ -6,12 +6,15 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 17:39:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:27:35 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 Dog::Dog() : Animal()
 {
 	this->_type = "Dog";
@@ -48,17 +51,23 @@ Dog::~Dog()
 			  << RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Getters ] ----------------------------
+*/
 const std::string&	Dog::getType() const
 {
 	return (this->_type);
 }
 
-void	Dog::makeSound() const
-{
-	std::cout << PURPLE "[Dog] " RESET "Woof woof 🐶" << std::endl;
-}
-
 Brain*	Dog::getBrain() const
 {
 	return (this->_Brain);
+}
+
+/*
+	------------------------- [ Main function ] --------------------------
+*/
+void	Dog::makeSound() const
+{
+	std::cout << PURPLE "[Dog] " RESET "Woof woof 🐶" << std::endl;
 }

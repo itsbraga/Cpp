@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:57 by panther           #+#    #+#             */
-/*   Updated: 2025/05/15 20:20:32 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:34:28 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,19 @@
 
 class Dog : public Animal
 {
-	public:
-
-		Dog();
-		Dog(const Dog& toCopy);
-		Dog&	operator=(const Dog& toCopy);
-		~Dog();
-
-		const std::string&	getType() const;
-		void				makeSound() const;
-		Brain*				getBrain() const;
-
-
 	private:
+			Brain*	_Brain;
 
-		Brain*	_Brain;
+	public:
+			Dog();
+			Dog(const Dog& toCopy);
+			Dog&	operator=(const Dog& toCopy);
+			~Dog();
+
+			const std::string&	getType() const;
+			Brain*				getBrain() const;
+
+			void				makeSound() const;
 };
 
 #endif

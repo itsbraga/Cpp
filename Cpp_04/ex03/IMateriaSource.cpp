@@ -6,12 +6,15 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:15:13 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/19 16:25:59 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:12:26 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "IMateriaSource.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 IMateriaSource::IMateriaSource()
 {
 	std::cout << BOLD DARK_SAND "[IMateriaSource]" RESET DARK_SAND " created"

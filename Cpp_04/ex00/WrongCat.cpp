@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:03:57 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/21 20:27:02 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 WrongCat::WrongCat() : WrongAnimal()
 {
 	this->_type = "WrongCat";
@@ -38,11 +41,17 @@ WrongCat::~WrongCat()
 			  << RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Getter ] -----------------------------
+*/
 const std::string&	WrongCat::getType() const
 {
 	return (this->_type);
 }
 
+/*
+	------------------------- [ Main function ] --------------------------
+*/
 void	WrongCat::makeSound() const
 {
 	std::cout << PP "[WrongCat] " RESET "Roaaarrr 🦁" << std::endl;

@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/14 01:03:28 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/21 20:26:54 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 Dog::Dog() : Animal()
 {
 	this->_type = "Dog";
@@ -38,11 +41,17 @@ Dog::~Dog()
 			  << RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Getter ] -----------------------------
+*/
 const std::string&	Dog::getType() const
 {
 	return (this->_type);
 }
 
+/*
+	------------------------- [ Main function ] --------------------------
+*/
 void	Dog::makeSound() const
 {
 	std::cout << PURPLE "[Doggie] " RESET "Woof woof 🐶" << std::endl;

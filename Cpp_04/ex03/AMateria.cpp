@@ -6,13 +6,16 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:17:49 by panther           #+#    #+#             */
-/*   Updated: 2025/05/19 16:30:20 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:28:07 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 AMateria::AMateria(std::string const& type) : _type(type)
 {
 	std::cout << BOLD BLUE "[AMateria " UNDERLINE << this->_type << RESET "]"
@@ -40,11 +43,17 @@ AMateria::~AMateria()
 			  << RED "]" RESET RED " destroyed" RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Getter ] -----------------------------
+*/
 const std::string&	AMateria::getType() const
 {
 	return (this->_type);
 }
 
+/*
+	------------------------- [ Main function ] --------------------------
+*/
 void	AMateria::use(ICharacter& target)
 {
 	if (this->_type == "ice")

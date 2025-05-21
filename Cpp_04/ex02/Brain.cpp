@@ -6,12 +6,15 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 05:05:23 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 18:58:03 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:29:20 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 Brain::Brain()
 {
 	for (int i = 0; i < 100; i++)
@@ -45,6 +48,9 @@ Brain::~Brain()
 	std::cout << BOLD PY "[Brain]" RESET PY " destroyed" RESET << std::endl;
 }
 
+/*
+	------------------------- [ Setter & Getter ] ------------------------
+*/
 void	Brain::setIdea(unsigned int i, std::string idea)
 {
 	if (idea.empty() == true)

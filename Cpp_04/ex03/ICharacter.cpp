@@ -6,12 +6,15 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 20:24:40 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/19 16:26:12 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:12:23 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 ICharacter::ICharacter()
 {
 	std::cout << BOLD HOT_PINK "[ICharacter]" RESET HOT_PINK " created"

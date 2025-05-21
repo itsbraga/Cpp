@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:31:30 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 17:38:47 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 20:32:40 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class Animal
 			virtual ~Animal();
 
 			const std::string&	getType() const;
+
 			virtual void		makeSound() const;
 };
 
