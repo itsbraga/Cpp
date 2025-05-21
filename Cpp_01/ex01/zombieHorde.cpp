@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 00:27:58 by panther           #+#    #+#             */
-/*   Updated: 2025/05/20 17:13:12 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 19:17:16 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 Zombie*	zombieHorde(int N, std::string name)
 {
+	if (N < 0 || N > 2147483647 || name.empty() == true)
+		return (NULL);
+
 	Zombie*	zombies = new Zombie[N];
 
 	for (int i = 0; i < N; i++)

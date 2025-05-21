@@ -16,7 +16,7 @@ PURPLE		:=	\e[38;2;224;176;255m
 
 NAME		=	Replace
 CPP			=	c++
-CPPFLAG		=	-Wall -Wextra -Werror -std=c++98 -g3
+CPPFLAG		=	-Wall -Wextra -Werror -std=c++98
 DFLAGS		=	-MMD -MP
 
 #******************************************************************************#
@@ -53,6 +53,7 @@ clean:
 fclean:	clean
 			rm -rf $(NAME)
 			find . -name "*.replace" -type f -delete
+			find . -name "*.txt" -type f -delete
 			@printf "$(BOLD)$(CYAN)[execs]: $(RESET)Removed executable & all .replace files!\n\n"
 
 re:	fclean all

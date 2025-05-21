@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 21:06:09 by panther           #+#    #+#             */
-/*   Updated: 2025/04/29 00:05:28 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/05/21 18:51:47 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 	{
 		std::cerr << BOLD RED "Error" PY << std::endl;
 		std::cout << "Usage: " RESET << argv[0] << " <level>" << std::endl;
+		showMenu();
 		return (FAILURE);
 	}
 	Harl.filter(argv[1]);
