@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/20 17:13:40 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 17:39:24 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 						on n'est pas sûr du type.
 
 		dynamic_cast :	Conversion à l'exécution. Plus lent mais vérifie le
-						type réel de l'objet. Retourne nullptr si la conversion
+						type réel de l'objet. Retourne NULL si la conversion
 						échoue.
 
 	Ici, on utilise dynamic_cast car :
@@ -44,9 +44,9 @@ int	main(void)
 	std::cout << BOLD "\n-----[ Destroying a and b ]-----\n" << RESET
 			  << std::endl;
 	delete a; //should not create a leak
-	a = nullptr;
+	a = NULL;
 	delete b;
-	b = nullptr;
+	b = NULL;
 
 	std::cout << BOLD "\n\n\n_____________________ MY MAIN ______________________\n"
 			  << RESET << std::endl;
@@ -61,7 +61,7 @@ int	main(void)
 	}
 
 	std::cout << BOLD "\n\n-----[ Testing Deep Copy ]-----\n" << std::endl;
-	if (Animals[0] != nullptr)
+	if (Animals[0] != NULL)
 	{
 		std::cout << UNDERLINE "  > firstDog" RESET << std::endl;
 		Dog*	firstDog = dynamic_cast<Dog*>(Animals[0]);
@@ -99,7 +99,7 @@ int	main(void)
 		}
 	}
 
-	if (Animals[1] != nullptr)
+	if (Animals[1] != NULL)
 	{
 		std::cout << BOLD UNDERLINE "\n\n  > firstCat" RESET << std::endl;
 		Cat*	firstCat = dynamic_cast<Cat*>(Animals[1]);
@@ -135,7 +135,7 @@ int	main(void)
 			std::cout << ITAL "\nDestroying copy cat... " LIGHT_GRAY2
 					  << "_heap_" RESET << std::endl;
 			delete copyCat;
-			copyCat = nullptr;
+			copyCat = NULL;
 		}
 	}
 	
@@ -144,7 +144,7 @@ int	main(void)
 	for (int j = 0; j < 10; j++)
 	{
 		delete Animals[j];
-		Animals[j] = nullptr;
+		Animals[j] = NULL;
 	}
 	return (SUCCESS);
 }

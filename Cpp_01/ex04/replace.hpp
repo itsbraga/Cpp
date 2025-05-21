@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 02:40:05 by panther           #+#    #+#             */
-/*   Updated: 2025/04/24 14:30:17 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 17:38:47 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <cstdlib>
 # include <iostream>
 # include <fstream>
-# include "../../colors.hpp"
+# include "../colors.hpp"
 
 # define SUCCESS 0
 # define FAILURE 1

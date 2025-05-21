@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:46:02 by panther           #+#    #+#             */
-/*   Updated: 2025/05/20 17:13:55 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 17:39:24 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ int main(void)
 	me->use(1, *bob);
 
 	delete bob;
-	bob = nullptr;
+	bob = NULL;
 	delete me;
-	me = nullptr;
+	me = NULL;
 	delete src;
-	src = nullptr;
+	src = NULL;
 	return (SUCCESS);
 }

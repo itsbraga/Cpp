@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/15 20:10:51 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 17:38:47 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 \******************************************************************************/
 
 # include <iostream>
-# include "../../colors.hpp"
+# include "../colors.hpp"
 
 # define SUCCESS 0
 # define FAILURE 1

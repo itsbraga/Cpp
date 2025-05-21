@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/20 17:13:43 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 17:39:24 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Cat&	Cat::operator=(const Cat& toCopy)
 	{
 		Animal::operator=(toCopy);
 		delete this->_Brain;
-		// this->_Brain = nullptr;
+		// this->_Brain = NULL;
 		this->_Brain = new Brain(*toCopy._Brain);
 	}
 	return (*this);
@@ -43,7 +43,7 @@ Cat&	Cat::operator=(const Cat& toCopy)
 Cat::~Cat()
 {
 	delete this->_Brain;
-	this->_Brain = nullptr;
+	this->_Brain = NULL;
 	std::cout << BOLD PO "[" << this->_type << "]" RESET PO " destroyed"
 			  << RESET << std::endl;
 }

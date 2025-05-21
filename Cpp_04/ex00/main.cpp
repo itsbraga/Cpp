@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/20 17:13:29 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 17:39:24 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ int	main(void)
 	meta2->makeSound();
 
 	delete i;
-	i = nullptr;
+	i = NULL;
 	delete j;
-	j = nullptr;
+	j = NULL;
 	delete meta;
-	meta = nullptr;
+	meta = NULL;
 
 	delete i2;
-	i2 = nullptr;
+	i2 = NULL;
 	delete meta2;
-	meta2 = nullptr;
+	meta2 = NULL;
 	return (SUCCESS);
 }

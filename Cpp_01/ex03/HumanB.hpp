@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 01:34:28 by panther           #+#    #+#             */
-/*   Updated: 2025/05/15 20:05:58 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/21 17:38:47 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # include <string>
 # include <iostream>
-# include "../../colors.hpp"
+# include "../colors.hpp"
 # include "Weapon.hpp"
 
 /******************************************************************************\
