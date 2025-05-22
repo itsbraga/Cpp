@@ -6,18 +6,18 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 17:01:34 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/22 17:10:23 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 22:54:27 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
-# include "Bureaucrat.hpp"
-
 /******************************************************************************\
  * CLASS
 \******************************************************************************/
+
+class Bureaucrat;
 
 class Form
 {
@@ -48,7 +48,12 @@ class Form
 				const char*		what() const throw();
 			};
 
-			void	beSigned();
+			class AlreadySignedException : public std::exception
+			{
+				const char*		what() const throw();
+			};
+
+			void	beSigned(const Bureaucrat& bureaucrat);
 };
 
 /******************************************************************************\

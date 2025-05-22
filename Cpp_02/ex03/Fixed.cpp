@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:47:57 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/22 19:29:10 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 22:27:20 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Fixed::Fixed(const int nbr)
 	// std::cout << BOLD BLUE "[Int constructor] " RESET << "called" << std::endl;
 	if (nbr <= -8388607 || nbr >= 8388607)
 		throw std::invalid_argument("int is out of range");
-	this->setRawBits(nbr * (1 << _fracBits));
+	Fixed::setRawBits(nbr * (1 << _fracBits));
 }
 
 Fixed::Fixed(const float nbr)
@@ -39,7 +39,7 @@ Fixed::Fixed(const float nbr)
 	// std::cout << BOLD PINK "[Float constructor] " RESET << "called" << std::endl;
 	if (nbr <= -8388607.1 || nbr >= 8388607.1)
 		throw std::invalid_argument("float is out of range");
-	this->setRawBits(roundf(nbr * (1 << _fracBits)));
+	Fixed::setRawBits(roundf(nbr * (1 << _fracBits)));
 }
 
 Fixed&	Fixed::operator=(const Fixed& toCopy)

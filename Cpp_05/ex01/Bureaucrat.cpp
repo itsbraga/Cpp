@@ -6,11 +6,12 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/22 18:22:53 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 22:54:44 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 /*
 	---------------------- [ Object Manipulation ] -----------------------
@@ -25,11 +26,10 @@ Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name
 		throw GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& toCopy)
+Bureaucrat::Bureaucrat(const Bureaucrat& toCopy) : _name(toCopy._name), _grade(toCopy._grade)
 {
 	std::cout << BOLD PINK "[Bureaucrat " UNDERLINE << this->_name << RESET
 			  << BOLD PINK "]" RESET << PINK " copy created" RESET << std::endl;
-	*this = toCopy;
 }
 
 Bureaucrat&		Bureaucrat::operator=(const Bureaucrat& toCopy)
@@ -105,4 +105,18 @@ void	Bureaucrat::getDemoted()
 	if (this->_grade >= 150)
 		throw GradeTooLowException();
 	this->_grade++;
+}
+
+void	Bureaucrat::signForm(Form& form)
+{
+	if (form.getSignatureState() == false)
+	{
+		std::cout << this->_name << " couldn't sign " << form.getName()
+				  << " because its grade is not high enough... The required"
+				  << " grade to sign it is " << form.getRequiredGradeToSign() << std::endl;
+	}
+	else
+		throw Form::AlreadySignedException();
+	form.beSigned(*this);
+	std::cout << this->_name << " signed " << form.getName() << std::endl;
 }

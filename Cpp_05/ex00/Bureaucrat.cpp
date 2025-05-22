@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/22 18:22:44 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 20:08:53 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name
 		throw GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& toCopy)
+Bureaucrat::Bureaucrat(const Bureaucrat& toCopy) : _name(toCopy._name), _grade(toCopy._grade)
 {
 	std::cout << BOLD PINK "[Bureaucrat " UNDERLINE << this->_name << RESET
 			  << BOLD PINK "]" RESET << PINK " copy created" RESET << std::endl;
-	*this = toCopy;
 }
 
 Bureaucrat&		Bureaucrat::operator=(const Bureaucrat& toCopy)
