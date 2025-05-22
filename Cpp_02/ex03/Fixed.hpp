@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 20:31:46 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:20:04 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
  {
 	private:
 			int					_nbr;
-			static const int	_fractionnalBits = 8;
+			static const int	_fracBits = 8;
 
 	public:
 			Fixed();

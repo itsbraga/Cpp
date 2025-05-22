@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 00:49:10 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/22 18:21:49 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:29:38 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ Point::Point(const float x, const float y) : _x(x), _y(y)
 	// std::cout << BOLD PB "[Const float constructor] " RESET << "called" << std::endl;
 }
 
-Point::Point(const Point& toCopy)
+Point::Point(const Point& toCopy) : _x(toCopy._x), _y(toCopy._y)
 {
 	// std::cout << BOLD PGG "[Copy constructor] " RESET << "called" << std::endl;
-	*this = toCopy;
 }
 
 Point&	Point::operator=(const Point& toCopy)

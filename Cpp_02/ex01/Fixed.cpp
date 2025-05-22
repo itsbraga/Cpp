@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:47:57 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/22 18:17:36 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:28:52 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,17 @@ Fixed::Fixed(const Fixed& toCopy)
 Fixed::Fixed(const int nbr)
 {
 	std::cout << BOLD BLUE "[Int constructor] " RESET << "called" << std::endl;
-	Fixed::setRawBits(nbr * (1 << _fractionnalBits)); // 256
+	if (nbr <= -8388607 || nbr >= 8388607)
+		throw std::invalid_argument("int is out of range");
+	this->setRawBits(nbr * (1 << _fracBits)); // 256
 }
 
 Fixed::Fixed(const float nbr)
 {
 	std::cout << BOLD PINK "[Float constructor] " RESET << "called" << std::endl;
-	Fixed::setRawBits(roundf(nbr * (1 << _fractionnalBits))); // 256
+	if (nbr <= -8388607.1 || nbr >= 8388607.1)
+		throw std::invalid_argument("float is out of range");
+	this->setRawBits(roundf(nbr * (1 << _fracBits))); // 256
 }
 
 Fixed&	Fixed::operator=(const Fixed& toCopy)
@@ -71,7 +75,7 @@ float	Fixed::toFloat() const
 {
 	float	newValue;
 
-	newValue = static_cast<float>(this->_nbr) / (1 << _fractionnalBits); // 256
+	newValue = static_cast<float>(this->_nbr) / (1 << _fracBits); // 256
 	return (newValue);
 }
 
@@ -79,7 +83,7 @@ int		Fixed::toInt() const
 {
 	int	newValue;
 
-	newValue = this->_nbr / (1 << _fractionnalBits); // 256
+	newValue = this->_nbr / (1 << _fracBits); // 256
 	return (newValue);
 }
 
