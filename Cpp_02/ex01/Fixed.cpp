@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:47:57 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/22 17:54:19 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:17:36 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,27 @@ Fixed::Fixed() : _nbr(0)
 
 Fixed::Fixed(const Fixed& toCopy)
 {
-	*this = toCopy;
 	std::cout << BOLD PGG "[Copy constructor] " RESET << "called" << std::endl;
+	*this = toCopy;
 }
 
 Fixed::Fixed(const int nbr)
 {
-	Fixed::setRawBits(nbr * (1 << _fractionnalBits)); // 256
 	std::cout << BOLD BLUE "[Int constructor] " RESET << "called" << std::endl;
+	Fixed::setRawBits(nbr * (1 << _fractionnalBits)); // 256
 }
 
 Fixed::Fixed(const float nbr)
 {
-	Fixed::setRawBits(roundf(nbr * (1 << _fractionnalBits))); // 256
 	std::cout << BOLD PINK "[Float constructor] " RESET << "called" << std::endl;
+	Fixed::setRawBits(roundf(nbr * (1 << _fractionnalBits))); // 256
 }
 
 Fixed&	Fixed::operator=(const Fixed& toCopy)
 {
+	std::cout << BOLD PY "[Copy assignment operator] " RESET << "called" << std::endl;
 	if (this != &toCopy)
 		this->_nbr = toCopy.getRawBits();
-	std::cout << BOLD PY "[Copy assignment operator] " RESET << "called" << std::endl;
 	return (*this);
 }
 

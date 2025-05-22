@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:35:19 by panther           #+#    #+#             */
-/*   Updated: 2025/05/22 17:48:23 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:22:37 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,22 @@
 */
 Animal::Animal()
 {
+	std::cout << BOLD BLUE "[Animal]" RESET BLUE " created" << RESET << std::endl;
 	this->_type = "None";
-	std::cout << BOLD BLUE "[Animal]" RESET BLUE " created"
-			  << RESET << std::endl;
 }
 
 Animal::Animal(const Animal& toCopy)
 {
-	*this = toCopy;
 	std::cout << BOLD PB "[Animal " << this->_type << "]" RESET
 			  << PB " copy created" RESET << std::endl;
+	*this = toCopy;
 }
 
 Animal&	Animal::operator=(const Animal& toCopy)
 {
+	std::cout << BOLD PY "[Copy assignment operator]" RESET << " called" << std::endl;
 	if (this != &toCopy)
 		this->_type = toCopy._type;
-	std::cout << BOLD PY "[Copy assignment operator]" RESET << " called"
-			  << std::endl;
 	return (*this);
 }
 

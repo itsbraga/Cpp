@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 02:09:21 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/22 17:46:40 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:21:20 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10),
 
 ClapTrap::ClapTrap(const ClapTrap& toCopy)
 {
-	*this = toCopy;
 	std::cout << BOLD PGG "[ClapTrap " << this->_name << "]" RESET
 			  << PGG " copy created" RESET << std::endl;
+	*this = toCopy;
 }
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& toCopy)
 {
+	std::cout << BOLD PY "[Copy assignment operator] " RESET << "called" << std::endl;
 	if (this != &toCopy)
 	{
 		this->_name = toCopy._name;
@@ -38,7 +39,6 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& toCopy)
 		this->_energyPoints = toCopy._energyPoints;
 		this->_attackDamage = toCopy._attackDamage;
 	}
-	std::cout << BOLD PY "[Copy assignment operator] " RESET << "called" << std::endl;
 	return (*this);
 }
 

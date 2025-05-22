@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:35:19 by panther           #+#    #+#             */
-/*   Updated: 2025/05/22 17:59:10 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:22:22 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 */
 Animal::Animal()
 {
-	this->_type = "None";
 	std::cout << BOLD PG "[Animal]" RESET PG " created" << RESET << std::endl;
+	this->_type = "None";
 }
 
 Animal::Animal(const Animal& toCopy)
 {
-	*this = toCopy;
 	std::cout << BOLD PGG "[Animal " << this->_type << "]" RESET
 			  << PGG " copy created" RESET << std::endl;
+	*this = toCopy;
 }
 
 Animal&	Animal::operator=(const Animal& toCopy)
