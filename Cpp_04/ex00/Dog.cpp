@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 20:26:54 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:00:07 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Dog::Dog() : Animal()
 
 Dog::Dog(const Dog& toCopy) : Animal(toCopy)
 {
-	std::cout << BOLD PG "[ " << this->_type << "]" RESET << PG " copy created"
+	std::cout << BOLD PG "[" << this->_type << "]" RESET << PG " copy created"
 			  << RESET << std::endl;
 }
 
@@ -54,5 +54,5 @@ const std::string&	Dog::getType() const
 */
 void	Dog::makeSound() const
 {
-	std::cout << PURPLE "[Doggie] " RESET "Woof woof 🐶" << std::endl;
+	std::cout << PURPLE "[Dog] " RESET "Woof woof 🐶" << std::endl;
 }

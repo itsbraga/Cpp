@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:15:13 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 20:20:31 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:05:55 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ MateriaSource::MateriaSource() : IMateriaSource(), _count(0)
 MateriaSource::MateriaSource(const MateriaSource& toCopy) : IMateriaSource(toCopy),
 															_count(toCopy._count)
 {
-	// for (int i = 0; i < 4; i++)
-	// {
-	// 	if (toCopy._inventory[i] != NULL)
-	// 		this->_inventory[i] = toCopy._inventory[i]->clone();
-	// 	else
-	// 		this->_inventory[i] = NULL;
-	// }
+	for (int i = 0; i < 4; i++)
+	{
+		if (toCopy._inventory[i] != NULL)
+			this->_inventory[i] = toCopy._inventory[i]->clone();
+		else
+			this->_inventory[i] = NULL;
+	}
 	std::cout << BOLD SAND "[MateriaSource]" RESET SAND " copy created"
 			  << RESET << std::endl;
 }

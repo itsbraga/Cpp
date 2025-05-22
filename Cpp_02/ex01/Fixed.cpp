@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:47:57 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 20:00:19 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 17:54:19 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,42 +17,38 @@
 */
 Fixed::Fixed() : _nbr(0)
 {
-	std::cout << BOLD PG "[Default constructor] " RESET << "called"
-			  << std::endl;
+	std::cout << BOLD PG "[Default constructor] " RESET << "called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& toCopy)
 {
+	*this = toCopy;
 	std::cout << BOLD PGG "[Copy constructor] " RESET << "called" << std::endl;
-	this->_nbr = toCopy.getRawBits();
 }
 
 Fixed::Fixed(const int nbr)
 {
-	std::cout << BOLD BLUE "[Int constructor] " RESET << "called"
-			  << std::endl;
 	Fixed::setRawBits(nbr * (1 << _fractionnalBits)); // 256
+	std::cout << BOLD BLUE "[Int constructor] " RESET << "called" << std::endl;
 }
 
 Fixed::Fixed(const float nbr)
 {
-	std::cout << BOLD PINK "[Float constructor] " RESET << "called"
-			  << std::endl;
 	Fixed::setRawBits(roundf(nbr * (1 << _fractionnalBits))); // 256
+	std::cout << BOLD PINK "[Float constructor] " RESET << "called" << std::endl;
 }
 
 Fixed&	Fixed::operator=(const Fixed& toCopy)
 {
-	std::cout << BOLD PY "[Copy assignment operator] " RESET << "called" << std::endl;
 	if (this != &toCopy)
 		this->_nbr = toCopy.getRawBits();
+	std::cout << BOLD PY "[Copy assignment operator] " RESET << "called" << std::endl;
 	return (*this);
 }
 
 Fixed::~Fixed()
 {
-	std::cout << BOLD RED "[Destructor] " RESET << "called"
-			  << std::endl;
+	std::cout << BOLD RED "[Destructor] " RESET << "called" << std::endl;
 }
 
 /*

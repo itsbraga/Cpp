@@ -16,7 +16,7 @@ PURPLE		:=	\e[38;2;224;176;255m
 
 NAME		=	HordeOfZombies
 CPP			=	c++
-CPPFLAG		=	-Wall -Wextra -Werror -std=c++98
+CPPFLAG		=	-Wall -Wextra -Werror -std=c++98 -g -g3
 DFLAGS		=	-MMD -MP
 
 #******************************************************************************#

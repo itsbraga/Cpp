@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:35:19 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 20:26:59 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:00:29 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 WrongAnimal::WrongAnimal()
 {
 	this->_type = "None";
-	std::cout << BOLD PG "[WrongAnimal]" RESET PG " created"
-			  << RESET << std::endl;
+	std::cout << BOLD PG "[WrongAnimal]" RESET PG " created" << RESET << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal& toCopy) : _type(toCopy._type)
+WrongAnimal::WrongAnimal(const WrongAnimal& toCopy)
 {
+	*this = toCopy;
 	std::cout << BOLD PGG "[WrongAnimal " << this->_type << "]" RESET
 			  << PGG " copy created" RESET << std::endl;
 }

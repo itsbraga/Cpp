@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 00:29:33 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 19:40:58 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 17:17:09 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ int	main(void)
 {
 	int		N = 6;
 	Zombie*	Horde;
+
+	if (N < 0 || N > 1000)
+		return (FAILURE);
 
 	Horde = zombieHorde(N, "Elon Musk");
 

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 02:09:21 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/21 20:15:23 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 17:44:37 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10),
 			  << RESET << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& toCopy) : _name(toCopy._name),
-											 _hitPoints(toCopy._hitPoints),
-											 _energyPoints(toCopy._energyPoints),
-											 _attackDamage(toCopy._attackDamage)
+ClapTrap::ClapTrap(const ClapTrap& toCopy)
 {
+	*this = toCopy;
 	std::cout << BOLD PGG "[ClapTrap " << this->_name << "]" RESET
 			  << PGG " copy created" RESET << std::endl;
 }

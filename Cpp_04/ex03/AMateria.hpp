@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 00:49:34 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 17:38:47 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:03:41 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class AMateria
 			virtual ~AMateria();
 
 			std::string const&	getType() const;
+
 			virtual AMateria*	clone() const = 0;
 			virtual void		use(ICharacter& target);
 };

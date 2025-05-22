@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 20:27:58 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:02:48 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Dog&	Dog::operator=(const Dog& toCopy)
 	{
 		Animal::operator=(toCopy);
 		delete this->_Brain;
-		// this->_Brain = NULL;
+		this->_Brain = NULL;
 		this->_Brain = new Brain(*toCopy._Brain);
 	}
 	return (*this);

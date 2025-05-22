@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 00:49:34 by panther           #+#    #+#             */
-/*   Updated: 2025/05/19 16:24:03 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:04:51 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Character : public ICharacter
 			~Character();
 
 			std::string const&	getName() const;
+
 			void				equip(AMateria* m);
 			void				unequip(int idx);
 			void				use(int idx, ICharacter& target);

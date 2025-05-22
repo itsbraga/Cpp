@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:14:07 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 20:48:01 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 16:57:59 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ class Bureaucrat
 				const char*		what() const throw();
 			};
 			
-			void					getPromoted();
-			void					getDemoted();
+			void		getPromoted();
+			void		getDemoted();
 };
 
 /******************************************************************************\

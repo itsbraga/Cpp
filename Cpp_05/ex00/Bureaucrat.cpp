@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 21:08:08 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:06:32 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name
 			  << BOLD HOT_PINK "]" RESET << HOT_PINK " created" RESET << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& toCopy) : _name(toCopy._name), _grade(toCopy._grade)
+Bureaucrat::Bureaucrat(const Bureaucrat& toCopy)
 {
+	*this = toCopy;
 	std::cout << BOLD PINK "[Bureaucrat " UNDERLINE << this->_name << RESET
 			  << BOLD PINK "]" RESET << PINK " copy created" RESET << std::endl;
 }

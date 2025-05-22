@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:35:19 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 20:27:07 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/22 17:48:23 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ Animal::Animal()
 			  << RESET << std::endl;
 }
 
-Animal::Animal(const Animal& toCopy) : _type(toCopy._type)
+Animal::Animal(const Animal& toCopy)
 {
+	*this = toCopy;
 	std::cout << BOLD PB "[Animal " << this->_type << "]" RESET
 			  << PB " copy created" RESET << std::endl;
 }
