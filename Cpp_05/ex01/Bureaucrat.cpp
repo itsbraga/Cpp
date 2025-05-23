@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/22 22:54:44 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/23 16:28:30 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,16 +107,22 @@ void	Bureaucrat::getDemoted()
 	this->_grade++;
 }
 
+/*
+	------------------------- [ Form function ] --------------------------
+*/
 void	Bureaucrat::signForm(Form& form)
 {
-	if (form.getSignatureState() == false)
+	if (form.getSignatureState() == true)
+		throw Form::AlreadySignedException();
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	}
+	catch (const std::exception &e)
 	{
 		std::cout << this->_name << " couldn't sign " << form.getName()
-				  << " because its grade is not high enough... The required"
+				  << " because his grade is not high enough... The required"
 				  << " grade to sign it is " << form.getRequiredGradeToSign() << std::endl;
 	}
-	else
-		throw Form::AlreadySignedException();
-	form.beSigned(*this);
-	std::cout << this->_name << " signed " << form.getName() << std::endl;
 }

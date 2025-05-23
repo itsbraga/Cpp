@@ -24,7 +24,8 @@ DFLAGS		=	-MMD -MP
 #	SOURCES
 #******************************************************************************#
 
-SRCS		=	main.cpp Dog.cpp Cat.cpp Animal.cpp Brain.cpp
+SRCS		=	main.cpp Dog.cpp Cat.cpp Animal.cpp Brain.cpp WrongAnimal.cpp \
+				WrongCat.cpp
 
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))

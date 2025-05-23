@@ -6,101 +6,73 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 20:42:46 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 21:13:19 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/23 16:31:11 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void)
 {
 	std::cout << BOLD PGG "\n=============[ CONSTRUCTING BUREAUCRATS ]=============\n" RESET << std::endl;
+
 	try
 	{
-		std::cout << "Creating a normal bureaucrat..." << std::endl;
-		Bureaucrat	normal("Jacques", 75);
-		std::cout << "Testing insertion operator: " << normal << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	
-	try
-	{
-		std::cout << "\nCreating a bureaucrat with grade 0 (too high)..." << std::endl;
-		Bureaucrat	tooHigh("Marie", 0);
-		std::cout << "This should not print!" << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	
-	try
-	{
-		std::cout << "\nCreating a bureaucrat with grade 151 (too low)..." << std::endl;
-		Bureaucrat	tooLow("Pierre", 151);
-		std::cout << "This should not print!" << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	
-	std::cout << BOLD PGG "\n\n===========[ TESTING PROMOTION & DEMOTION ]===========\n" RESET << std::endl;
-	try
-	{
-		Bureaucrat	bureaucrat("Claudine", 5);
-		std::cout << "Initial state: " << bureaucrat << std::endl;
+		Bureaucrat boss("Director", 1);
+		Bureaucrat manager("Manager", 25);
+		Bureaucrat employee("Employee", 100);
+		Bureaucrat intern("Intern", 150);
 		
-		bureaucrat.getPromoted();
-		std::cout << "After promotion: " << bureaucrat << std::endl;
+		std::cout << "\n" << boss << std::endl;
+		std::cout << manager << std::endl;
+		std::cout << employee << std::endl;
+		std::cout << intern << std::endl;
 		
-		bureaucrat.getDemoted();
-		std::cout << "After demotion: " << bureaucrat << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	
-	try
-	{
-		std::cout << "\nTesting promotion at highest grade..." << std::endl;
-		Bureaucrat	highest("Michel", 1);
-		std::cout << "Initial state: " << highest << std::endl;
-		highest.getPromoted();
-		std::cout << "This should not print!" << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	
-	try
-	{
-		std::cout << "\nTesting demotion at lowest grade..." << std::endl;
-		Bureaucrat	lowest("Sophie", 150);
-		std::cout << "Initial state: " << lowest << std::endl;
-		lowest.getDemoted();
-		std::cout << "This should not print!" << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	
-	std::cout << BOLD PGG "\n\n=============[ TESTING COPY & ASSIGNMENT ]============\n" RESET << std::endl;
-	try
-	{
-		Bureaucrat	original("Jean", 42);
-		std::cout << "Original: " << original << std::endl;
+		std::cout << BOLD PGG "\n\n=============[ CONSTRUCTING FORMS ]=============\n" RESET << std::endl;
 		
-		Bureaucrat	copy(original);
-		std::cout << "Copy: " << copy << std::endl;
+		Form topSecret("Top Secret Document");
+		Form contract("Employment Contract");
+		Form application("Application Form");
+		
+		std::cout << "\n" << topSecret << std::endl;
+		std::cout << contract << std::endl;
+		std::cout << application << std::endl;
+		
+		std::cout << BOLD PGG "\n\n=============[ SIGNING FORMS ]=============\n" RESET << std::endl;
+		
+		std::cout << BOLD CYAN "\n[Testing successful signing]" RESET << std::endl;
+		boss.signForm(topSecret);
+		manager.signForm(contract);
+		
+		std::cout << BOLD CYAN "\n[Testing grade too low]" RESET << std::endl;
+		try
+		{
+			intern.signForm(topSecret);
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+		
+		std::cout << BOLD CYAN "\n[Testing already signed form]" RESET << std::endl;
+		try
+		{
+			employee.signForm(topSecret);
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+		
+		std::cout << BOLD PGG "\n\n=============[ FORM STATUS AFTER SIGNING ]=============\n" RESET << std::endl;
+	
+		std::cout << "\n" << topSecret << std::endl;
+		std::cout << contract << std::endl;
+		std::cout << application << std::endl;
+		
 	}
-	catch (std::exception& e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}

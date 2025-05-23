@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/22 17:49:41 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/23 23:22:02 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ Dog::Dog() : Animal()
 {
 	this->_type = "Dog";
 	this->_Brain = new Brain();
-	std::cout << BOLD HOT_PINK "[" << this->_type << "]" RESET HOT_PINK
-			  << " created" RESET << std::endl;
+	std::cout << BOLD HOT_PINK "[" << this->_type << "]" RESET HOT_PINK " created"
+			  << RESET << std::endl;
 }
 
 Dog::Dog(const Dog& toCopy) : Animal(toCopy)
 {
 	this->_type = toCopy._type;
 	this->_Brain = new Brain(*toCopy._Brain);
-	std::cout << BOLD PINK "[" << this->_type << "]" RESET PINK
-			  << " copy created" RESET << std::endl;
+	std::cout << BOLD PINK "[" << this->_type << "]" RESET PINK " copy created"
+			  << RESET << std::endl;
 }
 
 Dog&	Dog::operator=(const Dog& toCopy)

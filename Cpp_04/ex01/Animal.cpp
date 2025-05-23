@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:35:19 by panther           #+#    #+#             */
-/*   Updated: 2025/05/22 18:22:37 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/23 23:32:42 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,17 @@
 */
 Animal::Animal()
 {
-	std::cout << BOLD BLUE "[Animal]" RESET BLUE " created" << RESET << std::endl;
-	this->_type = "None";
+	std::cout << BOLD BLUE "[Animal]" RESET BLUE " created" RESET << std::endl;
+	this->_type = "(null)";
 }
 
 Animal::Animal(const Animal& toCopy)
 {
-	std::cout << BOLD PB "[Animal " << this->_type << "]" RESET
-			  << PB " copy created" RESET << std::endl;
+	if (this->_type == "(null)")
+		std::cout << BOLD PB "[Animal]" RESET PB " copy created" RESET << std::endl;
+	else
+		std::cout << BOLD PB "[Animal " << this->_type << "]" RESET PB
+				  << " copy created" RESET << std::endl;
 	*this = toCopy;
 }
 
@@ -38,8 +41,8 @@ Animal&	Animal::operator=(const Animal& toCopy)
 
 Animal::~Animal()
 {
-	std::cout << BOLD RED "[Animal " UNDERLINE << this->_type << RESET BOLD RED
-			  << "]" RESET RED " destroyed" RESET << std::endl;
+	std::cout << BOLD RED "[Animal " << this->_type << "]" RESET RED
+			  << " destroyed" RESET << std::endl;
 }
 
 /*

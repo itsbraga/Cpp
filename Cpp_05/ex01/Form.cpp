@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/22 22:54:05 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/23 16:27:48 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ std::ostream&	operator<<(std::ostream& os, const Form& form)
 		os << PO "not signed yet" RESET ".\n";
 	else
 		os << PG "signed" RESET ".\n";
-	os << "To execute it, Bureaucrat must have its grade at "
+	os << "To execute it, Bureaucrat must have at least grade "
 	   << form.getRequiredGradeToExec() << ".\n" << "To sign it, Bureaucrat "
-	   << "must have its grade at " << form.getRequiredGradeToSign() << ".\n";
+	   << "must have at least grade " << form.getRequiredGradeToSign() << ".\n";
 	return (os);
 }
 
@@ -102,7 +102,7 @@ const char*		Form::AlreadySignedException::what() const throw()
 }
 
 /*
-	------------------------- [ Main functions ] -------------------------
+	------------------------- [ Main function ] --------------------------
 */
 void	Form::beSigned(const Bureaucrat& bureaucrat)
 {
