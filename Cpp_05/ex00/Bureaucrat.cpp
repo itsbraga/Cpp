@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/22 20:08:53 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 21:36:56 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 	---------------------- [ Object Manipulation ] -----------------------
 */
-Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(const std::string& name, uint32_t grade) : _name(name), _grade(grade)
 {
 	std::cout << BOLD HOT_PINK "[Bureaucrat " UNDERLINE << this->_name << RESET
 			  << BOLD HOT_PINK "]" RESET << HOT_PINK " created" RESET << std::endl;
@@ -57,7 +57,7 @@ std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 /*
 	------------------------- [ Setter & Getter ] ------------------------
 */
-void	Bureaucrat::setGrade(unsigned int grade)
+void	Bureaucrat::setGrade(uint32_t grade)
 {
 	if (this->_grade < 1)
 		throw GradeTooHighException();
@@ -71,7 +71,7 @@ const std::string&		Bureaucrat::getName() const
 	return (this->_name);
 }
 
-const unsigned int&		Bureaucrat::getGrade() const
+const uint32_t&		Bureaucrat::getGrade() const
 {
 	return (this->_grade);
 }
@@ -81,12 +81,12 @@ const unsigned int&		Bureaucrat::getGrade() const
 */
 const char*		Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return (BOLD RED "Error: " RESET "Grade too high!");
+	return (BOLD RED "Error: " RESET "An exception occured. Grade too high!");
 }
 
 const char*		Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return (BOLD RED "Error: " RESET "Grade too low!");
+	return (BOLD RED "Error: " RESET "An exception occured. Grade too low!");
 }
 
 /*

@@ -1,54 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/24 21:37:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 22:09:30 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 /*
 	---------------------- [ Object Manipulation ] -----------------------
 */
-Form::Form(const std::string& name, const uint32_t gradeToSign, const uint32_t gradeToExec)
-	: _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& name) : AForm(name, 145, 137)
 {
-	std::cout << BOLD PURPLE "[Form " UNDERLINE << this->_name << RESET
-			  << BOLD PURPLE "]" RESET << PURPLE " created" RESET << std::endl;
+	std::cout << BOLD PURPLE "[" << this->_name << "]" RESET PURPLE " created"
+			  << RESET << std::endl;
 }
 
-Form::Form(const Form& toCopy) : _name(toCopy._name), _gradeToSign(toCopy._gradeToSign),
-								 _gradeToExec(toCopy._gradeToExec)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& toCopy) : AForm(toCopy)
 {
-	std::cout << BOLD PINK "[Form " UNDERLINE << this->_name << RESET
-			  << BOLD PINK "]" RESET << PINK " copy created" RESET << std::endl;
-	this->_isSigned = toCopy._isSigned;
+	std::cout << BOLD PINK "[" << this->_name << "]" RESET PINK " copy created"
+			  << RESET << std::endl;
 }
 
-Form&		Form::operator=(const Form& toCopy)
+ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& toCopy)
 {
-	std::cout << BOLD PY "[Copy assignment operator]" RESET << " called" << std::endl;
 	if (this != &toCopy)
-		this->_isSigned = toCopy._isSigned;
+		AForm::operator=(toCopy);
 	return (*this);
 }
 
-Form::~Form()
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << BOLD PO "[Form " UNDERLINE << this->_name << RESET
-			  << BOLD PO "]" RESET << PO " destroyed" RESET << std::endl;
+	std::cout << BOLD PO "[" << this->_name << "]" RESET PO " destroyed" RESET << std::endl;
 }
 
 /*
 	----------------------------- [ Stream ] -----------------------------
 */
-std::ostream&	operator<<(std::ostream& os, const Form& form)
+std::ostream&	operator<<(std::ostream& os, const ShrubberyCreationForm& form)
 {
 	if (form.getSignatureState() == false)
 		os << form.getName() << " is " PO "not signed yet" RESET ".\n";
@@ -63,22 +58,22 @@ std::ostream&	operator<<(std::ostream& os, const Form& form)
 /*
 	----------------------------- [ Getters ] ----------------------------
 */
-const std::string&		Form::getName() const
+const std::string&	ShrubberyCreationForm::getName() const
 {
 	return (this->_name);
 }
 
-const bool&		Form::getSignatureState() const
+const bool&		ShrubberyCreationForm::getSignatureState() const
 {
 	return (this->_isSigned);
 }
 
-const uint32_t&		Form::getRequiredGradeToSign() const
+const uint32_t&		ShrubberyCreationForm::getRequiredGradeToSign() const
 {
 	return (this->_gradeToSign);
 }
 
-const uint32_t&		Form::getRequiredGradeToExec() const
+const uint32_t&		ShrubberyCreationForm::getRequiredGradeToExec() const
 {
 	return (this->_gradeToExec);
 }
@@ -86,17 +81,17 @@ const uint32_t&		Form::getRequiredGradeToExec() const
 /*
 	-------------------------- [ Exceptions ] --------------------------
 */
-const char*		Form::GradeTooHighException::what() const throw()
+const char*		ShrubberyCreationForm::GradeTooHighException::what() const throw()
 {
 	return (BOLD RED "Error: " RESET "An exception occured. Grade too high!");
 }
 
-const char*		Form::GradeTooLowException::what() const throw()
+const char*		ShrubberyCreationForm::GradeTooLowException::what() const throw()
 {
 	return (BOLD RED "Error: " RESET "An exception occured. Grade too low!");
 }
 
-const char*		Form::AlreadySignedException::what() const throw()
+const char*		ShrubberyCreationForm::AlreadySignedException::what() const throw()
 {
 	return (BOLD RED "Error: " RESET "An exception occured. Form is already signed!");
 }
@@ -104,9 +99,9 @@ const char*		Form::AlreadySignedException::what() const throw()
 /*
 	------------------------- [ Main function ] --------------------------
 */
-void	Form::beSigned(const Bureaucrat& bureaucrat)
+void	ShrubberyCreationForm::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->_gradeToSign)
-		throw Form::GradeTooLowException();
+		throw ShrubberyCreationForm::GradeTooLowException();
 	this->_isSigned = true;
 }

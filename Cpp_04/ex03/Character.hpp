@@ -6,12 +6,14 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 00:49:34 by panther           #+#    #+#             */
-/*   Updated: 2025/05/22 18:04:51 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 21:44:35 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
+
+typedef unsigned int uint32_t;
 
 # include "AMateria.hpp"
 # define MAX_ITEMS 4
@@ -26,7 +28,7 @@ class Character : public ICharacter
 {
 	private:
 			std::string		_name;
-			unsigned int	_count;
+			uint32_t		_count;
 			AMateria*		_inventory[MAX_ITEMS];
 
 	public:
@@ -35,7 +37,7 @@ class Character : public ICharacter
 			Character&		operator=(const Character& toCopy);
 			~Character();
 
-			std::string const&	getName() const;
+			const std::string&	getName() const;
 
 			void				equip(AMateria* m);
 			void				unequip(int idx);

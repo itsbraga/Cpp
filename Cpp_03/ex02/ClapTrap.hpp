@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:46:12 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 20:32:11 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:55:57 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 /******************************************************************************\
  * LIBRARIES
 \******************************************************************************/
+
+typedef unsigned int uint32_t;
 
 # include <iostream>
 # include "../colors.hpp"
@@ -45,8 +47,8 @@ class ClapTrap
 			const int&		get_energyPoints() const;
 
 			void			attack(const std::string& target);
-			void			takeDamage(unsigned int amount);
-			void			beRepaired(unsigned int amount);
+			void			takeDamage(uint32_t amount);
+			void			beRepaired(uint32_t amount);
 };
 
 #endif

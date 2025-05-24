@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/21 17:39:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:44:14 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,6 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 
-/*
-	static_cast vs dynamic_cast :
-
-		static_cast  :	Conversion à la compilation. Plus rapide mais pas de
-						vérification du type réel de l'objet. Dangereux si
-						on n'est pas sûr du type.
-
-		dynamic_cast :	Conversion à l'exécution. Plus lent mais vérifie le
-						type réel de l'objet. Retourne NULL si la conversion
-						échoue.
-
-	Ici, on utilise dynamic_cast car :
-		1. On manipule un tableau de Animal* contient des Dog et des Cat
-		2. On a besoin de vérifier le type réel de l'objet avant la conversion
-		3. On veut éviter un comportement indéfini si la conversion échoue
-*/
 int	main(void)
 {
 	std::cout << BOLD "________________ MAIN FROM PROJECT ________________\n"

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:17:49 by panther           #+#    #+#             */
-/*   Updated: 2025/05/22 18:04:10 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 21:45:58 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ AMateria::~AMateria()
 /*
 	----------------------------- [ Getter ] -----------------------------
 */
-const std::string&	AMateria::getType() const
+std::string const&	AMateria::getType() const
 {
 	return (this->_type);
 }

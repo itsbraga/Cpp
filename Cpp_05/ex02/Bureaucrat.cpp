@@ -6,12 +6,12 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/24 21:37:13 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 22:01:05 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 /*
 	---------------------- [ Object Manipulation ] -----------------------
@@ -110,10 +110,10 @@ void	Bureaucrat::getDemoted()
 /*
 	------------------------- [ Form function ] --------------------------
 */
-void	Bureaucrat::signForm(Form& form)
+void	Bureaucrat::signForm(AForm& form)
 {
 	if (form.getSignatureState() == true)
-		throw Form::AlreadySignedException();
+		throw AForm::AlreadySignedException();
 	try
 	{
 		form.beSigned(*this);

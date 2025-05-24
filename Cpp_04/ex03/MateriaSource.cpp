@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:15:13 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/22 18:05:55 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:18:48 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ MateriaSource::MateriaSource(const MateriaSource& toCopy) : IMateriaSource(toCop
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource& toCopy)
 {
-	(void)toCopy;
 	if (this != &toCopy)
 	{
 		this->_count = toCopy._count;
@@ -66,6 +65,14 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& toCopy)
 
 MateriaSource::~MateriaSource()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i] != NULL)
+		{
+			delete this->_inventory[i];
+			this->_inventory[i] = NULL;
+		}
+	}
 	std::cout << BOLD ORANGE "[MateriaSource]" RESET ORANGE " destroyed"
 			  << RESET << std::endl;
 }

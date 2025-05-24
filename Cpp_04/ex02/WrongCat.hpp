@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:57 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 20:32:52 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:14:14 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define WRONGCAT_HPP
 
 # include "WrongAnimal.hpp"
+# include "Brain.hpp"
 
 /******************************************************************************\
  * CLASS
@@ -21,6 +22,9 @@
 
 class WrongCat : public WrongAnimal
 {
+	private:
+			Brain*	_Brain;
+
 	public:
 			WrongCat();
 			WrongCat(const WrongCat& toCopy);

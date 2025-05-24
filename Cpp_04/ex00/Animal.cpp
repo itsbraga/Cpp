@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:35:19 by panther           #+#    #+#             */
-/*   Updated: 2025/05/23 23:32:32 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:03:26 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,13 @@
 */
 Animal::Animal()
 {
-	std::cout << BOLD PG "[Animal]" RESET PG " created" RESET << std::endl;
 	this->_type = "(null)";
+	std::cout << BOLD PG "[Animal]" RESET PG " created" RESET << std::endl;
 }
 
 Animal::Animal(const Animal& toCopy)
 {
-	if (this->_type == "(null)")
-		std::cout << BOLD PB "[Animal]" RESET PB " copy created" RESET << std::endl;
-	else
-		std::cout << BOLD PB "[Animal " << this->_type << "]" RESET PB
-				  << " copy created" RESET << std::endl;
+	std::cout << BOLD PB "[Animal]" RESET PB " copy created" RESET << std::endl;
 	*this = toCopy;
 }
 
@@ -41,8 +37,11 @@ Animal&	Animal::operator=(const Animal& toCopy)
 
 Animal::~Animal()
 {
-	std::cout << BOLD RED "[Animal " << this->_type << "]" RESET RED
-			  << " destroyed" RESET << std::endl;
+	if (this->_type == "(null)")
+		std::cout << BOLD RED "[Animal]" RESET RED " destroyed" RESET << std::endl;
+	else
+		std::cout << BOLD RED "[Animal " << this->_type << "]" RESET RED
+				  << " destroyed" RESET << std::endl;
 }
 
 /*
@@ -58,5 +57,5 @@ const std::string&	Animal::getType() const
 */
 void	Animal::makeSound() const
 {
-	std::cout << LIGHT_GRAY2 ITAL "Booo..." RESET << std::endl;
+	std::cout << LIGHT_GRAY2 ITAL "Bzzz..." RESET << std::endl;
 }

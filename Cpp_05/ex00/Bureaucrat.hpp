@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:14:07 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/22 16:57:59 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:57:04 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 /******************************************************************************\
  * LIBRARIES
 \******************************************************************************/
+
+typedef unsigned int uint32_t;
 
 # include <iostream>
 # include "../colors.hpp"
@@ -31,17 +33,17 @@ class Bureaucrat
 {
 	private:
 			const std::string	_name;
-			unsigned int		_grade;
+			uint32_t		_grade;
 
 	public:
-			Bureaucrat(const std::string& name, unsigned int grade);
+			Bureaucrat(const std::string& name, uint32_t grade);
 			Bureaucrat(const Bureaucrat& toCopy);
 			Bureaucrat&		operator=(const Bureaucrat& toCopy);
 			~Bureaucrat();
 
-			void					setGrade(unsigned int grade);
+			void					setGrade(uint32_t grade);
 			const std::string&		getName() const;
-			const unsigned int&		getGrade() const;
+			const uint32_t&		getGrade() const;
 			
 			class GradeTooHighException : public std::exception
 			{

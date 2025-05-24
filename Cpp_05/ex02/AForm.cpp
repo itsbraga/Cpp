@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/24 21:37:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 22:10:42 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 /*
 	---------------------- [ Object Manipulation ] -----------------------
 */
-Form::Form(const std::string& name, const uint32_t gradeToSign, const uint32_t gradeToExec)
+AForm::AForm(const std::string& name, const uint32_t gradeToSign, const uint32_t gradeToExec)
 	: _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {
 	std::cout << BOLD PURPLE "[Form " UNDERLINE << this->_name << RESET
 			  << BOLD PURPLE "]" RESET << PURPLE " created" RESET << std::endl;
 }
 
-Form::Form(const Form& toCopy) : _name(toCopy._name), _gradeToSign(toCopy._gradeToSign),
+AForm::AForm(const AForm& toCopy) : _name(toCopy._name), _gradeToSign(toCopy._gradeToSign),
 								 _gradeToExec(toCopy._gradeToExec)
 {
 	std::cout << BOLD PINK "[Form " UNDERLINE << this->_name << RESET
@@ -31,7 +31,7 @@ Form::Form(const Form& toCopy) : _name(toCopy._name), _gradeToSign(toCopy._grade
 	this->_isSigned = toCopy._isSigned;
 }
 
-Form&		Form::operator=(const Form& toCopy)
+AForm&		AForm::operator=(const AForm& toCopy)
 {
 	std::cout << BOLD PY "[Copy assignment operator]" RESET << " called" << std::endl;
 	if (this != &toCopy)
@@ -39,7 +39,7 @@ Form&		Form::operator=(const Form& toCopy)
 	return (*this);
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 	std::cout << BOLD PO "[Form " UNDERLINE << this->_name << RESET
 			  << BOLD PO "]" RESET << PO " destroyed" RESET << std::endl;
@@ -48,7 +48,7 @@ Form::~Form()
 /*
 	----------------------------- [ Stream ] -----------------------------
 */
-std::ostream&	operator<<(std::ostream& os, const Form& form)
+std::ostream&	operator<<(std::ostream& os, const AForm& form)
 {
 	if (form.getSignatureState() == false)
 		os << form.getName() << " is " PO "not signed yet" RESET ".\n";
@@ -61,52 +61,19 @@ std::ostream&	operator<<(std::ostream& os, const Form& form)
 }
 
 /*
-	----------------------------- [ Getters ] ----------------------------
-*/
-const std::string&		Form::getName() const
-{
-	return (this->_name);
-}
-
-const bool&		Form::getSignatureState() const
-{
-	return (this->_isSigned);
-}
-
-const uint32_t&		Form::getRequiredGradeToSign() const
-{
-	return (this->_gradeToSign);
-}
-
-const uint32_t&		Form::getRequiredGradeToExec() const
-{
-	return (this->_gradeToExec);
-}
-
-/*
 	-------------------------- [ Exceptions ] --------------------------
 */
-const char*		Form::GradeTooHighException::what() const throw()
+const char*		AForm::GradeTooHighException::what() const throw()
 {
 	return (BOLD RED "Error: " RESET "An exception occured. Grade too high!");
 }
 
-const char*		Form::GradeTooLowException::what() const throw()
+const char*		AForm::GradeTooLowException::what() const throw()
 {
 	return (BOLD RED "Error: " RESET "An exception occured. Grade too low!");
 }
 
-const char*		Form::AlreadySignedException::what() const throw()
+const char*		AForm::AlreadySignedException::what() const throw()
 {
 	return (BOLD RED "Error: " RESET "An exception occured. Form is already signed!");
-}
-
-/*
-	------------------------- [ Main function ] --------------------------
-*/
-void	Form::beSigned(const Bureaucrat& bureaucrat)
-{
-	if (bureaucrat.getGrade() > this->_gradeToSign)
-		throw Form::GradeTooLowException();
-	this->_isSigned = true;
 }

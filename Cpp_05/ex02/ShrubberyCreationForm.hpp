@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 17:01:34 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/24 21:20:53 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 22:05:37 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
+
+# include "AForm.hpp"
 
 typedef unsigned int uint32_t;
 
@@ -21,19 +23,13 @@ typedef unsigned int uint32_t;
 
 class Bureaucrat;
 
-class Form
+class ShrubberyCreationForm : public AForm
 {
-	private:
-			const std::string	_name;
-			bool				_isSigned;
-			const uint32_t		_gradeToSign;
-			const uint32_t		_gradeToExec;
-
 	public:
-			Form(const std::string& name, const uint32_t gradeToSign, const uint32_t gradeToExec);
-			Form(const Form& toCopy);
-			Form&		operator=(const Form& toCopy);
-			~Form();
+			ShrubberyCreationForm(const std::string& name);
+			ShrubberyCreationForm(const ShrubberyCreationForm& toCopy);
+			ShrubberyCreationForm&		operator=(const ShrubberyCreationForm& toCopy);
+			~ShrubberyCreationForm();
 
 			const std::string&	getName() const;
 			const bool&			getSignatureState() const;
@@ -55,13 +51,13 @@ class Form
 				const char*		what() const throw();
 			};
 
-			void	beSigned(const Bureaucrat& bureaucrat);
+			virtual void	beSigned(const Bureaucrat& bureaucrat) = 0;
 };
 
 /******************************************************************************\
  * FUNCTIONS
 \******************************************************************************/
 
-std::ostream&	operator<<(std::ostream& os, const Form& form);
+std::ostream&	operator<<(std::ostream& os, const ShrubberyCreationForm& form);
 
 #endif

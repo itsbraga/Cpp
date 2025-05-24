@@ -1,45 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 17:01:34 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/24 21:20:53 by annabrag         ###   ########.fr       */
+/*   Created: 2025/05/20 15:14:07 by annabrag          #+#    #+#             */
+/*   Updated: 2025/05/24 22:02:11 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef BUREAUCRAT_H
+# define BUREAUCRAT_H
+
+/******************************************************************************\
+ * LIBRARIES
+\******************************************************************************/
 
 typedef unsigned int uint32_t;
+
+# include <iostream>
+# include "../colors.hpp"
+
+# define SUCCESS 0
+# define FAILURE 1
 
 /******************************************************************************\
  * CLASS
 \******************************************************************************/
 
-class Bureaucrat;
+class AForm;
 
-class Form
+class Bureaucrat
 {
 	private:
 			const std::string	_name;
-			bool				_isSigned;
-			const uint32_t		_gradeToSign;
-			const uint32_t		_gradeToExec;
+			uint32_t			_grade;
 
 	public:
-			Form(const std::string& name, const uint32_t gradeToSign, const uint32_t gradeToExec);
-			Form(const Form& toCopy);
-			Form&		operator=(const Form& toCopy);
-			~Form();
+			Bureaucrat(const std::string& name, uint32_t grade);
+			Bureaucrat(const Bureaucrat& toCopy);
+			Bureaucrat&		operator=(const Bureaucrat& toCopy);
+			~Bureaucrat();
 
-			const std::string&	getName() const;
-			const bool&			getSignatureState() const;
-			const uint32_t&		getRequiredGradeToSign() const;
-			const uint32_t&		getRequiredGradeToExec() const;
-
+			void					setGrade(uint32_t grade);
+			const std::string&		getName() const;
+			const uint32_t&		getGrade() const;
+			
 			class GradeTooHighException : public std::exception
 			{
 				const char*		what() const throw();
@@ -49,19 +56,16 @@ class Form
 			{
 				const char*		what() const throw();
 			};
-
-			class AlreadySignedException : public std::exception
-			{
-				const char*		what() const throw();
-			};
-
-			void	beSigned(const Bureaucrat& bureaucrat);
+			
+			void		getPromoted();
+			void		getDemoted();
+			void		signForm(AForm& form);
 };
 
 /******************************************************************************\
  * FUNCTIONS
 \******************************************************************************/
 
-std::ostream&	operator<<(std::ostream& os, const Form& form);
+std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif

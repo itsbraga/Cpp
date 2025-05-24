@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 05:05:23 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 20:29:20 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:26:09 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,25 @@
 */
 Brain::Brain()
 {
+	std::cout << BOLD PURPLE "[Brain]" RESET PURPLE " created" RESET << std::endl;
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = "(null)";
-	std::cout << BOLD PURPLE "[Brain]" RESET PURPLE " created"
-			  << RESET << std::endl;
 }
 
 Brain::Brain(const Brain& toCopy)
 {
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = toCopy.ideas[i];
-	std::cout << BOLD PP "[Brain]" RESET PP " copy created" RESET
-			  << std::endl;
+	std::cout << BOLD PP "[Brain]" RESET PP " copy created" RESET << std::endl;
+	*this = toCopy;
 }
 
 Brain&	Brain::operator=(const Brain& toCopy)
 {
+	std::cout << BOLD PY "[Copy assignment operator]" RESET << " called" << std::endl;
 	if (this != &toCopy)
 	{
 		for (int i = 0; i < 100; i++)
 			this->ideas[i] = toCopy.ideas[i];
 	}
-	std::cout << BOLD PY "[Copy assignment operator]" RESET << " called"
-			  << std::endl;
 	return (*this);
 }
 
@@ -51,14 +47,14 @@ Brain::~Brain()
 /*
 	------------------------- [ Setter & Getter ] ------------------------
 */
-void	Brain::setIdea(unsigned int i, std::string idea)
+void	Brain::setIdea(uint32_t i, std::string idea)
 {
 	if (idea.empty() == true)
 		return ;
 	this->ideas[i] = idea;
 }
 
-const std::string&	Brain::getIdea(unsigned int i) const
+const std::string&	Brain::getIdea(uint32_t i) const
 {
 	return (this->ideas[i]);
 }

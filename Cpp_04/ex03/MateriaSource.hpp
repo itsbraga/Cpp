@@ -6,12 +6,14 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 01:44:45 by panther           #+#    #+#             */
-/*   Updated: 2025/05/19 16:03:51 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:54:55 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
 #define MATERIASOURCE_HPP
+
+typedef unsigned int uint32_t;
 
 # include "IMateriaSource.hpp"
 # define MAX_ITEMS 4
@@ -23,8 +25,8 @@
 class MateriaSource : public IMateriaSource
 {
 	private:
-			unsigned int	_count;
-			AMateria*		_inventory[MAX_ITEMS];
+			uint32_t	_count;
+			AMateria*	_inventory[MAX_ITEMS];
 
 	public:
 			MateriaSource();

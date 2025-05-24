@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 05:05:35 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 17:38:47 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:54:42 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 /******************************************************************************\
  * LIBRARIES
 \******************************************************************************/
+
+typedef unsigned int uint32_t;
 
 # include <iostream>
 # include "../colors.hpp"
@@ -37,8 +39,8 @@ class Brain
 
 			std::string		ideas[100];
 
-			void				setIdea(unsigned int i, std::string idea);
-			const std::string	&getIdea(unsigned int i) const;
+			void				setIdea(uint32_t i, std::string idea);
+			const std::string	&getIdea(uint32_t i) const;
 };
 
 #endif

@@ -6,12 +6,14 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:09:07 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 20:32:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:56:22 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_HPP
 # define DIAMONDTRAP_HPP
+
+typedef unsigned int uint32_t;
 
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
@@ -35,8 +37,8 @@ class DiamondTrap : public ScavTrap, public FragTrap
 			const int&		get_energyPoints() const;
 
 			void			attack(const std::string& target);
-			void			takeDamage(unsigned int amount);
-			void			beRepaired(unsigned int amount);
+			void			takeDamage(uint32_t amount);
+			void			beRepaired(uint32_t amount);
 			void			whoAmI();
 };
 

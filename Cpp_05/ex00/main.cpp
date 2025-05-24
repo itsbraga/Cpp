@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 20:42:46 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 21:13:19 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 21:25:38 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	main(void)
 {
-	std::cout << BOLD PGG "\n=============[ CONSTRUCTING BUREAUCRATS ]=============\n" RESET << std::endl;
+	std::cout << BOLD PGG "\n=============[ CONSTRUCTING BUREAUCRATS ]==============\n" RESET << std::endl;
+	
 	try
 	{
 		std::cout << "Creating a normal bureaucrat..." << std::endl;
@@ -48,7 +49,7 @@ int	main(void)
 		std::cout << e.what() << std::endl;
 	}
 	
-	std::cout << BOLD PGG "\n\n===========[ TESTING PROMOTION & DEMOTION ]===========\n" RESET << std::endl;
+	std::cout << BOLD PGG "\n\n===========[ TESTING PROMOTION & DEMOTION ]============\n" RESET << std::endl;
 	try
 	{
 		Bureaucrat	bureaucrat("Claudine", 5);
@@ -91,7 +92,7 @@ int	main(void)
 		std::cout << e.what() << std::endl;
 	}
 	
-	std::cout << BOLD PGG "\n\n=============[ TESTING COPY & ASSIGNMENT ]============\n" RESET << std::endl;
+	std::cout << BOLD PGG "\n\n=============[ TESTING COPY & ASSIGNMENT ]=============\n" RESET << std::endl;
 	try
 	{
 		Bureaucrat	original("Jean", 42);
@@ -105,6 +106,6 @@ int	main(void)
 		std::cout << e.what() << std::endl;
 	}
 	
-	std::cout << BOLD PGG "\n\n===================[ END OF TESTS ]===================\n" RESET << std::endl;
+	std::cout << BOLD PGG "\n\n====================[ END OF TESTS ]===================\n" RESET << std::endl;
 	return (SUCCESS);
 }

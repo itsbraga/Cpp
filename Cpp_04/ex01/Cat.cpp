@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/22 18:01:54 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:58:25 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ Cat::Cat() : Animal()
 
 Cat::Cat(const Cat& toCopy) : Animal(toCopy)
 {
-	this->_type = toCopy._type;
-	this->_Brain = new Brain(*toCopy._Brain);
 	std::cout << BOLD PG "[" << this->_type << "]" RESET PG " copy created"
 			  << RESET << std::endl;
+	*this = toCopy;
 }
 
 Cat&	Cat::operator=(const Cat& toCopy)
@@ -36,8 +35,6 @@ Cat&	Cat::operator=(const Cat& toCopy)
 	if (this != &toCopy)
 	{
 		Animal::operator=(toCopy);
-		delete this->_Brain;
-		this->_Brain = NULL;
 		this->_Brain = new Brain(*toCopy._Brain);
 	}
 	return (*this);
@@ -45,10 +42,10 @@ Cat&	Cat::operator=(const Cat& toCopy)
 
 Cat::~Cat()
 {
-	delete this->_Brain;
-	this->_Brain = NULL;
 	std::cout << BOLD PO "[" << this->_type << "]" RESET PO " destroyed"
 			  << RESET << std::endl;
+	delete this->_Brain;
+	this->_Brain = NULL;
 }
 
 /*

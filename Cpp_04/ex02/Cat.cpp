@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/22 18:02:38 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:07:07 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ Cat&	Cat::operator=(const Cat& toCopy)
 	if (this != &toCopy)
 	{
 		Animal::operator=(toCopy);
-		delete this->_Brain;
-		this->_Brain = NULL;
 		this->_Brain = new Brain(*toCopy._Brain);
 	}
 	return (*this);

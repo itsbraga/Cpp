@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 20:24:40 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/21 20:28:16 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 21:44:23 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ Character::~Character()
 /*
 	----------------------------- [ Getter ] -----------------------------
 */
-std::string const&	Character::getName() const
+const std::string&	Character::getName() const
 {
 	return (this->_name);
 }

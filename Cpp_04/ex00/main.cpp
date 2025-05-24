@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/21 17:39:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:47:29 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,21 @@ int	main(void)
 	const Animal*	j = new Dog();
 	const Animal*	i = new Cat();
 
-	std::cout << BOLD "Animal j type: " RESET << j->getType() << " " << std::endl;
-	std::cout << BOLD "Animal i type: " RESET << i->getType() << " " << std::endl;
-	i->makeSound();
+	std::cout << std::endl;
 	j->makeSound();
+	i->makeSound();
 	meta->makeSound();
+	std::cout << std::endl;
 
-	const WrongAnimal*	meta2 = new WrongAnimal();
-	const WrongAnimal*	i2 = new WrongCat();
+	const WrongAnimal*	test = new WrongAnimal();
+	const WrongAnimal*	testCat = new WrongCat();
 
-	std::cout << BOLD "Animal i2 type: " RESET << i2->getType() << " " << std::endl;
-	i2->makeSound();
-	meta2->makeSound();
+	std::cout << std::endl;
+	std::cout << "Should not display cat makeSound() func" << std::endl;
+	testCat->makeSound();
+	std::cout << "Main makeSound() func, from WrongAnimal class" << std::endl;
+	test->makeSound();
+	std::cout << std::endl;
 
 	delete i;
 	i = NULL;
@@ -40,9 +43,9 @@ int	main(void)
 	delete meta;
 	meta = NULL;
 
-	delete i2;
-	i2 = NULL;
-	delete meta2;
-	meta2 = NULL;
+	delete testCat;
+	testCat = NULL;
+	delete test;
+	test = NULL;
 	return (SUCCESS);
 }

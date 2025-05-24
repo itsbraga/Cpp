@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 18:56:05 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 20:26:22 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:26:03 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	FragTrap::attack(const std::string& target)
 	}
 }
 
-void	FragTrap::takeDamage(unsigned int amount)
+void	FragTrap::takeDamage(uint32_t amount)
 {
 	if (amount == 0)
 		return ;
@@ -103,9 +103,9 @@ void	FragTrap::takeDamage(unsigned int amount)
 				  << " is knocked out!" RESET << std::endl;
 }
 
-void	FragTrap::beRepaired(unsigned int amount)
+void	FragTrap::beRepaired(uint32_t amount)
 {
-	unsigned int	maxRepair = 0;
+	uint32_t	maxRepair = 0;
 
 	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 20:42:46 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/23 16:31:11 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 21:24:46 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(void)
 {
-	std::cout << BOLD PGG "\n=============[ CONSTRUCTING BUREAUCRATS ]=============\n" RESET << std::endl;
+	std::cout << BOLD PGG "\n==============[ CONSTRUCTING BUREAUCRATS ]=============\n" RESET << std::endl;
 
 	try
 	{
@@ -29,31 +29,21 @@ int	main(void)
 		std::cout << employee << std::endl;
 		std::cout << intern << std::endl;
 		
-		std::cout << BOLD PGG "\n\n=============[ CONSTRUCTING FORMS ]=============\n" RESET << std::endl;
+		std::cout << BOLD PGG "\n\n=================[ CONSTRUCTING FORMS ]================\n" RESET << std::endl;
 		
-		Form topSecret("Top Secret Document");
-		Form contract("Employment Contract");
-		Form application("Application Form");
+		Form topSecret("Top Secret Document", 5, 3);
+		Form contract("Employment Contract", 30, 20);
+		Form application("Application Form", 120, 100);
 		
 		std::cout << "\n" << topSecret << std::endl;
 		std::cout << contract << std::endl;
 		std::cout << application << std::endl;
 		
-		std::cout << BOLD PGG "\n\n=============[ SIGNING FORMS ]=============\n" RESET << std::endl;
+		std::cout << BOLD PGG "\n\n===================[ SIGNING FORMS ]===================\n" RESET << std::endl;
 		
 		std::cout << BOLD CYAN "\n[Testing successful signing]" RESET << std::endl;
 		boss.signForm(topSecret);
 		manager.signForm(contract);
-		
-		std::cout << BOLD CYAN "\n[Testing grade too low]" RESET << std::endl;
-		try
-		{
-			intern.signForm(topSecret);
-		}
-		catch (std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
 		
 		std::cout << BOLD CYAN "\n[Testing already signed form]" RESET << std::endl;
 		try
@@ -77,6 +67,6 @@ int	main(void)
 		std::cout << e.what() << std::endl;
 	}
 	
-	std::cout << BOLD PGG "\n\n===================[ END OF TESTS ]===================\n" RESET << std::endl;
+	std::cout << BOLD PGG "\n\n===================[ END OF TESTS ]====================\n" RESET << std::endl;
 	return (SUCCESS);
 }

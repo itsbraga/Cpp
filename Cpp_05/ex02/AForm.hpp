@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 17:01:34 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/24 21:20:53 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 22:10:16 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 typedef unsigned int uint32_t;
 
@@ -21,24 +21,24 @@ typedef unsigned int uint32_t;
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
-	private:
-			const std::string	_name;
-			bool				_isSigned;
-			const uint32_t		_gradeToSign;
-			const uint32_t		_gradeToExec;
+	protected:
+			std::string		_name;
+			bool			_isSigned;
+			uint32_t		_gradeToSign;
+			uint32_t		_gradeToExec;
 
 	public:
-			Form(const std::string& name, const uint32_t gradeToSign, const uint32_t gradeToExec);
-			Form(const Form& toCopy);
-			Form&		operator=(const Form& toCopy);
-			~Form();
+			AForm(const std::string& name, const uint32_t gradeToSign, const uint32_t gradeToExec);
+			AForm(const AForm& toCopy);
+			AForm&		operator=(const AForm& toCopy);
+			~AForm();
 
-			const std::string&	getName() const;
-			const bool&			getSignatureState() const;
-			const uint32_t&		getRequiredGradeToSign() const;
-			const uint32_t&		getRequiredGradeToExec() const;
+			virtual const std::string&	getName() const = 0;
+			virtual const bool&			getSignatureState() const = 0;
+			virtual const uint32_t&		getRequiredGradeToSign() const = 0;
+			virtual const uint32_t&		getRequiredGradeToExec() const = 0;
 
 			class GradeTooHighException : public std::exception
 			{
@@ -55,13 +55,13 @@ class Form
 				const char*		what() const throw();
 			};
 
-			void	beSigned(const Bureaucrat& bureaucrat);
+			virtual void	beSigned(const Bureaucrat& bureaucrat) = 0;
 };
 
 /******************************************************************************\
  * FUNCTIONS
 \******************************************************************************/
 
-std::ostream&	operator<<(std::ostream& os, const Form& form);
+std::ostream&	operator<<(std::ostream& os, const AForm& form);
 
 #endif

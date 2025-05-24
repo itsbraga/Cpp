@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 19:08:54 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 20:26:26 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 17:26:04 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	ScavTrap::attack(const std::string& target)
 	}
 }
 
-void	ScavTrap::takeDamage(unsigned int amount)
+void	ScavTrap::takeDamage(uint32_t amount)
 {
 	if (amount == 0)
 		return ;
@@ -103,9 +103,9 @@ void	ScavTrap::takeDamage(unsigned int amount)
 				  << " is knocked out!" RESET << std::endl;
 }
 
-void	ScavTrap::beRepaired(unsigned int amount)
+void	ScavTrap::beRepaired(uint32_t amount)
 {
-	unsigned int	maxRepair = 0;
+	uint32_t	maxRepair = 0;
 
 	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{

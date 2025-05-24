@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/22 18:02:48 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:07:00 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,15 @@ Dog::Dog() : Animal()
 {
 	this->_type = "Dog";
 	this->_Brain = new Brain();
-	std::cout << BOLD HOT_PINK "[" << this->_type << "]" RESET HOT_PINK
-			  << " created" RESET << std::endl;
+	std::cout << BOLD HOT_PINK "[" << this->_type << "]" RESET HOT_PINK " created"
+			  << RESET << std::endl;
 }
 
 Dog::Dog(const Dog& toCopy) : Animal(toCopy)
 {
-	this->_type = toCopy._type;
-	this->_Brain = new Brain(*toCopy._Brain);
-	std::cout << BOLD PINK "[" << this->_type << "]" RESET PINK
-			  << " copy created" RESET << std::endl;
+	std::cout << BOLD PINK "[" << this->_type << "]" RESET PINK " copy created"
+			  << RESET << std::endl;
+	*this = toCopy;
 }
 
 Dog&	Dog::operator=(const Dog& toCopy)
@@ -36,8 +35,6 @@ Dog&	Dog::operator=(const Dog& toCopy)
 	if (this != &toCopy)
 	{
 		Animal::operator=(toCopy);
-		delete this->_Brain;
-		this->_Brain = NULL;
 		this->_Brain = new Brain(*toCopy._Brain);
 	}
 	return (*this);
@@ -45,10 +42,10 @@ Dog&	Dog::operator=(const Dog& toCopy)
 
 Dog::~Dog()
 {
-	delete this->_Brain;
-	this->_Brain = NULL;
 	std::cout << BOLD ORANGE "[" << this->_type << "]" RESET ORANGE " destroyed"
 			  << RESET << std::endl;
+	delete this->_Brain;
+	this->_Brain = NULL;
 }
 
 /*
