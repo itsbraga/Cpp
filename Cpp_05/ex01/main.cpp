@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 20:42:46 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/24 21:24:46 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/26 21:06:28 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@ int	main(void)
 
 	try
 	{
-		Bureaucrat boss("Director", 1);
-		Bureaucrat manager("Manager", 25);
-		Bureaucrat employee("Employee", 100);
-		Bureaucrat intern("Intern", 150);
+		Bureaucrat	Boss("Director", 1);
+		Bureaucrat	Manager("Manager", 25);
+		Bureaucrat	Employee("Employee", 100);
+		Bureaucrat	Intern("Intern", 150);
 		
-		std::cout << "\n" << boss << std::endl;
-		std::cout << manager << std::endl;
-		std::cout << employee << std::endl;
-		std::cout << intern << std::endl;
+		std::cout << "\n" << Boss << std::endl;
+		std::cout << Manager << std::endl;
+		std::cout << Employee << std::endl;
+		std::cout << Intern << std::endl;
 		
 		std::cout << BOLD PGG "\n\n=================[ CONSTRUCTING FORMS ]================\n" RESET << std::endl;
 		
-		Form topSecret("Top Secret Document", 5, 3);
-		Form contract("Employment Contract", 30, 20);
-		Form application("Application Form", 120, 100);
+		Form	topSecret("Top Secret Document", 5, 3);
+		Form	contract("Employment Contract", 30, 20);
+		Form	application("Application Form", 120, 100);
 		
 		std::cout << "\n" << topSecret << std::endl;
 		std::cout << contract << std::endl;
@@ -42,17 +42,17 @@ int	main(void)
 		std::cout << BOLD PGG "\n\n===================[ SIGNING FORMS ]===================\n" RESET << std::endl;
 		
 		std::cout << BOLD CYAN "\n[Testing successful signing]" RESET << std::endl;
-		boss.signForm(topSecret);
-		manager.signForm(contract);
+		Boss.signForm(topSecret);
+		Manager.signForm(contract);
 		
 		std::cout << BOLD CYAN "\n[Testing already signed form]" RESET << std::endl;
 		try
 		{
-			employee.signForm(topSecret);
+			Employee.signForm(topSecret);
 		}
 		catch (std::exception &e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 		
 		std::cout << BOLD PGG "\n\n=============[ FORM STATUS AFTER SIGNING ]=============\n" RESET << std::endl;
@@ -64,7 +64,7 @@ int	main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	
 	std::cout << BOLD PGG "\n\n===================[ END OF TESTS ]====================\n" RESET << std::endl;

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/24 21:37:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/26 21:51:36 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ Form::Form(const std::string& name, const uint32_t gradeToSign, const uint32_t g
 Form::Form(const Form& toCopy) : _name(toCopy._name), _gradeToSign(toCopy._gradeToSign),
 								 _gradeToExec(toCopy._gradeToExec)
 {
-	std::cout << BOLD PINK "[Form " UNDERLINE << this->_name << RESET
-			  << BOLD PINK "]" RESET << PINK " copy created" RESET << std::endl;
+	std::cout << BOLD PP "[Form " UNDERLINE << this->_name << RESET
+			  << BOLD PP "]" RESET << PP " copy created" RESET << std::endl;
 	this->_isSigned = toCopy._isSigned;
 }
 
@@ -88,12 +88,12 @@ const uint32_t&		Form::getRequiredGradeToExec() const
 */
 const char*		Form::GradeTooHighException::what() const throw()
 {
-	return (BOLD RED "Error: " RESET "An exception occured. Grade too high!");
+	return ("an exception occured.\n" BOLD RED "Error: " RESET "Grade too high!");
 }
 
 const char*		Form::GradeTooLowException::what() const throw()
 {
-	return (BOLD RED "Error: " RESET "An exception occured. Grade too low!");
+	return ("an exception occured.\n" BOLD RED "Error: " RESET "Grade too low!");
 }
 
 const char*		Form::AlreadySignedException::what() const throw()

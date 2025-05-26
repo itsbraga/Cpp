@@ -1,72 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 15:14:07 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/26 22:05:32 by annabrag         ###   ########.fr       */
+/*   Created: 2025/05/22 17:01:34 by annabrag          #+#    #+#             */
+/*   Updated: 2025/05/26 22:05:39 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_H
-# define BUREAUCRAT_H
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 /******************************************************************************\
  * LIBRARIES
 \******************************************************************************/
 
-typedef unsigned int uint32_t;
-
-# include <iostream>
-# include "../colors.hpp"
-
-# define SUCCESS 0
-# define FAILURE 1
+# include "AForm.hpp"
 
 /******************************************************************************\
  * CLASS
 \******************************************************************************/
 
-class AForm;
+class Bureaucrat;
 
-class Bureaucrat
+class PresidentialPardonForm : public AForm
 {
 	private:
-			const std::string	_name;
-			uint32_t			_grade;
+			std::string	_target;
 
 	public:
-			Bureaucrat(const std::string& name, uint32_t grade);
-			Bureaucrat(const Bureaucrat& toCopy);
-			Bureaucrat&		operator=(const Bureaucrat& toCopy);
-			~Bureaucrat();
+			PresidentialPardonForm(const std::string& target);
+			PresidentialPardonForm(const PresidentialPardonForm& toCopy);
+			PresidentialPardonForm&		operator=(const PresidentialPardonForm& toCopy);
+			~PresidentialPardonForm();
 
-			void					setGrade(uint32_t grade);
-			const std::string&		getName() const;
-			const uint32_t&		getGrade() const;
-			
-			class GradeTooHighException : public std::exception
-			{
-				const char*		what() const throw();
-			};
-			
-			class GradeTooLowException : public std::exception
-			{
-				const char*		what() const throw();
-			};
-			
-			void		getPromoted();
-			void		getDemoted();
-			void		signForm(AForm& form);
-			void		executeForm(AForm const& form) const;
+			const std::string&	getName() const;
+			const bool&			getSignatureState() const;
+			const uint32_t&		getRequiredGradeToSign() const;
+			const uint32_t&		getRequiredGradeToExec() const;
+
+			void	beSigned(const Bureaucrat& bureaucrat);
+			void	pardonGranted(const Bureaucrat& bureaucrat);
+			void	execute(Bureaucrat const& executor) const;
 };
 
 /******************************************************************************\
  * FUNCTIONS
 \******************************************************************************/
 
-std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+std::ostream&	operator<<(std::ostream& os, const PresidentialPardonForm& form);
 
 #endif

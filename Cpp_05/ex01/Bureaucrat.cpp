@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/24 21:37:13 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/26 21:49:59 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 */
 Bureaucrat::Bureaucrat(const std::string& name, uint32_t grade) : _name(name), _grade(grade)
 {
-	std::cout << BOLD HOT_PINK "[Bureaucrat " UNDERLINE << this->_name << RESET
-			  << BOLD HOT_PINK "]" RESET << HOT_PINK " created" RESET << std::endl;
+	std::cout << BOLD BLUE "[Bureaucrat " UNDERLINE << this->_name << RESET
+			  << BOLD BLUE "]" RESET << BLUE " created" RESET << std::endl;
 	if (this->_grade < 1)
 		throw GradeTooHighException();
 	else if (this->_grade > 150)
@@ -28,8 +28,8 @@ Bureaucrat::Bureaucrat(const std::string& name, uint32_t grade) : _name(name), _
 
 Bureaucrat::Bureaucrat(const Bureaucrat& toCopy) : _name(toCopy._name), _grade(toCopy._grade)
 {
-	std::cout << BOLD PINK "[Bureaucrat " UNDERLINE << this->_name << RESET
-			  << BOLD PINK "]" RESET << PINK " copy created" RESET << std::endl;
+	std::cout << BOLD PB "[Bureaucrat " UNDERLINE << this->_name << RESET
+			  << BOLD PB "]" RESET << PB " copy created" RESET << std::endl;
 }
 
 Bureaucrat&		Bureaucrat::operator=(const Bureaucrat& toCopy)
@@ -82,12 +82,12 @@ const uint32_t&		Bureaucrat::getGrade() const
 */
 const char*		Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return (BOLD RED "Error: " RESET "An exception occured. Grade too high!");
+	return ("an exception occured.\n" BOLD RED "Error: " RESET "Grade too high!");
 }
 
 const char*		Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return (BOLD RED "Error: " RESET "An exception occured. Grade too low!");
+	return ("an exception occured.\n" BOLD RED "Error: " RESET "Grade too low!");
 }
 
 /*
@@ -121,7 +121,7 @@ void	Bureaucrat::signForm(Form& form)
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << this->_name << " couldn't sign " << form.getName()
-				  << " because " BOLD RED << e.what() << RESET << std::endl;
+		std::cerr << this->_name << " couldn't sign " << form.getName()
+				  << " because " << e.what() << RESET << std::endl;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:47:57 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/23 14:58:58 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/26 20:39:33 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Fixed::Fixed(const float nbr)
 	std::cout << BOLD PINK "[Float constructor] " RESET << "called" << std::endl;
 	if (nbr <= -8388607 || nbr >= 8388607)
 		throw std::invalid_argument("float is out of range");
-	Fixed::setRawBits(roundf(nbr * (1 << _fracBits))); // 256
+	Fixed::setRawBits(static_cast<int>(roundf(nbr * (1 << _fracBits)))); // 256
 }
 
 Fixed&	Fixed::operator=(const Fixed& toCopy)
