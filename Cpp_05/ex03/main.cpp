@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 20:42:46 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/26 21:47:07 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/27 21:41:17 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int	main(void)
 {
@@ -25,65 +23,79 @@ int	main(void)
 		Bureaucrat	Boss("Director", 1);
 		Bureaucrat	Manager("Manager", 45);
 		Bureaucrat	Employee("Employee", 137);
-		Bureaucrat	Intern("Intern", 150);
 
 		std::cout << "\n" << Boss << std::endl;
 		std::cout << Manager << std::endl;
 		std::cout << Employee << std::endl;
-		std::cout << Intern << std::endl;
 
-		std::cout << BOLD PGG "\n\n=================[ CONSTRUCTING FORMS ]================\n" RESET << std::endl;
+		std::cout << BOLD PGG "\n\n==================[ TESTING INTERN ]==================\n" RESET << std::endl;
 
-		ShrubberyCreationForm	Shrub("Nature");
-		RobotomyRequestForm		Robotomy("Bender");
-		PresidentialPardonForm	Pardon("Arthur Dent");
+		Intern	someRandomIntern;
+		AForm*	rrf;
 
-		std::cout << "\n" << Shrub << std::endl;
-		std::cout << Robotomy << std::endl;
-		std::cout << Pardon << std::endl;
-
-		std::cout << BOLD PGG "\n\n===================[ SIGNING FORMS ]===================\n" RESET << std::endl;
-
-		std::cout << BOLD CYAN "\n[Testing successful signing]" RESET << std::endl;
-		Employee.signForm(Shrub);
-		Manager.signForm(Robotomy);
-		Boss.signForm(Pardon);
+		std::cout << BOLD CYAN "\n__ Testing valid form creation __" RESET << std::endl;
 		
-		std::cout << BOLD CYAN "\n[Testing already signed form]" RESET << std::endl;
-		try
+		// Test 1: Robotomy Request Form (exemple du sujet)
+		rrf = someRandomIntern.makeForm("Robotomy request", "Bender");
+		if (rrf)
 		{
-			Intern.signForm(Shrub);
-		}
-		catch (std::exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-
-		std::cout << BOLD PGG "\n\n==================[ EXECUTING FORMS ]==================\n" RESET << std::endl;
-
-		std::cout << BOLD CYAN "\n[Testing successful execution]" RESET << std::endl;
-		Employee.executeForm(Shrub);
-		Manager.executeForm(Robotomy);
-		Boss.executeForm(Pardon);
-
-		std::cout << BOLD CYAN "\n[Testing too low grade case]" RESET << std::endl;
-		try
-		{
-			Intern.executeForm(Shrub);
-		}
-		catch (std::exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-
-		std::cout << BOLD CYAN "\n[Testing not signed form]" RESET << std::endl;
-		ShrubberyCreationForm	Shrub2("Parc");
-		try
-		{
-			Manager.executeForm(Shrub2);
+			std::cout << "\n" << *rrf << std::endl;
+			Boss.signForm(*rrf);
+			Boss.executeForm(*rrf);
 			std::cout << std::endl;
+			delete rrf;
 		}
-		catch (std::exception &e)
+
+		std::cout << "\n------------------------------------------------------\n";
+		std::cout << BOLD CYAN "\n__ Testing Shrubbery Creation Form __" RESET << std::endl;
+		
+		// Test 2: Shrubbery Creation Form
+		AForm* scf = someRandomIntern.makeForm("Shrubbery creation", "Home");
+		if (scf)
+		{
+			std::cout << "\n" << *scf << std::endl;
+			Employee.signForm(*scf);
+			Employee.executeForm(*scf);
+			std::cout << std::endl;
+			delete scf;
+		}
+
+		std::cout << "\n------------------------------------------------------\n";
+		std::cout << BOLD CYAN "\n__ Testing Presidential Pardon Form __" RESET << std::endl;
+		
+		// Test 3: Presidential Pardon Form
+		AForm* ppf = someRandomIntern.makeForm("Presidential pardon", "Arthur Dent");
+		if (ppf)
+		{
+			std::cout << "\n" << *ppf << std::endl;
+			Boss.signForm(*ppf);
+			Boss.executeForm(*ppf);
+			std::cout << std::endl;
+			delete ppf;
+		}
+
+		std::cout << "\n------------------------------------------------------\n";
+		std::cout << BOLD CYAN "\n__ Testing invalid form creation__" RESET << std::endl;
+		
+		try
+		{
+			AForm* invalidForm = someRandomIntern.makeForm("Invalid form", "Target");
+			delete invalidForm; // Ne devrait jamais être exécuté
+		}
+		catch (std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+
+		std::cout << "\n------------------------------------------------------\n";
+		std::cout << BOLD CYAN "\n__ Testing case sensitivity__" RESET << std::endl;
+		
+		try
+		{
+			AForm* invalidForm = someRandomIntern.makeForm("Robotomy Request", "Target");
+			delete invalidForm; // Ne devrait jamais être exécuté
+		}
+		catch (std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
 		}

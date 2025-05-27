@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 17:01:34 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/26 22:05:42 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/27 19:40:49 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class RobotomyRequestForm : public AForm
 			const uint32_t&		getRequiredGradeToExec() const;
 
 			void	beSigned(const Bureaucrat& bureaucrat);
-			void	robotomy(const Bureaucrat& target) const;
+			void	robotomy(const std::string& target) const;
 			void	execute(Bureaucrat const& executor) const;
 };
 

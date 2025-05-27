@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 17:01:34 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/26 22:04:41 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/27 21:27:39 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class AForm
 			AForm(const std::string& name, const uint32_t gradeToSign, const uint32_t gradeToExec);
 			AForm(const AForm& toCopy);
 			AForm&		operator=(const AForm& toCopy);
-			~AForm();
+			virtual ~AForm();
 
 			virtual const std::string&	getName() const = 0;
 			virtual const bool&			getSignatureState() const = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 20:42:46 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/26 21:47:07 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/27 21:41:39 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(void)
 
 		std::cout << BOLD PGG "\n\n=================[ CONSTRUCTING FORMS ]================\n" RESET << std::endl;
 
-		ShrubberyCreationForm	Shrub("Nature");
+		ShrubberyCreationForm	Shrub("Home");
 		RobotomyRequestForm		Robotomy("Bender");
 		PresidentialPardonForm	Pardon("Arthur Dent");
 
@@ -44,12 +44,12 @@ int	main(void)
 
 		std::cout << BOLD PGG "\n\n===================[ SIGNING FORMS ]===================\n" RESET << std::endl;
 
-		std::cout << BOLD CYAN "\n[Testing successful signing]" RESET << std::endl;
+		std::cout << BOLD CYAN "\n__ Testing successful signing __" RESET << std::endl;
 		Employee.signForm(Shrub);
 		Manager.signForm(Robotomy);
 		Boss.signForm(Pardon);
 		
-		std::cout << BOLD CYAN "\n[Testing already signed form]" RESET << std::endl;
+		std::cout << BOLD CYAN "\n__ Testing already signed form __" RESET << std::endl;
 		try
 		{
 			Intern.signForm(Shrub);
@@ -61,12 +61,12 @@ int	main(void)
 
 		std::cout << BOLD PGG "\n\n==================[ EXECUTING FORMS ]==================\n" RESET << std::endl;
 
-		std::cout << BOLD CYAN "\n[Testing successful execution]" RESET << std::endl;
+		std::cout << BOLD CYAN "\n__ Testing successful execution __" RESET << std::endl;
 		Employee.executeForm(Shrub);
 		Manager.executeForm(Robotomy);
 		Boss.executeForm(Pardon);
 
-		std::cout << BOLD CYAN "\n[Testing too low grade case]" RESET << std::endl;
+		std::cout << BOLD CYAN "\n__ Testing too low grade case __" RESET << std::endl;
 		try
 		{
 			Intern.executeForm(Shrub);
@@ -76,8 +76,8 @@ int	main(void)
 			std::cerr << e.what() << std::endl;
 		}
 
-		std::cout << BOLD CYAN "\n[Testing not signed form]" RESET << std::endl;
-		ShrubberyCreationForm	Shrub2("Parc");
+		std::cout << BOLD CYAN "\n__ Testing not signed form __" RESET << std::endl;
+		ShrubberyCreationForm	Shrub2("Neighbor");
 		try
 		{
 			Manager.executeForm(Shrub2);

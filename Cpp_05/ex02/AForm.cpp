@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/26 21:57:20 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/27 20:06:39 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,12 @@ const char*		AForm::GradeTooLowException::what() const throw()
 
 const char*		AForm::AlreadySignedException::what() const throw()
 {
-	return (BOLD RED "Error: " RESET "An exception occured. Form is already signed!");
+	return ("an exception occured.\n" BOLD RED "Error: " RESET "Form is already signed!");
 }
 
 const char*		AForm::NotSignedException::what() const throw()
 {
-	return (BOLD RED "Error: " RESET "An exception occured. Form is not signed!");
+	return ("an exception occured.\n" BOLD RED "Error: " RESET "Form is not signed! You must sign it before trying to execute it.");
 }
 
 const char*		AForm::CannotExecuteException::what() const throw()

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/26 21:52:26 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/27 20:11:39 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,14 +104,14 @@ void	ShrubberyCreationForm::createAsciiTree(const std::string& target) const
 		exit(FAILURE);
 	}
 	idx = std::rand() % treeCount;
-    outfile << trees[idx] << std::endl;
+    outfile << PG << trees[idx] << RESET << std::endl;
 	outfile.close();
 }
 
 void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
 	if (this->_isSigned == false)
-		throw AForm::GradeTooLowException();
+		throw AForm::NotSignedException();
 	if (executor.getGrade() > this->_gradeToExec)
 		throw AForm::CannotExecuteException();
 	createAsciiTree(this->_target);

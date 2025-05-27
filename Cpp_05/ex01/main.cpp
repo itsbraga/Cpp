@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 20:42:46 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/26 21:06:28 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/27 21:41:58 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ int	main(void)
 		
 		std::cout << BOLD PGG "\n\n===================[ SIGNING FORMS ]===================\n" RESET << std::endl;
 		
-		std::cout << BOLD CYAN "\n[Testing successful signing]" RESET << std::endl;
+		std::cout << BOLD CYAN "\n__ Testing successful signing __" RESET << std::endl;
 		Boss.signForm(topSecret);
 		Manager.signForm(contract);
 		
-		std::cout << BOLD CYAN "\n[Testing already signed form]" RESET << std::endl;
+		std::cout << BOLD CYAN "\n__ Testing already signed form __" RESET << std::endl;
 		try
 		{
 			Employee.signForm(topSecret);

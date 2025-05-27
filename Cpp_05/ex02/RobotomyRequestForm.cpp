@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/26 21:52:16 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/27 19:58:31 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,14 @@ void	RobotomyRequestForm::beSigned(const Bureaucrat& bureaucrat)
 	this->_isSigned = true;
 }
 
-void	RobotomyRequestForm::robotomy(const Bureaucrat& target) const
+void	RobotomyRequestForm::robotomy(const std::string& target) const
 {
 	std::cout << ITAL LIGHT_GRAY2 "* DRILLING NOISES * Bzzzz..." RESET << std::endl;
 
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 	if (std::rand() % 2 == 0)
-		std::cout << BOLD BLUE << target.getName() << RESET " has been robotomized "
-				  << "successfully 50% of the time" << std::endl;
+		std::cout << BOLD BLUE << target << RESET " has been robotomized successfully "
+				  << "50% of the time" << std::endl;
 	else
 		std::cout << BOLD RED "Error: " RESET << "Robotomy failed" << std::endl;
 }
@@ -107,5 +107,5 @@ void	RobotomyRequestForm::execute(Bureaucrat const& executor) const
 		throw AForm::NotSignedException();
 	if (executor.getGrade() > this->_gradeToExec)
 		throw AForm::CannotExecuteException();
-	robotomy(executor);
+	robotomy(this->_target);
 }
