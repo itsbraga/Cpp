@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/26 21:51:36 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/27 22:06:45 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ Form::Form(const std::string& name, const uint32_t gradeToSign, const uint32_t g
 	: _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {
 	std::cout << BOLD PURPLE "[Form " UNDERLINE << this->_name << RESET
-			  << BOLD PURPLE "]" RESET << PURPLE " created" RESET << std::endl;
+			  << BOLD PURPLE "]" RESET PURPLE " created" RESET << std::endl;
 }
 
 Form::Form(const Form& toCopy) : _name(toCopy._name), _gradeToSign(toCopy._gradeToSign),
 								 _gradeToExec(toCopy._gradeToExec)
 {
 	std::cout << BOLD PP "[Form " UNDERLINE << this->_name << RESET
-			  << BOLD PP "]" RESET << PP " copy created" RESET << std::endl;
+			  << BOLD PP "]" RESET PP " copy created" RESET << std::endl;
 	this->_isSigned = toCopy._isSigned;
 }
 
@@ -42,7 +42,7 @@ Form&		Form::operator=(const Form& toCopy)
 Form::~Form()
 {
 	std::cout << BOLD PO "[Form " UNDERLINE << this->_name << RESET
-			  << BOLD PO "]" RESET << PO " destroyed" RESET << std::endl;
+			  << BOLD PO "]" RESET PO " destroyed" RESET << std::endl;
 }
 
 /*

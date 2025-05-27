@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/26 21:50:32 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/28 01:08:14 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 Bureaucrat::Bureaucrat(const std::string& name, uint32_t grade) : _name(name), _grade(grade)
 {
 	std::cout << BOLD BLUE "[Bureaucrat " UNDERLINE << this->_name << RESET
-			  << BOLD BLUE "]" RESET << BLUE " created" RESET << std::endl;
+			  << BOLD BLUE "]" RESET BLUE " created" RESET << std::endl;
 	if (this->_grade < 1)
 		throw GradeTooHighException();
 	else if (this->_grade > 150)
@@ -29,7 +29,7 @@ Bureaucrat::Bureaucrat(const std::string& name, uint32_t grade) : _name(name), _
 Bureaucrat::Bureaucrat(const Bureaucrat& toCopy) : _name(toCopy._name), _grade(toCopy._grade)
 {
 	std::cout << BOLD PB "[Bureaucrat " UNDERLINE << this->_name << RESET
-			  << BOLD PB "]" RESET << PB " copy created" RESET << std::endl;
+			  << BOLD PB "]" RESET PB " copy created" RESET << std::endl;
 }
 
 Bureaucrat&		Bureaucrat::operator=(const Bureaucrat& toCopy)
@@ -43,7 +43,7 @@ Bureaucrat&		Bureaucrat::operator=(const Bureaucrat& toCopy)
 Bureaucrat::~Bureaucrat()
 {
 	std::cout << BOLD RED "[Bureaucrat " UNDERLINE << this->_name << RESET
-			  << BOLD RED "]" RESET << RED " destroyed" RESET << std::endl;
+			  << BOLD RED "]" RESET RED " destroyed" RESET << std::endl;
 }
 
 /*
@@ -60,9 +60,9 @@ std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 */
 void	Bureaucrat::setGrade(uint32_t grade)
 {
-	if (this->_grade < 1)
+	if (grade < 1)
 		throw GradeTooHighException();
-	else if (this->_grade > 150)
+	else if (grade > 150)
 		throw GradeTooLowException();
 	this->_grade = grade;
 }

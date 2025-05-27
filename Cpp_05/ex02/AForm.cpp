@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/27 20:06:39 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/27 22:06:56 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ AForm::AForm(const std::string& name, const uint32_t gradeToSign, const uint32_t
 	: _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {
 	std::cout << BOLD PURPLE "[Form " UNDERLINE << __getDisplayName(this->_name) << RESET
-			  << BOLD PURPLE "]" RESET << PURPLE " created" RESET << std::endl;
+			  << BOLD PURPLE "]" RESET PURPLE " created" RESET << std::endl;
 }
 
 AForm::AForm(const AForm& toCopy) : _name(toCopy._name), _gradeToSign(toCopy._gradeToSign),
 								 _gradeToExec(toCopy._gradeToExec)
 {
 	std::cout << BOLD PP "[Form " UNDERLINE << __getDisplayName(this->_name) << RESET
-			  << BOLD PP "]" RESET << PP " copy created" RESET << std::endl;
+			  << BOLD PP "]" RESET PP " copy created" RESET << std::endl;
 	this->_isSigned = toCopy._isSigned;
 }
 
@@ -50,7 +50,7 @@ AForm&		AForm::operator=(const AForm& toCopy)
 AForm::~AForm()
 {
 	std::cout << ORANGE "[Form " UNDERLINE << __getDisplayName(this->_name) << RESET
-			  << ORANGE "]" RESET << ORANGE " destroyed" RESET << std::endl;
+			  << ORANGE "]" RESET ORANGE " destroyed" RESET << std::endl;
 }
 
 /*
