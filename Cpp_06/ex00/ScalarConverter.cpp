@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 22:04:17 by panther           #+#    #+#             */
-/*   Updated: 2025/05/28 01:31:59 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/28 21:50:45 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,153 +40,71 @@ ScalarConverter::~ScalarConverter()
 }
 
 /*
-	-------------------------- [ Conversion ] ----------------------------
+	------------------------ [ Type detection ] --------------------------
 */
-void	ScalarConverter::convertFromChar(char c)
+static LiteralType	__detectType(const std::string& literal)
 {
-	std::cout << "char: '" << c << "'" << std::endl;
-	
-	std::cout << "int: " << static_cast<int>(c) << std::endl;
-	
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c)
-			  << "f" << std::endl;
-	
-	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c)
-			  << std::endl;
-}
-
-void	ScalarConverter::convertFromInt(int value)
-{
-	if (value < 0 || value > 127)
-		std::cerr << "char: impossible" << std::endl;
-	else
-	{
-		char c = static_cast<char>(value);
-		if (isDisplayable(c) == false)
-			std::cerr << "char: Non displayable" << std::endl;
-		else
-			std::cout << "char: '" << c << "'" << std::endl;
-	}
-
-	std::cout << "int: " << value << std::endl;
-
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value)
-			  << "f" << std::endl;
-
-	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(value)
-			  << std::endl;
-}
-
-void	ScalarConverter::convertFromFloat(float value)
-{
-	if (value < 0.0f || value > 127.0f || value != static_cast<int>(value))
-		std::cerr << "char: impossible" << std::endl;
-	else
-	{
-		char c = static_cast<char>(value);
-		if (isDisplayable(c) == false)
-			std::cerr << "char: Non displayable" << std::endl;
-		else
-			std::cout << "char: '" << c << "'" << std::endl;
-	}
-	
-	if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
-		std::cerr << "int: impossible" << std::endl;
-	else
-		std::cout << "int: " << static_cast<int>(value) << std::endl;
-	
-	std::cout << "float: " << std::fixed << std::setprecision(1) << value << "f" << std::endl;
-	
-	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(value)
-			  << std::endl;
-}
-
-void	ScalarConverter::convertFromDouble(double value)
-{
-	if (value < 0.0 || value > 127.0 || value != static_cast<int>(value))
-		std::cerr << "char: impossible" << std::endl;
-	else
-	{
-		char c = static_cast<char>(value);
-		if (isDisplayable(c) == false)
-			std::cerr << "char: Non displayable" << std::endl;
-		else
-			std::cout << "char: '" << c << "'" << std::endl;
-	}
-	
-	if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
-		std::cerr << "int: impossible" << std::endl;
-	else
-		std::cout << "int: " << static_cast<int>(value) << std::endl;
-	
-	if (value < -std::numeric_limits<float>::max() || value > std::numeric_limits<float>::max())
-		std::cerr << "float: impossible" << std::endl;
-	else
-		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value)
-				  << "f" << std::endl;
-	
-	std::cout << "double: " << std::fixed << std::setprecision(1) << value << std::endl;
+	if (isChar(literal) == true)
+		return (CHAR);
+	else if (isInt(literal) == true)
+		return (INT);
+	else if (isFloat(literal) == true)
+		return (FLOAT);
+	else if (isDouble(literal) == true)
+		return (DOUBLE);
+	return (UNKNOWN);
 }
 
 /*
-	---------------- [ Shortened conversion functions ] ------------------
+	----------------------- [ Print functions ] --------------------------
 */
-void	ScalarConverter::getChar(const std::string& literal)
+static void	__printAllImpossible()
 {
-	char c = literal[1];
-	convertFromChar(c);
+	std::cout << "char: impossible\n"
+			  << "int: impossible\n"
+			  << "float: impossible\n"
+			  << "double: impossible" << std::endl;
 }
 
-void	ScalarConverter::getInt(const std::string& literal)
+static void	__printChar(double v)
 {
-	try
-	{
-		long tmp = std::stol(literal);
-		if (tmp < std::numeric_limits<int>::min() || tmp > std::numeric_limits<int>::max())
-			std::cerr << BOLD RED "Error: " RESET "Integer overflow" << std::endl;
-		else
-			convertFromInt(static_cast<int>(tmp));
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << BOLD RED "Error: " RESET "Invalid integer" << std::endl;
-	}
-}
-
-void	ScalarConverter::getFloat(const std::string& literal)
-{
-	if (literal == "-inff" || literal == "+inff" || literal == "nanf")
-		handleSpecialFloat(literal);
+	if (std::isnan(v) || v < 0 || v > 127)
+		std::cout << "char: impossible" << std::endl;
 	else
 	{
-		try
-		{
-			float value = std::stof(literal);
-			convertFromFloat(value);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << BOLD RED "Error: " RESET "Invalid float" << std::endl;
-		}
+		char c = static_cast<char>(v);
+		std::cout << "char: "
+				  << (isDisplayable(c) ? std::string("'") + c + "'" : "Non displayable")
+				  << std::endl;
 	}
 }
 
-void	ScalarConverter::getDouble(const std::string& literal)
+static void	__printInt(double v)
 {
-	if (literal == "-inf" || literal == "+inf" || literal == "nan")
-		handleSpecialDouble(literal);
+	if (std::isnan(v) || std::isinf(v))
+		std::cout << "int: impossible" << std::endl;
 	else
-	{
-		try
-		{
-			double value = std::stod(literal);
-			convertFromDouble(value);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << BOLD RED "Error: " RESET "Invalid double" << std::endl;
-		}
-	}
+		std::cout << "int: " << static_cast<int>(v) << std::endl;
+}
+
+static void	__printFloat(double v)
+{
+	if (std::isnan(v) || std::isinf(v))
+		std::cout << "float: impossible" << std::endl;
+	else
+		std::cout << "float: "
+				  << std::fixed << std::setprecision(1)
+				  << static_cast<float>(v) << "f" << std::endl;
+}
+
+static void	__printDouble(double v)
+{
+	if (std::isnan(v) || std::isinf(v))
+		std::cout << "double: impossible" << std::endl;
+	else
+		std::cout << "double: "
+				  << std::fixed << std::setprecision(1)
+				  << v << std::endl;
 }
 
 /*
@@ -194,14 +112,55 @@ void	ScalarConverter::getDouble(const std::string& literal)
 */
 void	ScalarConverter::convert(const std::string& literal)
 {
-	if (isChar(literal) == true)
-		getChar(literal);
-	else if (isInt(literal) == true)
-		getInt(literal);
-	else if (isFloat(literal) == true)
-		getFloat(literal);
-	else if (isDouble(literal) == true)
-		getDouble(literal);
-	else
-		std::cerr << BOLD RED "Error: " RESET "Unknown literal type" << std::endl;
+	LiteralType type = __detectType(literal);
+
+	if (type == FLOAT && (literal == "nanf" || literal == "+inff" || literal == "-inff"))
+		return (handleSpecialFloat(literal));
+	if (type == DOUBLE && (literal == "nan"  || literal == "+inf"  || literal == "-inf"))
+		return (handleSpecialDouble(literal));
+
+	std::istringstream iss(literal);
+	double value = 0.0;
+
+	switch (type)
+	{
+		case CHAR:
+		{
+			char c;
+			iss >> c;
+			value = c;
+			break ;
+		}
+		case INT:
+		{
+			int i;
+			iss >> i;
+			if (iss.fail() == true)
+				return (__printAllImpossible());
+			value = i;
+			break ;
+		}
+		case FLOAT:
+		{
+			float f;
+			iss >> f;
+			if (iss.fail() == true)
+				return (__printAllImpossible());
+			value = f;
+			break ;
+		}
+		case DOUBLE:
+		{
+			iss >> value;
+			if (iss.fail() == true)
+				return (__printAllImpossible());
+			break ;
+		}
+		default:
+			return (__printAllImpossible());
+	}
+	__printChar(value);
+	__printInt(value);
+	__printFloat(value);
+	__printDouble(value);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/27 22:06:45 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/28 19:01:20 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ Form::Form(const std::string& name, const uint32_t gradeToSign, const uint32_t g
 {
 	std::cout << BOLD PURPLE "[Form " UNDERLINE << this->_name << RESET
 			  << BOLD PURPLE "]" RESET PURPLE " created" RESET << std::endl;
+	if (this->_gradeToSign < 1 || this->_gradeToExec < 1)
+		throw GradeTooHighException();
+	else if (this->_gradeToSign > 150 || this->_gradeToExec > 150)
+		throw GradeTooLowException();
 }
 
 Form::Form(const Form& toCopy) : _name(toCopy._name), _gradeToSign(toCopy._gradeToSign),

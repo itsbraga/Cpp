@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 22:07:15 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/27 21:40:01 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/28 16:42:08 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Intern::Intern(const Intern& toCopy)
 	std::cout << BOLD PY "[Intern]" RESET PY " copy created" RESET << std::endl;
 }
 
-Intern&	Intern::operator=(const Intern& toCopy)
+Intern&		Intern::operator=(const Intern& toCopy)
 {
 	(void)toCopy;
 	std::cout << BOLD PY "[Copy assignment operator]" RESET << " called" << std::endl;

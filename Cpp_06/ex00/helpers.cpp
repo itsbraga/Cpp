@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 22:41:13 by panther           #+#    #+#             */
-/*   Updated: 2025/05/28 01:41:57 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/28 21:49:59 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-bool	ScalarConverter::isChar(const std::string& literal)
+bool	isChar(const std::string& literal)
 {
 	if (literal.empty() == true)
 		return (false);
-	if (literal.length() == 3 && literal[0] == '\'' && literal[2] == '\'')
+	if (literal.length() == 1)
 	{
-		char c = literal[1];
+		char c = literal[0];
 		return (c >= 32 && c <= 126);
 	}
 	return (false);
 }
 
-bool	ScalarConverter::isInt(const std::string& literal)
+bool	isInt(const std::string& literal)
 {
 	size_t	i = 0;
 
@@ -43,7 +43,7 @@ bool	ScalarConverter::isInt(const std::string& literal)
 	return (true);
 }
 
-bool	ScalarConverter::isFloat(const std::string& literal)
+bool	isFloat(const std::string& literal)
 {
 	std::string	nbr;
 	size_t		i = 0;
@@ -53,7 +53,7 @@ bool	ScalarConverter::isFloat(const std::string& literal)
 		return (false);
 	if (literal == "-inff" || literal == "+inff" || literal == "nanf")
 		return (true);
-	if (literal.back() != 'f')
+	if (literal[literal.length() - 1] != 'f')
 		return (false);
 
 	nbr = literal.substr(0, literal.length() - 1);
@@ -63,6 +63,7 @@ bool	ScalarConverter::isFloat(const std::string& literal)
 		i++;
 	if (i == nbr.length())
 		return (false);
+
 	for (; i < nbr.length(); i++)
 	{
 		if (nbr[i] == '.')
@@ -74,10 +75,10 @@ bool	ScalarConverter::isFloat(const std::string& literal)
 		else if (std::isdigit(nbr[i]) == false)
 			return (false);
 	}
-	return (hasDot);
+	return (hasDot && std::isdigit(nbr[nbr.length() - 1]));
 }
 
-bool	ScalarConverter::isDouble(const std::string& literal)
+bool	isDouble(const std::string& literal)
 {
 	size_t		i = 0;
 	bool		hasDot = false;
@@ -102,15 +103,15 @@ bool	ScalarConverter::isDouble(const std::string& literal)
 		else if (std::isdigit(literal[i]) == false)
 			return (false);
 	}
-	return (hasDot);
+	return (hasDot && std::isdigit(literal[literal.length() - 1]));
 }
 
-bool	ScalarConverter::isDisplayable(char c)
+bool	isDisplayable(char c)
 {
 	return (c >= 32 && c <= 126);
 }
 
-void	ScalarConverter::handleSpecialFloat(const std::string& literal)
+void	handleSpecialFloat(const std::string& literal)
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
@@ -132,7 +133,7 @@ void	ScalarConverter::handleSpecialFloat(const std::string& literal)
 	}
 }
 
-void	ScalarConverter::handleSpecialDouble(const std::string& literal)
+void	handleSpecialDouble(const std::string& literal)
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;

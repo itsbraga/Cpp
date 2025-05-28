@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:14:07 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/26 22:05:32 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/28 16:54:31 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class Bureaucrat
 
 			void					setGrade(uint32_t grade);
 			const std::string&		getName() const;
-			const uint32_t&		getGrade() const;
+			const uint32_t&			getGrade() const;
 			
 			class GradeTooHighException : public std::exception
 			{

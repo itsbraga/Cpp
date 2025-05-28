@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/27 22:06:56 by panther          ###   ########.fr       */
+/*   Updated: 2025/05/28 19:02:16 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ AForm::AForm(const std::string& name, const uint32_t gradeToSign, const uint32_t
 {
 	std::cout << BOLD PURPLE "[Form " UNDERLINE << __getDisplayName(this->_name) << RESET
 			  << BOLD PURPLE "]" RESET PURPLE " created" RESET << std::endl;
+	if (this->_gradeToSign < gradeToSign || this->_gradeToExec < gradeToExec)
+		throw GradeTooHighException();
+	else if (this->_gradeToSign > gradeToSign || this->_gradeToExec > gradeToExec)
+		throw GradeTooLowException();
 }
 
 AForm::AForm(const AForm& toCopy) : _name(toCopy._name), _gradeToSign(toCopy._gradeToSign),
