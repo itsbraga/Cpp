@@ -6,14 +6,12 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:14:07 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/28 16:53:31 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/31 18:50:06 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_H
 # define BUREAUCRAT_H
-
-typedef unsigned int uint32_t;
 
 /******************************************************************************\
  * LIBRARIES
@@ -22,8 +20,14 @@ typedef unsigned int uint32_t;
 # include <iostream>
 # include "../colors.hpp"
 
+/******************************************************************************\
+ * DEFINES
+\******************************************************************************/
+
 # define SUCCESS 0
 # define FAILURE 1
+
+typedef unsigned int uint32_t;
 
 /******************************************************************************\
  * CLASS

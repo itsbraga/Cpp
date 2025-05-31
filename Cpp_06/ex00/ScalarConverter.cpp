@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 22:04:17 by panther           #+#    #+#             */
-/*   Updated: 2025/05/28 21:50:45 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/31 17:43:21 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@
 */
 ScalarConverter::ScalarConverter()
 {
-	std::cout << BOLD BLUE "[ScalarConverter]" RESET BLUE " created" RESET << std::endl;
+	// std::cout << BOLD BLUE "[ScalarConverter]" RESET BLUE " created" RESET << std::endl;
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter& toCopy)
 {
 	(void)toCopy;
-	std::cout << BOLD PB "[ScalarConverter]" RESET PB " copy created" RESET << std::endl;
+	// std::cout << BOLD PB "[ScalarConverter]" RESET PB " copy created" RESET << std::endl;
 }
 
 ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& toCopy)
 {
 	(void)toCopy;
-	std::cout << BOLD PY "[Copy assignment operator]" RESET << " called" << std::endl;
+	// std::cout << BOLD PY "[Copy assignment operator]" RESET << " called" << std::endl;
 	return (*this);
 }
 
 ScalarConverter::~ScalarConverter()
 {
-	std::cout << BOLD PO "[ScalarConverter]" RESET PO " destroyed" RESET << std::endl;
+	// std::cout << BOLD PO "[ScalarConverter]" RESET PO " destroyed" RESET << std::endl;
 }
 
 /*

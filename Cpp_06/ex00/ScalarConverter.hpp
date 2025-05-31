@@ -6,21 +6,12 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 21:57:39 by panther           #+#    #+#             */
-/*   Updated: 2025/05/28 21:28:37 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/31 18:48:33 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
-
-enum LiteralType
-{
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE,
-	UNKNOWN
-};
 
 /******************************************************************************\
  * LIBRARIES
@@ -30,11 +21,25 @@ enum LiteralType
 # include <sstream>
 # include <limits>
 # include <cmath>
+# include <cstdint>
 # include <iomanip>
 # include "../colors.hpp"
 
+/******************************************************************************\
+ * DEFINES
+\******************************************************************************/
+
 # define SUCCESS 0
 # define FAILURE 1
+
+enum LiteralType
+{
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	UNKNOWN
+};
 
 /******************************************************************************\
  * CLASS
