@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 18:47:37 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/31 19:16:57 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/31 21:03:43 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	identify(Base* p)
 		std::cout << "B" << std::endl;
 	else if (dynamic_cast<C*>(p) != NULL)
 		std::cout << "C" << std::endl;
-	else
+	else // specifier null
 		std::cout << "Unknown type" << std::endl;
 }
 
@@ -67,7 +67,7 @@ void	identify(Base& p)
 	}
 	catch(const std::exception& e)
 	{
-		// on continue
+		std::cerr << e.what() << std::endl;
 	}
 
 	try
@@ -78,7 +78,7 @@ void	identify(Base& p)
 	}
 	catch(const std::exception& e)
 	{
-		// on continue
+		std::cerr << e.what() << std::endl;
 	}
 
 	try

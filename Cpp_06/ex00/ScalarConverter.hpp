@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 21:57:39 by panther           #+#    #+#             */
-/*   Updated: 2025/05/31 18:48:33 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/31 20:43:42 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <sstream>
 # include <limits>
 # include <cmath>
-# include <cstdint>
 # include <iomanip>
 # include "../colors.hpp"
 

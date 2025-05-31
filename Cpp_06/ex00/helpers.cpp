@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 22:41:13 by panther           #+#    #+#             */
-/*   Updated: 2025/05/28 21:49:59 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/05/31 21:01:54 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ bool	isChar(const std::string& literal)
 	if (literal.length() == 1)
 	{
 		char c = literal[0];
+		if (c >= '0' && c <= '9')
+			return (false);
 		return (c >= 32 && c <= 126);
 	}
 	return (false);
