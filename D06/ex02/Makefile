@@ -25,7 +25,7 @@ DFLAGS		=	-MMD -MP
 #	SOURCES
 #******************************************************************************#
 
-SRCS		=	main.cpp Base.cpp
+SRCS		=	main.cpp Base.cpp myBadCast.cpp
 
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))

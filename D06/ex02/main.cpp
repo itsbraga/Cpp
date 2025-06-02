@@ -6,14 +6,15 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 18:50:30 by panther           #+#    #+#             */
-/*   Updated: 2025/05/31 19:36:25 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/02 19:06:25 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
-# include "A.hpp"
-# include "B.hpp"
-# include "C.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+#include "myBadCast.hpp"
 
 int main(int argc, char	**argv)
 {
