@@ -6,12 +6,15 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 22:41:13 by panther           #+#    #+#             */
-/*   Updated: 2025/05/31 21:01:54 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/02 18:39:30 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
+/*
+	----------------------- [ Type detection ] ---------------------------
+*/
 bool	isChar(const std::string& literal)
 {
 	if (literal.empty() == true)
@@ -108,11 +111,19 @@ bool	isDouble(const std::string& literal)
 	return (hasDot && std::isdigit(literal[literal.length() - 1]));
 }
 
-bool	isDisplayable(char c)
+bool	isSpecialFloat(const std::string& literal)
 {
-	return (c >= 32 && c <= 126);
+	return (literal == "nanf" || literal == "+inff" || literal == "-inff");
 }
 
+bool	isSpecialDouble(const std::string& literal)
+{
+	return (literal == "nan" || literal == "+inf" || literal == "-inf");
+}
+
+/*
+	---------------------- [ Special handling ] --------------------------
+*/
 void	handleSpecialFloat(const std::string& literal)
 {
 	std::cout << "char: impossible" << std::endl;
@@ -155,4 +166,53 @@ void	handleSpecialDouble(const std::string& literal)
 		std::cout << "float: -inff" << std::endl;
 		std::cout << "double: -inf" << std::endl;
 	}
+}
+
+/*
+	---------------------- [ Display functions ] -------------------------
+*/
+void	displayChar(double value)
+{
+	if (value < 0 || value > 127 || value != static_cast<int>(value)
+		|| std::isnan(value) == true || std::isinf(value) == true)
+		std::cout << "char: impossible" << std::endl;
+	else if (std::isprint(static_cast<char>(value)) == false)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+}
+
+void	displayInt(double value)
+{
+	if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max()
+		|| value != static_cast<int>(value) || std::isnan(value) == true || std::isinf(value) == true)
+		std::cout << "int: " BOLD RED "out of range" RESET << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(value) << std::endl;
+}
+
+void	displayFloat(double value)
+{
+	if (value < -std::numeric_limits<float>::max() || value > std::numeric_limits<float>::max()
+		|| std::isnan(value) == true || std::isinf(value) == true)
+		std::cout << "float: " BOLD RED "out of range" RESET << std::endl;
+	else
+	{
+		float f = static_cast<float>(value);
+		if (static_cast<double>(f) != value)
+			std::cout << "float: " BOLD PO "imprecise" RESET << std::endl;
+		else
+			std::cout << std::fixed << std::setprecision(1)
+					  << "float: " << f << "f" << std::endl;
+	}
+}
+
+void	displayDouble(double value)
+{
+	if (value < -std::numeric_limits<double>::max() || value > std::numeric_limits<double>::max()
+		|| std::isnan(value) == true || std::isinf(value) == true)
+		std::cout << "double: " BOLD RED "out of range" RESET << std::endl;
+	else
+		std::cout << std::fixed << std::setprecision(1)
+				  << "double: " << value << std::endl;
 }

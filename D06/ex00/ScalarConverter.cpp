@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 22:04:17 by panther           #+#    #+#             */
-/*   Updated: 2025/05/31 17:43:21 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/02 18:29:22 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,59 +52,81 @@ static LiteralType	__detectType(const std::string& literal)
 		return (FLOAT);
 	else if (isDouble(literal) == true)
 		return (DOUBLE);
+	else if (isSpecialFloat(literal) == true)
+		return (SPECIALFLOAT);
+	else if (isSpecialDouble(literal) == true)
+		return (SPECIALDOUBLE);
 	return (UNKNOWN);
 }
 
-/*
-	----------------------- [ Print functions ] --------------------------
-*/
-static void	__printAllImpossible()
+static void	__convertFromChar(const std::string& literal)
 {
-	std::cout << "char: impossible\n"
-			  << "int: impossible\n"
-			  << "float: impossible\n"
-			  << "double: impossible" << std::endl;
+	char c = literal[0];
+	displayChar(static_cast<double>(c));
+	displayInt(static_cast<double>(c));
+	displayFloat(static_cast<double>(c));
+	displayDouble(static_cast<double>(c));
 }
 
-static void	__printChar(double v)
+static void	__convertFromInt(const std::string& literal)
 {
-	if (std::isnan(v) || v < 0 || v > 127)
-		std::cout << "char: impossible" << std::endl;
-	else
+	std::istringstream iss(literal);
+	long value;
+	char leftover;
+
+	if (!(iss >> value) || (iss >> leftover))
 	{
-		char c = static_cast<char>(v);
-		std::cout << "char: "
-				  << (isDisplayable(c) ? std::string("'") + c + "'" : "Non displayable")
-				  << std::endl;
-	}
-}
-
-static void	__printInt(double v)
-{
-	if (std::isnan(v) || std::isinf(v))
+		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
-	else
-		std::cout << "int: " << static_cast<int>(v) << std::endl;
-}
-
-static void	__printFloat(double v)
-{
-	if (std::isnan(v) || std::isinf(v))
 		std::cout << "float: impossible" << std::endl;
-	else
-		std::cout << "float: "
-				  << std::fixed << std::setprecision(1)
-				  << static_cast<float>(v) << "f" << std::endl;
+		std::cout << "double: impossible" << std::endl;
+		return ;
+	}
+	displayChar(static_cast<double>(value));
+	displayInt(static_cast<double>(value));
+	displayFloat(static_cast<double>(value));
+	displayDouble(static_cast<double>(value));
 }
 
-static void	__printDouble(double v)
+static void	__convertFromFloat(const std::string& literal)
 {
-	if (std::isnan(v) || std::isinf(v))
+	std::string tmp = literal.substr(0, literal.length() - 1);
+	std::istringstream iss(tmp);
+	float value;
+	char leftover;
+
+	if (!(iss >> value) || (iss >> leftover))
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: impossible" << std::endl;
 		std::cout << "double: impossible" << std::endl;
-	else
-		std::cout << "double: "
-				  << std::fixed << std::setprecision(1)
-				  << v << std::endl;
+		return ;
+	}
+	displayChar(static_cast<double>(value));
+	displayInt(static_cast<double>(value));
+	displayFloat(static_cast<double>(value));
+	displayDouble(static_cast<double>(value));
+}
+
+static void	__convertFromDouble(const std::string& literal)
+{
+	std::istringstream iss(literal);
+	double value;
+	char leftover;
+
+	if (!(iss >> value) || (iss >> leftover))
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: impossible" << std::endl;
+		std::cout << "double: impossible" << std::endl;
+		return ;
+	}
+	displayChar(value);
+	displayInt(value);
+	displayFloat(value);
+	displayDouble(value);
 }
 
 /*
@@ -114,53 +136,18 @@ void	ScalarConverter::convert(const std::string& literal)
 {
 	LiteralType type = __detectType(literal);
 
-	if (type == FLOAT && (literal == "nanf" || literal == "+inff" || literal == "-inff"))
+	if (type == SPECIALFLOAT)
 		return (handleSpecialFloat(literal));
-	if (type == DOUBLE && (literal == "nan"  || literal == "+inf"  || literal == "-inf"))
+	else if (type == SPECIALDOUBLE)
 		return (handleSpecialDouble(literal));
-
-	std::istringstream iss(literal);
-	double value = 0.0;
-
-	switch (type)
-	{
-		case CHAR:
-		{
-			char c;
-			iss >> c;
-			value = c;
-			break ;
-		}
-		case INT:
-		{
-			int i;
-			iss >> i;
-			if (iss.fail() == true)
-				return (__printAllImpossible());
-			value = i;
-			break ;
-		}
-		case FLOAT:
-		{
-			float f;
-			iss >> f;
-			if (iss.fail() == true)
-				return (__printAllImpossible());
-			value = f;
-			break ;
-		}
-		case DOUBLE:
-		{
-			iss >> value;
-			if (iss.fail() == true)
-				return (__printAllImpossible());
-			break ;
-		}
-		default:
-			return (__printAllImpossible());
-	}
-	__printChar(value);
-	__printInt(value);
-	__printFloat(value);
-	__printDouble(value);
+	else if (type == CHAR)
+		__convertFromChar(literal);
+	else if (type == INT)
+		__convertFromInt(literal);
+	else if (type == FLOAT)
+		__convertFromFloat(literal);
+	else if (type == DOUBLE)
+		__convertFromDouble(literal);
+	else if (type == UNKNOWN)
+		std::cerr << BOLD RED "Error: " RESET "Unknown literal type" << std::endl;
 }

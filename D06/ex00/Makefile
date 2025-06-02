@@ -14,7 +14,7 @@ PURPLE		:=	\e[38;2;224;176;255m
 #	COMPILATION
 #******************************************************************************#
 
-NAME		=	convert
+NAME		=	ScalarConverter
 CPP			=	c++
 CPPFLAG		=	-Wall -Wextra -Werror -std=c++98 -g3
 MULT_HERIT	=	-Wshadow
