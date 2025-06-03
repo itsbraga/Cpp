@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 02:02:49 by art3mis           #+#    #+#             */
-/*   Updated: 2025/06/02 02:26:38 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/06/03 19:24:47 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 int main(void)
 {
+	std::cout << BOLD PY "Test given by subject: " RESET << std::endl;
+	int * a = new int();
+	std::cout << "asks to display *a to check its initialization: " RESET << *a << std::endl;
+	
 	std::cout << BOLD PP "\n========= Default Construction =========" RESET << std::endl;
 	
 	Array<int> empty;
@@ -84,5 +88,6 @@ int main(void)
 	{
 		std::cout << BOLD RED "Exception caught: " RESET "Index out of bounds" << std::endl;
 	}
+	std::cout << std::endl;
 	return (SUCCESS);
 }

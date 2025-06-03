@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/24 17:44:14 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:53:22 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ int	main(void)
 
 	std::cout << BOLD "\n-----[ Destroying a and b ]-----\n" << RESET
 			  << std::endl;
-	delete a; //should not create a leak
-	a = NULL;
-	delete b;
-	b = NULL;
+	delete a, a = NULL; //should not create a leak
+	delete b, b = NULL;
 
 	std::cout << BOLD "\n\n\n_____________________ MY MAIN ______________________\n"
 			  << RESET << std::endl;
@@ -118,17 +116,13 @@ int	main(void)
 
 			std::cout << ITAL "\nDestroying copy cat... " LIGHT_GRAY2
 					  << "_heap_" RESET << std::endl;
-			delete copyCat;
-			copyCat = NULL;
+			delete copyCat, copyCat = NULL;
 		}
 	}
 	
 	std::cout << BOLD "\n\n-----[ Destroying Animals ]-----\n" << RESET
 			  << std::endl;
 	for (int j = 0; j < 10; j++)
-	{
-		delete Animals[j];
-		Animals[j] = NULL;
-	}
+		delete Animals[j], Animals[j] = NULL;
 	return (SUCCESS);
 }

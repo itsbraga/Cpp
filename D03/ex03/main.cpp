@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/21 17:39:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:52:12 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,7 @@ int	main(void)
 	e.whoAmI();
 
 	ClapTrap	*ptr = new DiamondTrap("Bob");
-	delete ptr;
-	ptr = NULL;
+	delete ptr, ptr = NULL;
 
 	std::cout << BOLD PY "\n------[ End of program, destructors called ]------" RESET
 			  << std::endl;

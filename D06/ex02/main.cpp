@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 18:50:30 by panther           #+#    #+#             */
-/*   Updated: 2025/06/02 19:06:25 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:56:22 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ int main(int argc, char	**argv)
 		std::cout << "Identification from reference: ";
 		identify(*obj);
 		
-		delete obj;
-		obj = NULL;
+		delete obj, obj = NULL;
 	}
 	
 	std::cout << "\n" BOLD PINK "\n==================[ TESTING WITH SPECIFIC OBJECTS ]=================" RESET << std::endl;
@@ -98,18 +97,12 @@ int main(int argc, char	**argv)
 	std::cout << BOLD PP "\nIdentifying NULL Pointer: " RESET;
 	identify(null_ptr);
 	
-	delete a;
-	a = NULL;
-	delete b;
-	b = NULL;
-	delete c;
-	c = NULL;
-	delete base_a;
-	base_a = NULL;
-	delete base_b;
-	base_b = NULL;
-	delete base_c;
-	base_c = NULL;
+	delete a, a = NULL;
+	delete b, b = NULL;
+	delete c, c = NULL;
+	delete base_a, base_a = NULL;
+	delete base_b, base_b = NULL;
+	delete base_c, base_c = NULL;
 
 	std::cout << BOLD PINK "\n\n==========================[ END OF TESTS ]==========================\n" RESET << std::endl;
 	return (SUCCESS);

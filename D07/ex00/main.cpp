@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 23:21:52 by art3mis           #+#    #+#             */
-/*   Updated: 2025/06/02 01:33:56 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/06/03 19:01:09 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ int	main( void )
 
 	std::cout << "min( m, n ) = " BOLD PGG << ::min<unsigned char>(m, n) << RESET << std::endl;
 	std::cout << "max( m, n ) = " BOLD PG << ::max<unsigned char>(m, n) << RESET << std::endl;
-	
+	std::cout << std::endl;
 	return (SUCCESS);
 }

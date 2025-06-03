@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 01:44:09 by art3mis           #+#    #+#             */
-/*   Updated: 2025/06/02 02:09:16 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/06/03 19:21:57 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ Array<T>& Array<T>::operator=( const Array& toCopy )
 	if (this != &toCopy)
 	{
 		delete [] this->_array;
-		this->_array = NULL;
 		this->_size = toCopy._size;
 		this->_array = new T[this->_size]();
 
@@ -57,14 +56,13 @@ Array<T>::~Array()
 {
 	// std::cout << BOLD PO "[Template 'Array']" RESET PO " destroyed" RESET << std::endl;
 	delete [] this->_array;
-	this->_array = NULL;
 }
 
 template< typename T >
 T&	Array<T>::operator[]( uint32_t index )
 {
 	if (index >= this->_size)
-		throw std::exception();
+		throw OutOfBoundsException();
 	return (this->_array[index]);
 }
 
@@ -72,7 +70,7 @@ template< typename T >
 const T&	Array<T>::operator[]( uint32_t index ) const
 {
 	if (index >= this->_size)
-		throw std::exception();
+		throw OutOfBoundsException();
 	return (this->_array[index]);
 }
 

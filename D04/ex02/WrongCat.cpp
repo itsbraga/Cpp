@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/24 17:59:10 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:54:34 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ WrongCat::~WrongCat()
 {
 	std::cout << BOLD PO "[" << this->_type << "]" RESET PO " destroyed"
 			  << RESET << std::endl;
-	delete this->_Brain;
-	this->_Brain = NULL;
+	delete this->_Brain, this->_Brain = NULL;
 }
 
 /*

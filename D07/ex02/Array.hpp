@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 01:09:11 by art3mis           #+#    #+#             */
-/*   Updated: 2025/06/02 02:07:11 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/06/03 19:21:43 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,15 @@ typedef unsigned int uint32_t;
 /******************************************************************************\
  * TEMPLATE CLASS
 \******************************************************************************/
+
+class OutOfBoundsException : public std::exception
+{
+	public:
+			virtual const char* what() const throw()
+			{
+				return (BOLD RED "Exception caught: " RESET "Index out of bounds");
+			}
+};
 
 template< typename T >
 class Array

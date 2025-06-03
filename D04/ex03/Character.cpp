@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 20:24:40 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/24 21:44:23 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:54:52 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,7 @@ Character&	Character::operator=(const Character& toCopy)
 		for (int i = 0; i < 4; i++)
 		{
 			if (this->_inventory[i] != NULL)
-			{
-				delete this->_inventory[i];
-				this->_inventory[i] = NULL;
-			}
+				delete this->_inventory[i], this->_inventory[i] = NULL;
 		}
 		for (int i = 0; i < 4; i++)
 		{
@@ -72,10 +69,7 @@ Character::~Character()
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i] != NULL)
-		{
-			delete this->_inventory[i];
-			this->_inventory[i] = NULL;
-		}
+			delete this->_inventory[i], this->_inventory[i] = NULL;
 	}
 	std::cout << BOLD LIGHT_GRAY2 "[Character " << this->_name << "]" RESET
 			  << LIGHT_GRAY2 " destroyed" RESET << std::endl;

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 03:43:29 by panther           #+#    #+#             */
-/*   Updated: 2025/05/24 18:07:00 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:53:38 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ Dog::~Dog()
 {
 	std::cout << BOLD ORANGE "[" << this->_type << "]" RESET ORANGE " destroyed"
 			  << RESET << std::endl;
-	delete this->_Brain;
-	this->_Brain = NULL;
+	delete this->_Brain, this->_Brain = NULL;
 }
 
 /*

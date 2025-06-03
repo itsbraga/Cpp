@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 18:47:32 by art3mis           #+#    #+#             */
-/*   Updated: 2025/05/24 17:47:29 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:52:31 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,10 @@ int	main(void)
 	test->makeSound();
 	std::cout << std::endl;
 
-	delete i;
-	i = NULL;
-	delete j;
-	j = NULL;
-	delete meta;
-	meta = NULL;
-
-	delete testCat;
-	testCat = NULL;
-	delete test;
-	test = NULL;
+	delete i, i = NULL;
+	delete j, j = NULL;
+	delete meta, meta = NULL;
+	delete testCat, testCat = NULL;
+	delete test, test = NULL;
 	return (SUCCESS);
 }

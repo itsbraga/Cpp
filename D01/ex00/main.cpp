@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 22:16:57 by panther           #+#    #+#             */
-/*   Updated: 2025/05/21 17:39:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:51:38 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int	main(void)
 	zombie = newZombie("Einstein");
 	zombie->announce();
 
-	delete(zombie);
-	zombie = NULL;
+	delete(zombie), zombie = NULL;
 
 	randomChump("Yakitori");
 	return (SUCCESS);

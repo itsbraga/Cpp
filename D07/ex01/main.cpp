@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 23:21:52 by art3mis           #+#    #+#             */
-/*   Updated: 2025/06/02 02:15:30 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/06/03 19:01:20 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ int	main( void )
 	std::cout << BOLD PINK "\n[After uppercase]" RESET << std::endl;
 	::iter(strArray, 5, __strCapitalize);
 	::iter(strArray, 5, __printString);
-
+	std::cout << std::endl;
 	return (SUCCESS);
 }

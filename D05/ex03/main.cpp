@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 20:42:46 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/27 21:41:17 by panther          ###   ########.fr       */
+/*   Updated: 2025/06/03 18:55:55 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(void)
 			Boss.signForm(*rrf);
 			Boss.executeForm(*rrf);
 			std::cout << std::endl;
-			delete rrf;
+			delete rrf, rrf = NULL;
 		}
 
 		std::cout << "\n------------------------------------------------------\n";
@@ -57,7 +57,7 @@ int	main(void)
 			Employee.signForm(*scf);
 			Employee.executeForm(*scf);
 			std::cout << std::endl;
-			delete scf;
+			delete scf, scf = NULL;
 		}
 
 		std::cout << "\n------------------------------------------------------\n";
@@ -71,7 +71,7 @@ int	main(void)
 			Boss.signForm(*ppf);
 			Boss.executeForm(*ppf);
 			std::cout << std::endl;
-			delete ppf;
+			delete ppf, ppf = NULL;
 		}
 
 		std::cout << "\n------------------------------------------------------\n";
@@ -80,7 +80,7 @@ int	main(void)
 		try
 		{
 			AForm* invalidForm = someRandomIntern.makeForm("Invalid form", "Target");
-			delete invalidForm; // Ne devrait jamais être exécuté
+			delete invalidForm, invalidForm = NULL; // Ne devrait jamais être exécuté
 		}
 		catch (std::exception& e)
 		{
@@ -93,7 +93,7 @@ int	main(void)
 		try
 		{
 			AForm* invalidForm = someRandomIntern.makeForm("Robotomy Request", "Target");
-			delete invalidForm; // Ne devrait jamais être exécuté
+			delete invalidForm, invalidForm = NULL; // Ne devrait jamais être exécuté
 		}
 		catch (std::exception& e)
 		{
