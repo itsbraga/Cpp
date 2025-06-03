@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/06/01 22:16:21 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/06/03 18:25:56 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,29 @@ std::ostream&	operator<<(std::ostream& os, const AForm& form)
 }
 
 /*
+	----------------------------- [ Getters ] ----------------------------
+*/
+const std::string&	AForm::getName() const
+{
+	return (this->_name);
+}
+
+const bool&		AForm::getSignatureState() const
+{
+	return (this->_isSigned);
+}
+
+const uint32_t&		AForm::getRequiredGradeToSign() const
+{
+	return (this->_gradeToSign);
+}
+
+const uint32_t&		AForm::getRequiredGradeToExec() const
+{
+	return (this->_gradeToExec);
+}
+
+/*
 	-------------------------- [ Exceptions ] --------------------------
 */
 const char*		AForm::GradeTooHighException::what() const throw()
@@ -87,7 +110,7 @@ const char*		AForm::GradeTooLowException::what() const throw()
 
 const char*		AForm::AlreadySignedException::what() const throw()
 {
-	return ("an exception occured.\n" BOLD RED "Error: " RESET "Form is already signed!");
+	return (BOLD RED "Error: " RESET "An exception occured. Form is already signed!");
 }
 
 const char*		AForm::NotSignedException::what() const throw()
@@ -98,4 +121,14 @@ const char*		AForm::NotSignedException::what() const throw()
 const char*		AForm::CannotExecuteException::what() const throw()
 {
 	return ("an exception occured.\n" BOLD RED "Error: " RESET "Grade too low to execute the form!");
+}
+
+/*
+	------------------------- [ Main function ] --------------------------
+*/
+void	AForm::beSigned(const Bureaucrat& bureaucrat)
+{
+	if (bureaucrat.getGrade() > this->_gradeToSign)
+		throw GradeTooLowException();
+	this->_isSigned = true;
 }

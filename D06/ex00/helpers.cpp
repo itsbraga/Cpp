@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 22:41:13 by panther           #+#    #+#             */
-/*   Updated: 2025/06/02 18:39:30 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:37:21 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ bool	isFloat(const std::string& literal)
 	if (literal.empty() == true)
 		return (false);
 	if (literal == "-inff" || literal == "+inff" || literal == "nanf")
-		return (true);
+		return (false);
 	if (literal[literal.length() - 1] != 'f')
 		return (false);
 
@@ -91,7 +91,7 @@ bool	isDouble(const std::string& literal)
 	if (literal.empty() == true)
 		return (false);
 	if (literal == "-inf" || literal == "+inf" || literal == "nan")
-		return (true);
+		return (false);
 	if (literal[0] == '+' || literal[0] == '-')
 		i++;
 	if (i == literal.length())
@@ -185,16 +185,17 @@ void	displayChar(double value)
 void	displayInt(double value)
 {
 	if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max()
-		|| value != static_cast<int>(value) || std::isnan(value) == true || std::isinf(value) == true)
+		|| std::isnan(value) == true || std::isinf(value) == true)
 		std::cout << "int: " BOLD RED "out of range" RESET << std::endl;
+	else if (value != static_cast<int>(value))
+		std::cout << "int: " BOLD RED "impossible" RESET << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(value) << std::endl;
 }
 
 void	displayFloat(double value)
 {
-	if (value < -std::numeric_limits<float>::max() || value > std::numeric_limits<float>::max()
-		|| std::isnan(value) == true || std::isinf(value) == true)
+	if (value < -std::numeric_limits<float>::max() || value > std::numeric_limits<float>::max())
 		std::cout << "float: " BOLD RED "out of range" RESET << std::endl;
 	else
 	{
@@ -209,8 +210,7 @@ void	displayFloat(double value)
 
 void	displayDouble(double value)
 {
-	if (value < -std::numeric_limits<double>::max() || value > std::numeric_limits<double>::max()
-		|| std::isnan(value) == true || std::isinf(value) == true)
+	if (value < -std::numeric_limits<double>::max() || value > std::numeric_limits<double>::max())
 		std::cout << "double: " BOLD RED "out of range" RESET << std::endl;
 	else
 		std::cout << std::fixed << std::setprecision(1)

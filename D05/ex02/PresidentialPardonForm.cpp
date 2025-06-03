@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/27 20:00:26 by panther          ###   ########.fr       */
+/*   Updated: 2025/06/03 18:20:08 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,29 @@
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
 		: AForm("Presidential Pardon form", 25, 5), _target(target)
 {
-	std::cout << BOLD HOT_PINK "[" << this->_name << "]" RESET HOT_PINK " created"
+	std::cout << BOLD HOT_PINK "[" << this->getName() << "]" RESET HOT_PINK " created"
 			  << RESET << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& toCopy) : AForm(toCopy)
 {
-	std::cout << BOLD PINK "[" << this->_name << "]" RESET PINK " copy created"
+	std::cout << BOLD PINK "[" << this->getName() << "]" RESET PINK " copy created"
 			  << RESET << std::endl;
 }
 
 PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& toCopy)
 {
 	if (this != &toCopy)
+	{
 		AForm::operator=(toCopy);
+		this->_target = toCopy._target;
+	}
 	return (*this);
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout << BOLD PO "[" << this->_name << "]" RESET PO " destroyed" RESET << std::endl;
+	std::cout << BOLD PO "[" << this->getName() << "]" RESET PO " destroyed" RESET << std::endl;
 }
 
 /*
@@ -57,38 +60,8 @@ std::ostream&	operator<<(std::ostream& os, const PresidentialPardonForm& form)
 }
 
 /*
-	----------------------------- [ Getters ] ----------------------------
+	------------------------- [ Main functions ] -------------------------
 */
-const std::string&	PresidentialPardonForm::getName() const
-{
-	return (this->_name);
-}
-
-const bool&		PresidentialPardonForm::getSignatureState() const
-{
-	return (this->_isSigned);
-}
-
-const uint32_t&		PresidentialPardonForm::getRequiredGradeToSign() const
-{
-	return (this->_gradeToSign);
-}
-
-const uint32_t&		PresidentialPardonForm::getRequiredGradeToExec() const
-{
-	return (this->_gradeToExec);
-}
-
-/*
-	------------------------- [ Main function ] --------------------------
-*/
-void	PresidentialPardonForm::beSigned(const Bureaucrat& bureaucrat)
-{
-	if (bureaucrat.getGrade() > this->_gradeToSign)
-		throw AForm::GradeTooLowException();
-	this->_isSigned = true;
-}
-
 void	PresidentialPardonForm::pardonGranted(const std::string& target) const
 {
 	std::cout << BOLD BLUE << target << RESET " has been pardoned "
@@ -97,9 +70,9 @@ void	PresidentialPardonForm::pardonGranted(const std::string& target) const
 
 void	PresidentialPardonForm::execute(Bureaucrat const& executor) const
 {
-	if (this->_isSigned == false)
+	if (this->getSignatureState() == false)
 		throw AForm::NotSignedException();
-	if (executor.getGrade() > this->_gradeToExec)
+	if (executor.getGrade() > this->getRequiredGradeToExec())
 		throw AForm::CannotExecuteException();
 	pardonGranted(this->_target);
 }

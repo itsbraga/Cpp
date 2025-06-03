@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 17:01:34 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/27 21:28:50 by panther          ###   ########.fr       */
+/*   Updated: 2025/06/03 18:20:24 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Bureaucrat;
 
 class AForm
 {
-	protected:
+	private:
 			std::string		_name;
 			bool			_isSigned;
 			uint32_t		_gradeToSign;
@@ -43,10 +43,10 @@ class AForm
 			AForm&		operator=(const AForm& toCopy);
 			virtual ~AForm();
 
-			virtual const std::string&	getName() const = 0;
-			virtual const bool&			getSignatureState() const = 0;
-			virtual const uint32_t&		getRequiredGradeToSign() const = 0;
-			virtual const uint32_t&		getRequiredGradeToExec() const = 0;
+			const std::string&	getName() const;
+			const bool&			getSignatureState() const;
+			const uint32_t&		getRequiredGradeToSign() const;
+			const uint32_t&		getRequiredGradeToExec() const;
 
 			class GradeTooHighException : public std::exception
 			{
@@ -73,7 +73,7 @@ class AForm
 				const char*		what() const throw();
 			};
 
-			virtual void	beSigned(const Bureaucrat& bureaucrat) = 0;
+			void			beSigned(const Bureaucrat& bureaucrat);
 			virtual void	execute(Bureaucrat const& executor) const = 0;
 };
 

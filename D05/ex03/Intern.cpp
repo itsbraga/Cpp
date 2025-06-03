@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 22:07:15 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/28 16:42:08 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:32:49 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,40 @@ const char*		Intern::DoesNotExistException::what() const throw()
 /*
 	------------------------- [ Main functions ] -------------------------
 */
-static AForm*	createShrubberyForm(const std::string& target)
+static AForm*	__createShrubberyForm(const std::string& target)
 {
-	return (new ShrubberyCreationForm(target));
+	try
+	{
+		return (new ShrubberyCreationForm(target));
+	}
+	catch (const std::bad_alloc& e)
+	{
+		throw ;
+	}
 }
 
-static AForm*	createRobotomyForm(const std::string& target)
+static AForm*	__createRobotomyForm(const std::string& target)
 {
-	return (new RobotomyRequestForm(target));
+	try
+	{
+		return (new RobotomyRequestForm(target));
+	}
+	catch (const std::bad_alloc& e)
+	{
+		throw ;
+	}
 }
 
-static AForm*	createPresidentialForm(const std::string& target)
+static AForm*	__createPresidentialForm(const std::string& target)
 {
-	return (new PresidentialPardonForm(target));
+	try
+	{
+		return (new PresidentialPardonForm(target));
+	}
+	catch (const std::bad_alloc& e)
+	{
+		throw ;
+	}
 }
 
 struct FormEntry
@@ -74,9 +95,9 @@ AForm*	Intern::makeForm(const std::string& form, const std::string& target)
 {
 	static const FormEntry		forms[] =
 	{
-		{"Shrubbery creation", createShrubberyForm},
-		{"Robotomy request", createRobotomyForm},
-		{"Presidential pardon", createPresidentialForm}
+		{"Shrubbery creation", __createShrubberyForm},
+		{"Robotomy request", __createRobotomyForm},
+		{"Presidential pardon", __createPresidentialForm}
 	};
 
 	for (size_t i = 0; i < sizeof(forms)/sizeof(forms[0]); i++)
