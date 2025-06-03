@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 17:26:01 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/31 18:36:42 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/03 13:37:38 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 typedef struct	Data
 {
 	std::string	name;
+	int			age;
+	double		note;
 }				Data;
 
 #endif
