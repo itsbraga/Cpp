@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 01:09:11 by art3mis           #+#    #+#             */
-/*   Updated: 2025/06/02 01:36:57 by art3mis          ###   ########.fr       */
+/*   Updated: 2025/06/06 18:40:15 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@
 # define FAILURE 1
 
 /******************************************************************************\
- * TEMPLATE FUNCTIONS
+ * TEMPLATE FUNCTION
 \******************************************************************************/
 
 template< typename T >
-void	iter(T* array, size_t length, void (*f)(T&))
+void	iter( T* array, size_t length, void (*f)(T&) )
 {
 	for (size_t i = 0; i < length; i++)
 		f(array[i]);

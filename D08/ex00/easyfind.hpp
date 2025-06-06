@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 16:14:06 by annabrag          #+#    #+#             */
-/*   Updated: 2025/06/04 19:50:52 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/06 18:43:12 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # include <iostream>
 # include <algorithm>
-# include <stdexcept>
+# include <exception>
 # include "../colors.hpp"
 
 /******************************************************************************\
@@ -34,18 +34,18 @@
 \******************************************************************************/
 
 template< typename T >
-typename T::iterator	easyfind(T& container, int value)
+typename T::iterator	easyfind( T& container, int value )
 {
-	T::iterator it = std::find(container.begin(), container.end(), value);
+	typename T::iterator it = std::find( container.begin(), container.end(), value );
 	if (it == container.end())
 		throw std::runtime_error("Value not found in container");
 	return (it);
 }
 
 template< typename T >
-typename T::const_iterator	easyfind(const T& container, int value)
+typename T::const_iterator	easyfind( const T& container, int value )
 {
-	T::const_iterator it = std::find(container.begin(), container.end(), value);
+	typename T::const_iterator it = std::find( container.begin(), container.end(), value );
 	if (it == container.end())
 		throw std::runtime_error("Value not found in container");
 	return (it);

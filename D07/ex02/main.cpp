@@ -6,14 +6,14 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 02:02:49 by art3mis           #+#    #+#             */
-/*   Updated: 2025/06/03 19:24:47 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/06 18:40:41 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 #include "Array.tpp"
 
-int main(void)
+int main( void )
 {
 	std::cout << BOLD PY "Test given by subject: " RESET << std::endl;
 	int * a = new int();
