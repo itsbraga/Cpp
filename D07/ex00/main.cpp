@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 23:21:52 by art3mis           #+#    #+#             */
-/*   Updated: 2025/06/06 18:42:14 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/15 14:56:46 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main( void )
 
 	std::cout << BOLD "\n\n\n_____________________ MY MAIN ______________________\n" << RESET << std::endl;
 
-	std::cout << BOLD "\n======[ Swap tests ]======\n" RESET << std::endl;
+	std::cout << BOLD "\n------[ Swap tests ]------\n" RESET << std::endl;
 
 	int e = 9;
 	int f = 6;
@@ -65,7 +65,7 @@ int	main( void )
 	std::cout << BOLD PINK "[After swap]\t" RESET "test: " PO << test << RESET ", test2: " PO << test2
 			  << RESET << std::endl;
 
-	std::cout << BOLD "\n=====[ Min/Max tests ]=====\n" RESET << std::endl;
+	std::cout << BOLD "\n-----[ Min/Max tests ]-----\n" RESET << std::endl;
 
 	int i = 42;
 	int j = 69;

@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/28 01:08:05 by panther          ###   ########.fr       */
+/*   Updated: 2025/06/15 23:46:59 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,13 +114,11 @@ void	Bureaucrat::signForm(AForm& form)
 {
 	if (form.getSignatureState() == true)
 		throw AForm::AlreadySignedException();
-	try
-	{
+	try {
 		form.beSigned(*this);
 		std::cout << BOLD << this->_name << RESET " signed " << form.getName() << std::endl;
 	}
-	catch (const std::exception &e)
-	{
+	catch (const std::exception &e) {
 		std::cerr << this->_name << " couldn't sign " << form.getName()
 				  << " because " << e.what() << RESET << std::endl;
 	}
@@ -128,13 +126,11 @@ void	Bureaucrat::signForm(AForm& form)
 
 void	Bureaucrat::executeForm(AForm const& form) const
 {
-	try
-	{
+	try {
 		form.execute(*this);
 		std::cout << BOLD << this->_name << RESET " executed " << form.getName() << std::endl;
 	}
-	catch(const std::exception& e)
-	{
+	catch(const std::exception& e) {
 		std::cerr << BOLD BLUE << this->_name << RESET " couldn't execute " << form.getName()
 				  << " because " << e.what() << RESET << std::endl;
 	}

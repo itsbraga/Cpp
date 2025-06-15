@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 20:42:46 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/27 21:41:39 by panther          ###   ########.fr       */
+/*   Updated: 2025/06/15 23:47:21 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@
 int	main(void)
 {
 	std::srand(std::time(NULL));
-	std::cout << BOLD PGG "\n==============[ CONSTRUCTING BUREAUCRATS ]=============\n" RESET << std::endl;
+	std::cout << BOLD PGG "\n--------------[ CONSTRUCTING BUREAUCRATS ]-------------\n" RESET << std::endl;
 
-	try
-	{
+	try {
 		Bureaucrat	Boss("Director", 1);
 		Bureaucrat	Manager("Manager", 45);
 		Bureaucrat	Employee("Employee", 137);
@@ -32,7 +31,7 @@ int	main(void)
 		std::cout << Employee << std::endl;
 		std::cout << Intern << std::endl;
 
-		std::cout << BOLD PGG "\n\n=================[ CONSTRUCTING FORMS ]================\n" RESET << std::endl;
+		std::cout << BOLD PGG "\n\n-----------------[ CONSTRUCTING FORMS ]----------------\n" RESET << std::endl;
 
 		ShrubberyCreationForm	Shrub("Home");
 		RobotomyRequestForm		Robotomy("Bender");
@@ -42,7 +41,7 @@ int	main(void)
 		std::cout << Robotomy << std::endl;
 		std::cout << Pardon << std::endl;
 
-		std::cout << BOLD PGG "\n\n===================[ SIGNING FORMS ]===================\n" RESET << std::endl;
+		std::cout << BOLD PGG "\n\n-------------------[ SIGNING FORMS ]-------------------\n" RESET << std::endl;
 
 		std::cout << BOLD CYAN "\n__ Testing successful signing __" RESET << std::endl;
 		Employee.signForm(Shrub);
@@ -50,16 +49,14 @@ int	main(void)
 		Boss.signForm(Pardon);
 		
 		std::cout << BOLD CYAN "\n__ Testing already signed form __" RESET << std::endl;
-		try
-		{
+		try {
 			Intern.signForm(Shrub);
 		}
-		catch (std::exception &e)
-		{
+		catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
 
-		std::cout << BOLD PGG "\n\n==================[ EXECUTING FORMS ]==================\n" RESET << std::endl;
+		std::cout << BOLD PGG "\n\n------------------[ EXECUTING FORMS ]------------------\n" RESET << std::endl;
 
 		std::cout << BOLD CYAN "\n__ Testing successful execution __" RESET << std::endl;
 		Employee.executeForm(Shrub);
@@ -67,32 +64,27 @@ int	main(void)
 		Boss.executeForm(Pardon);
 
 		std::cout << BOLD CYAN "\n__ Testing too low grade case __" RESET << std::endl;
-		try
-		{
+		try {
 			Intern.executeForm(Shrub);
 		}
-		catch (std::exception &e)
-		{
+		catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
 
 		std::cout << BOLD CYAN "\n__ Testing not signed form __" RESET << std::endl;
 		ShrubberyCreationForm	Shrub2("Neighbor");
-		try
-		{
+		try {
 			Manager.executeForm(Shrub2);
 			std::cout << std::endl;
 		}
-		catch (std::exception &e)
-		{
+		catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
 	}
-	catch (std::exception& e)
-	{
+	catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << BOLD PGG "\n\n===================[ END OF TESTS ]====================\n" RESET << std::endl;
+	std::cout << BOLD PGG "\n\n-------------------[ END OF TESTS ]--------------------\n" RESET << std::endl;
 	return (SUCCESS);
 }

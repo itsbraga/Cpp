@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 22:04:17 by panther           #+#    #+#             */
-/*   Updated: 2025/06/02 18:29:22 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/15 23:44:39 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ static LiteralType	__detectType(const std::string& literal)
 	return (UNKNOWN);
 }
 
+/*
+	--------------------------- [ Conversion ] ---------------------------
+*/
 static void	__convertFromChar(const std::string& literal)
 {
 	char c = literal[0];
