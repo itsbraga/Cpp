@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:43:06 by annabrag          #+#    #+#             */
-/*   Updated: 2025/06/15 22:24:15 by panther          ###   ########.fr       */
+/*   Updated: 2025/06/16 00:39:31 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ typedef unsigned int uint32_t;
 class SpanIsFullException : public std::exception
 {
 	public:
-		virtual const char*		what() const throw()
-		{
-			return (BOLD RED "Exception caught: " RESET "Span is full");
-		}
+			virtual const char*		what() const throw()
+			{
+				return (BOLD RED "Exception caught: " RESET "Span is full");
+			}
 };
 
 class SpanNotEnoughException : public std::exception

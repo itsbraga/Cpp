@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 18:47:37 by annabrag          #+#    #+#             */
-/*   Updated: 2025/06/15 23:41:35 by panther          ###   ########.fr       */
+/*   Updated: 2025/06/16 00:29:31 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include "B.hpp"
 #include "C.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 Base::~Base()
 {
 	std::cout << BOLD PO "[Base]" RESET PO " destroyed" RESET << std::endl;

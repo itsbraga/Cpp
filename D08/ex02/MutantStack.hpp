@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:43:06 by annabrag          #+#    #+#             */
-/*   Updated: 2025/06/15 23:25:42 by panther          ###   ########.fr       */
+/*   Updated: 2025/06/16 00:35:32 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@
 \******************************************************************************/
 
 # include <iostream>
-# include <exception>
 # include <stack>
 # include <deque>	// underlying container
-# include <algorithm>
 # include "../colors.hpp"
 
 /******************************************************************************\
@@ -30,21 +28,6 @@
 
 # define SUCCESS 0
 # define FAILURE 1
-
-typedef unsigned int uint32_t;
-
-/******************************************************************************\
- * EXCEPTIONS
-\******************************************************************************/
-
-// class MutantStackIsFullException : public std::exception
-// {
-// 	public:
-// 		virtual const char*		what() const throw()
-// 		{
-// 			return (BOLD RED "Exception caught: " RESET "MutantStack is full");
-// 		}
-// };
 
 /******************************************************************************\
  * TEMPLATE CLASS
@@ -67,14 +50,14 @@ class MutantStack : public std::stack<T>
 			~MutantStack();
 
 			// Iterator methods
-			iterator				begin() { return this->c.begin(); };
-			iterator				end() { return this->c.end(); };
-			const_iterator			begin() const { return this->c.begin(); };
-			const_iterator			end() const { return this->c.end(); };
-			reverse_iterator		rbegin() { return this->c.rbegin(); };
-			reverse_iterator		rend() { return this->c.rend(); };
-			const_reverse_iterator	rbegin() const { return this->c.rbegin(); };
-			const_reverse_iterator	rend() const { return this->c.rend(); };
+			iterator				begin();
+			iterator				end();
+			const_iterator			begin() const;
+			const_iterator			end() const;
+			reverse_iterator		rbegin();
+			reverse_iterator		rend();
+			const_reverse_iterator	rbegin() const;
+			const_reverse_iterator	rend() const;
 };
 
 #endif

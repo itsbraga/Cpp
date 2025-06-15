@@ -6,12 +6,15 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 01:44:09 by art3mis           #+#    #+#             */
-/*   Updated: 2025/06/15 23:30:32 by panther          ###   ########.fr       */
+/*   Updated: 2025/06/16 00:31:13 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
+/*
+	---------------------- [ Object Manipulation ] -----------------------
+*/
 template< typename T >
 Array<T>::Array() : _array(NULL), _size(0)
 {
@@ -63,6 +66,9 @@ Array<T>::~Array()
 	delete [] this->_array;
 }
 
+/*
+	----------------------- [ Operator overload ] ------------------------
+*/
 template< typename T >
 T&	Array<T>::operator[]( uint32_t index )
 {
