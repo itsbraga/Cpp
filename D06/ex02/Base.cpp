@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 18:47:37 by annabrag          #+#    #+#             */
-/*   Updated: 2025/06/02 19:04:38 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/15 23:41:35 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-#include "myBadCast.hpp"
 
 Base::~Base()
 {
-	// std::cout << BOLD PO "[Base]" RESET PO " destroyed" RESET << std::endl;
+	std::cout << BOLD PO "[Base]" RESET PO " destroyed" RESET << std::endl;
 }
 
+/*
+	----------------------------- [ Tools ] ------------------------------
+*/
 Base*	generate(void)
 {
 	static bool	seeded = false;
@@ -60,8 +62,7 @@ void	identify(Base* p)
 
 void	identify(Base& p)
 {
-	try
-	{
+	try {
 		if (dynamic_cast<A*>(&p) != NULL)
 			std::cout << "A" << std::endl;
 		else if (dynamic_cast<B*>(&p) != NULL)
@@ -71,9 +72,8 @@ void	identify(Base& p)
 		else
 			throw myBadCast();
 	}
-	catch (const myBadCast& e)
-	{
+	catch (const myBadCast& e) {
 		std::cerr << "Unknown type" << std::endl;
-		std::cerr << BOLD RED "Exception caught: " RESET << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }

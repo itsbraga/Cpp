@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 22:16:30 by panther           #+#    #+#             */
-/*   Updated: 2025/06/03 13:43:02 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/15 23:43:52 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 int main(void)
 {
-	std::cout << BOLD PGG "=======[ Serializer Test ]=======" RESET << std::endl;
+	std::cout << BOLD PGG "-------[ Serializer Test ]-------" RESET << std::endl;
 	
-	Data	originalData;
-	originalData.name = "Mr Robot";
-	Data*	originalPtr = &originalData;
+	Data originalData;
+	originalData.name	= "Mr Robot";
+	Data* originalPtr	= &originalData;
 	
 	std::cout << PY "\nOriginal address: " RESET << originalPtr << std::endl;
 	std::cout << PY "Original name: " RESET "\"" << originalData.name << "\"" << std::endl;
 	
-	uintptr_t	serialized = Serializer::serialize(originalPtr);
-	Data*		deserializedPtr = Serializer::deserialize(serialized);
+	uintptr_t serialized	= Serializer::serialize(originalPtr);
+	Data* deserializedPtr	= Serializer::deserialize(serialized);
 	
 	std::cout << BLUE "Serialized: " RESET << serialized << std::endl;
 	std::cout << PG "Deserialized: " RESET << deserializedPtr << std::endl;
 	
-	bool	pointersEqual;
-	bool	dataAccessible;
+	bool pointersEqual;
+	bool dataAccessible;
 	
 	if (originalPtr == deserializedPtr)
 		pointersEqual = true;
@@ -50,28 +50,28 @@ int main(void)
 	std::cout << "Final status: " << (pointersEqual && dataAccessible ? BOLD PG "SUCCESS" : BOLD RED "FAILURE")
 			  << RESET << std::endl;
 	
-	originalData.age = 42;
-	originalData.note = 18.5;
+	originalData.age	= 42;
+	originalData.note	= 18.5;
 
-	std::cout << BOLD PGG "\n=======[ Extended Tests with Age and Note ]=======" RESET << std::endl;
+	std::cout << BOLD PGG "\n-------[ Extended Tests with Age and Note ]-------" RESET << std::endl;
 	
 	std::cout << PY "\nOriginal complete data:" RESET << std::endl;
 	std::cout << "  Name: \"" << originalData.name << "\"" << std::endl;
 	std::cout << "  Age: " << originalData.age << std::endl;
 	std::cout << "  Note: " << originalData.note << std::endl;
 	
-	uintptr_t	serialized2 = Serializer::serialize(originalPtr);
-	Data*		deserializedPtr2 = Serializer::deserialize(serialized2);
+	uintptr_t serialized2	= Serializer::serialize(originalPtr);
+	Data* deserializedPtr2	= Serializer::deserialize(serialized2);
 	
 	std::cout << BLUE "\nAfter serialization/deserialization:" RESET << std::endl;
 	std::cout << "  Name: \"" << deserializedPtr2->name << "\"" << std::endl;
 	std::cout << "  Age: " << deserializedPtr2->age << std::endl;
 	std::cout << "  Note: " << deserializedPtr2->note << std::endl;
 	
-	bool	nameCorrect = (deserializedPtr2->name == "Mr Robot");
-	bool	ageCorrect = (deserializedPtr2->age == 42);
-	bool	noteCorrect = (deserializedPtr2->note == 18.5);
-	bool	allFieldsCorrect = nameCorrect && ageCorrect && noteCorrect;
+	bool nameCorrect		= (deserializedPtr2->name == "Mr Robot");
+	bool ageCorrect			= (deserializedPtr2->age == 42);
+	bool noteCorrect		= (deserializedPtr2->note == 18.5);
+	bool allFieldsCorrect	= nameCorrect && ageCorrect && noteCorrect;
 	
 	std::cout << BOLD "\n--- Extended Results ---" RESET << std::endl;
 	std::cout << "Name correct: " << (nameCorrect ? BOLD PG "✓ YES" : BOLD RED "✗ NO")
@@ -83,13 +83,13 @@ int main(void)
 	std::cout << "All fields intact: " << (allFieldsCorrect ? BOLD PG "✓ SUCCESS" : BOLD RED "✗ FAILURE")
 			  << RESET << std::endl;
 	
-	std::cout << BOLD PGG "\n=======[ Test with Different Values ]=======" RESET << std::endl;
+	std::cout << BOLD PGG "\n-------[ Test with Different Values ]-------" RESET << std::endl;
 	
-	Data	testData2;
-	testData2.name = "Elliot Alderson";
-	testData2.age = 28;
-	testData2.note = 19.75;
-	Data*	testPtr2 = &testData2;
+	Data testData2;
+	testData2.name	= "Elliot Alderson";
+	testData2.age	= 28;
+	testData2.note	= 19.75;
+	Data* testPtr2	= &testData2;
 	
 	std::cout << PY "\nSecond test data:" RESET << std::endl;
 	std::cout << "  Name: \"" << testData2.name << "\"" << std::endl;

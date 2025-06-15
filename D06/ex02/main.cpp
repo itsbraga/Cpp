@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 18:50:30 by panther           #+#    #+#             */
-/*   Updated: 2025/06/03 18:56:22 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/15 14:56:24 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,10 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-#include "myBadCast.hpp"
 
-int main(int argc, char	**argv)
+int main( void )
 {
-	(void)argv;
-	if (argc != 1)
-	{
-		std::cout << BOLD YELLOW "Usage: " RESET "./identifier" << std::endl;
-		return (FAILURE);
-	}
-
-	std::cout << BOLD PINK "\n==========[ TESTING RANDOM GENERATION AND IDENTIFICATION ]==========\n" RESET << std::endl;
+	std::cout << BOLD PINK "\n----------[ TESTING RANDOM GENERATION AND IDENTIFICATION ]----------\n" RESET << std::endl;
 
 	for (int i = 0; i < 6; i++)
 	{
@@ -42,7 +34,7 @@ int main(int argc, char	**argv)
 		delete obj, obj = NULL;
 	}
 	
-	std::cout << "\n" BOLD PINK "\n==================[ TESTING WITH SPECIFIC OBJECTS ]=================" RESET << std::endl;
+	std::cout << "\n" BOLD PINK "\n------------------[ TESTING WITH SPECIFIC OBJECTS ]-----------------" RESET << std::endl;
 	
 	A*	a = new A();
 	B*	b = new B();
@@ -66,7 +58,7 @@ int main(int argc, char	**argv)
 	std::cout << "From reference: ";
 	identify(*c);
 	
-	std::cout << "\n" BOLD PINK "\n===================[ TESTING WITH BASE* POINTERS ]==================" RESET << std::endl;
+	std::cout << "\n" BOLD PINK "\n-------------------[ TESTING WITH BASE* POINTERS ]------------------" RESET << std::endl;
 	
 	Base*	base_a = new A();
 	Base*	base_b = new B();
@@ -90,7 +82,7 @@ int main(int argc, char	**argv)
 	std::cout << "From reference: ";
 	identify(*base_c);
 	
-	std::cout << "\n" BOLD PINK "\n====================[ TESTING WITH NULL POINTER ]===================" RESET << std::endl;
+	std::cout << "\n" BOLD PINK "\n--------------------[ TESTING WITH NULL POINTER ]-------------------" RESET << std::endl;
 
 	Base*	null_ptr = NULL;
 	
@@ -104,6 +96,6 @@ int main(int argc, char	**argv)
 	delete base_b, base_b = NULL;
 	delete base_c, base_c = NULL;
 
-	std::cout << BOLD PINK "\n\n==========================[ END OF TESTS ]==========================\n" RESET << std::endl;
+	std::cout << BOLD PINK "\n\n--------------------------[ END OF TESTS ]--------------------------\n" RESET << std::endl;
 	return (SUCCESS);
 }

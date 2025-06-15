@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 23:21:52 by art3mis           #+#    #+#             */
-/*   Updated: 2025/06/06 18:41:30 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/15 14:57:09 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 
-static void	__printInt( int& n )
+static void	__printInt( const int& n )
 {
 	std::cout << "Int: " << n << std::endl;
 }
@@ -22,7 +22,7 @@ static void	__doubleInt( int& n )
 	n *= 2;
 }
 
-static void	__printString( std::string& str )
+static void	__printString( const std::string& str )
 {
 	std::cout << "str: " << str << std::endl;
 }
@@ -35,7 +35,7 @@ static void	__strCapitalize( std::string& str )
 
 int	main( void )
 {
-	std::cout << BOLD "\n=======[ Int tests ]=======\n" RESET << std::endl;
+	std::cout << BOLD "\n-------[ Int tests ]-------\n" RESET << std::endl;
 
 	int intArray[] = {1, 2, 4, 8, 16};
 	std::cout << BOLD PP "[Original array]" RESET << std::endl;
@@ -45,7 +45,7 @@ int	main( void )
 	::iter( intArray, 5, __doubleInt );
 	::iter( intArray, 5, __printInt );
 
-	std::cout << BOLD "\n======[ String tests ]======\n" RESET << std::endl;
+	std::cout << BOLD "\n------[ String tests ]------\n" RESET << std::endl;
 
 	std::string strArray[] = {"Vivement", "la", "fin", "du", "cc"};
 	std::cout << BOLD PP "[Original strings]" RESET << std::endl;

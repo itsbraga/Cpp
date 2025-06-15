@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 20:42:46 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/27 21:41:58 by panther          ###   ########.fr       */
+/*   Updated: 2025/06/15 23:46:50 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 int	main(void)
 {
-	std::cout << BOLD PGG "\n==============[ CONSTRUCTING BUREAUCRATS ]=============\n" RESET << std::endl;
+	std::cout << BOLD PGG "\n--------------[ CONSTRUCTING BUREAUCRATS ]-------------\n" RESET << std::endl;
 
-	try
-	{
+	try {
 		Bureaucrat	Boss("Director", 1);
 		Bureaucrat	Manager("Manager", 25);
 		Bureaucrat	Employee("Employee", 100);
@@ -29,7 +28,7 @@ int	main(void)
 		std::cout << Employee << std::endl;
 		std::cout << Intern << std::endl;
 		
-		std::cout << BOLD PGG "\n\n=================[ CONSTRUCTING FORMS ]================\n" RESET << std::endl;
+		std::cout << BOLD PGG "\n\n-----------------[ CONSTRUCTING FORMS ]----------------\n" RESET << std::endl;
 		
 		Form	topSecret("Top Secret Document", 5, 3);
 		Form	contract("Employment Contract", 30, 20);
@@ -39,34 +38,31 @@ int	main(void)
 		std::cout << contract << std::endl;
 		std::cout << application << std::endl;
 		
-		std::cout << BOLD PGG "\n\n===================[ SIGNING FORMS ]===================\n" RESET << std::endl;
+		std::cout << BOLD PGG "\n\n-------------------[ SIGNING FORMS ]-------------------\n" RESET << std::endl;
 		
 		std::cout << BOLD CYAN "\n__ Testing successful signing __" RESET << std::endl;
 		Boss.signForm(topSecret);
 		Manager.signForm(contract);
 		
 		std::cout << BOLD CYAN "\n__ Testing already signed form __" RESET << std::endl;
-		try
-		{
+		try {
 			Employee.signForm(topSecret);
 		}
-		catch (std::exception &e)
-		{
+		catch (std::exception &e) {
 			std::cerr << e.what() << std::endl;
 		}
 		
-		std::cout << BOLD PGG "\n\n=============[ FORM STATUS AFTER SIGNING ]=============\n" RESET << std::endl;
+		std::cout << BOLD PGG "\n\n-------------[ FORM STATUS AFTER SIGNING ]-------------\n" RESET << std::endl;
 	
 		std::cout << "\n" << topSecret << std::endl;
 		std::cout << contract << std::endl;
 		std::cout << application << std::endl;
 		
 	}
-	catch (std::exception &e)
-	{
+	catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
 	
-	std::cout << BOLD PGG "\n\n===================[ END OF TESTS ]====================\n" RESET << std::endl;
+	std::cout << BOLD PGG "\n\n-------------------[ END OF TESTS ]--------------------\n" RESET << std::endl;
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:11:30 by annabrag          #+#    #+#             */
-/*   Updated: 2025/05/28 01:07:42 by panther          ###   ########.fr       */
+/*   Updated: 2025/06/15 23:46:31 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,13 +114,11 @@ void	Bureaucrat::signForm(Form& form)
 {
 	if (form.getSignatureState() == true)
 		throw Form::AlreadySignedException();
-	try
-	{
+	try {
 		form.beSigned(*this);
 		std::cout << this->_name << " signed " << form.getName() << std::endl;
 	}
-	catch (const std::exception &e)
-	{
+	catch (const std::exception &e) {
 		std::cerr << this->_name << " couldn't sign " << form.getName()
 				  << " because " << e.what() << RESET << std::endl;
 	}

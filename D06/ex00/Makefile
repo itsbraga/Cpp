@@ -17,7 +17,6 @@ PURPLE		:=	\e[38;2;224;176;255m
 NAME		=	convert
 CPP			=	c++
 CPPFLAG		=	-Wall -Wextra -Werror -std=c++98 -g3
-MULT_HERIT	=	-Wshadow
 DFLAGS		=	-MMD -MP
 
 #******************************************************************************#
@@ -38,11 +37,11 @@ all: $(NAME)
 
 $(OBJS_DIR)%.o: %.cpp
 				@mkdir -p $(OBJS_DIR)
-				$(CPP) $(CPPFLAG) $(MULT_HERIT) $(DFLAGS) -c $< -o $@
+				$(CPP) $(CPPFLAG) $(DFLAGS) -c $< -o $@
 -include $(DEPS)
 
 $(NAME): $(OBJS)
-			$(CPP) $(CPPFLAG) $(MULT_HERIT) $(OBJS) -o $(NAME)
+			$(CPP) $(CPPFLAG) $(OBJS) -o $(NAME)
 			@printf "\n\n$(BOLD)========$(shell bash ../rbw.sh " ScalarConverter ")"
 			@printf "$(BOLD)========\n\n$(BLINK)$(PURPLE)\t     READY!$(RESET)\n\n"
 			@printf "$(BOLD)=================================\n\n$(RESET)"

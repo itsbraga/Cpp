@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 18:39:25 by annabrag          #+#    #+#             */
-/*   Updated: 2025/06/06 19:26:10 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/15 23:35:26 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	testVector()
 {
-	std::cout << BOLD PP "\n=======[ Testing with std::vector ]=======" RESET << std::endl;
+	std::cout << BOLD PP "\n---------[ Testing with vector ]----------" RESET << std::endl;
 	
 	std::vector<int> vec;
 	vec.push_back(1);
@@ -37,7 +37,7 @@ void	testVector()
 				  << std::distance(vec.begin(), result) << RESET << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cout << BOLD RED "Error: " RESET << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	try {
@@ -45,13 +45,13 @@ void	testVector()
 		std::cout << PG "Found value " << *result << RESET << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cout << BOLD RED "Error: " RESET << e.what() << " (999)" << std::endl;
+		std::cout << e.what() << " (999)" << std::endl;
 	}
 }
 
 void	testList()
 {
-	std::cout << BOLD PP "\n========[ Testing with std::list ]========" RESET << std::endl;
+	std::cout << BOLD PP "\n----------[ Testing with list ]-----------" RESET << std::endl;
 	
 	std::list<int> lst;
 	lst.push_back(10);
@@ -69,7 +69,7 @@ void	testList()
 		std::cout << PG "Found value " << *result << RESET << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cout << BOLD RED "Error: " RESET << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	try {
@@ -77,13 +77,13 @@ void	testList()
 		std::cout << PG "Found value " << *result << RESET << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cout << BOLD RED "Error: " RESET << e.what() << " (15)" << std::endl;
+		std::cout << e.what() << " (15)" << std::endl;
 	}
 }
 
 void	testDeque()
 {
-	std::cout << BOLD PP "\n========[ Testing with std::deque ]=======" RESET << std::endl;
+	std::cout << BOLD PP "\n----------[ Testing with deque ]----------" RESET << std::endl;
 	
 	std::deque<int> deq;
 	deq.push_back(5);
@@ -101,13 +101,30 @@ void	testDeque()
 				  << std::distance(deq.begin(), result) << RESET << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cout << BOLD RED "Error: " RESET << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
+}
+
+void	testEmptyContainer()
+{
+	std::cout << BOLD PP "\n-----[ Testing with empty container ]-----" RESET << std::endl;
+	
+	std::vector<int> empty_vec;
+
+	try {
+		std::vector<int>::iterator result = easyfind(empty_vec, 42);
+		std::cout << PG "Found value " << *result << " in empty container" RESET << std::endl;
+	}
+	catch (const std::exception& e) {
+		std::cout << e.what() << " (42)" << std::endl;
+	}
+
+	std::cout << std::endl;
 }
 
 void	testConstContainer()
 {
-	std::cout << BOLD PP "\n=====[ Testing with const container ]=====" RESET << std::endl;
+	std::cout << BOLD PP "\n-----[ Testing with const container ]-----" RESET << std::endl;
 	
 	std::vector<int> vec;
 	vec.push_back(100);
@@ -126,25 +143,8 @@ void	testConstContainer()
 		std::cout << PG "Found value " << *result << RESET << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cout << BOLD RED "Error: " RESET << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
-}
-
-void	testEmptyContainer()
-{
-	std::cout << BOLD PP "\n=====[ Testing with empty container ]=====" RESET << std::endl;
-	
-	std::vector<int> empty_vec;
-
-	try {
-		std::vector<int>::iterator result = easyfind(empty_vec, 42);
-		std::cout << PG "Found value " << *result << " in empty container" RESET << std::endl;
-	}
-	catch (const std::exception& e) {
-		std::cout << BOLD RED "Error: " RESET << e.what() << " (42)" << std::endl;
-	}
-
-	std::cout << std::endl;
 }
 
 int	main( void )

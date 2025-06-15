@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 22:07:15 by annabrag          #+#    #+#             */
-/*   Updated: 2025/06/03 18:32:49 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/15 23:47:46 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,36 +51,30 @@ const char*		Intern::DoesNotExistException::what() const throw()
 */
 static AForm*	__createShrubberyForm(const std::string& target)
 {
-	try
-	{
+	try {
 		return (new ShrubberyCreationForm(target));
 	}
-	catch (const std::bad_alloc& e)
-	{
+	catch (const std::bad_alloc& e) {
 		throw ;
 	}
 }
 
 static AForm*	__createRobotomyForm(const std::string& target)
 {
-	try
-	{
+	try {
 		return (new RobotomyRequestForm(target));
 	}
-	catch (const std::bad_alloc& e)
-	{
+	catch (const std::bad_alloc& e) {
 		throw ;
 	}
 }
 
 static AForm*	__createPresidentialForm(const std::string& target)
 {
-	try
-	{
+	try {
 		return (new PresidentialPardonForm(target));
 	}
-	catch (const std::bad_alloc& e)
-	{
+	catch (const std::bad_alloc& e) {
 		throw ;
 	}
 }

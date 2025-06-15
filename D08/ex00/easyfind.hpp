@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 16:14:06 by annabrag          #+#    #+#             */
-/*   Updated: 2025/06/06 18:43:12 by annabrag         ###   ########.fr       */
+/*   Updated: 2025/06/15 23:32:31 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,28 @@
 \******************************************************************************/
 
 # include <iostream>
-# include <algorithm>
 # include <exception>
 # include "../colors.hpp"
 
 /******************************************************************************\
- * LIBRARIES
+ * DEFINES
 \******************************************************************************/
 
 # define SUCCESS 0
 # define FAILURE 1
+
+/******************************************************************************\
+ * EXCEPTIONS
+\******************************************************************************/
+
+class ValueNotFoundException : public std::exception
+{
+	public:
+			virtual const char*		what() const throw()
+			{
+				return (BOLD RED "Exception caught: " RESET "Value not found in container");
+			}
+};
 
 /******************************************************************************\
  * TEMPLATE FUNCTIONS
@@ -38,7 +50,7 @@ typename T::iterator	easyfind( T& container, int value )
 {
 	typename T::iterator it = std::find( container.begin(), container.end(), value );
 	if (it == container.end())
-		throw std::runtime_error("Value not found in container");
+		throw ValueNotFoundException();
 	return (it);
 }
 
@@ -47,7 +59,7 @@ typename T::const_iterator	easyfind( const T& container, int value )
 {
 	typename T::const_iterator it = std::find( container.begin(), container.end(), value );
 	if (it == container.end())
-		throw std::runtime_error("Value not found in container");
+		throw ValueNotFoundException();
 	return (it);
 }
 

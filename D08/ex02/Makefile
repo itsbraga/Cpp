@@ -8,13 +8,13 @@ BLINK		:=	\e[5m
 YELLOW		:=	\e[38;2;255;234;150m
 BLUE		:=	\e[34m
 CYAN		:=	\e[36m
-PGREEN		:=	\e[38;2;173;235;179m
+HOT_PINK	:=	\e[38;2;255;105;180m
 
 #******************************************************************************#
 #	COMPILATION
 #******************************************************************************#
 
-NAME		=	identifier
+NAME		=	MutantStack
 CPP			=	c++
 CPPFLAG		=	-Wall -Wextra -Werror -std=c++98 -g3
 DFLAGS		=	-MMD -MP
@@ -23,7 +23,7 @@ DFLAGS		=	-MMD -MP
 #	SOURCES
 #******************************************************************************#
 
-SRCS		=	main.cpp Base.cpp
+SRCS		=	main.cpp
 
 OBJS_DIR	=	objs/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:%.cpp=%.o))
@@ -42,9 +42,9 @@ $(OBJS_DIR)%.o: %.cpp
 
 $(NAME): $(OBJS)
 			$(CPP) $(CPPFLAG) $(OBJS) -o $(NAME)
-			@printf "\n\n$(BOLD)========$(shell bash ../rbw.sh " Identifier ")"
-			@printf "$(BOLD)========\n\n$(BLINK)$(PGREEN)\t   READY!$(RESET)\n\n"
-			@printf "$(BOLD)============================\n\n$(RESET)"
+			@printf "\n\n$(BOLD)========$(shell bash ../rbw.sh " MutantStack ")"
+			@printf "$(BOLD)========\n\n$(BLINK)$(HOT_PINK)\t   READY!$(RESET)\n\n"
+			@printf "$(BOLD)=============================\n\n$(RESET)"
 
 clean:
 		rm -rf $(OBJS_DIR)

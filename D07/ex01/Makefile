@@ -8,7 +8,6 @@ BLINK		:=	\e[5m
 YELLOW		:=	\e[38;2;255;234;150m
 BLUE		:=	\e[34m
 CYAN		:=	\e[36m
-PURPLE		:=	\e[38;2;224;176;255m
 PGREEN		:=	\e[38;2;173;235;179m
 
 #******************************************************************************#
@@ -18,7 +17,6 @@ PGREEN		:=	\e[38;2;173;235;179m
 NAME		=	iter
 CPP			=	c++
 CPPFLAG		=	-Wall -Wextra -Werror -std=c++98 -g3
-MULT_HERIT	=	-Wshadow
 DFLAGS		=	-MMD -MP
 
 #******************************************************************************#
@@ -39,11 +37,11 @@ all: $(NAME)
 
 $(OBJS_DIR)%.o: %.cpp
 				@mkdir -p $(OBJS_DIR)
-				$(CPP) $(CPPFLAG) $(MULT_HERIT) $(DFLAGS) -c $< -o $@
+				$(CPP) $(CPPFLAG) $(DFLAGS) -c $< -o $@
 -include $(DEPS)
 
 $(NAME): $(OBJS)
-			$(CPP) $(CPPFLAG) $(MULT_HERIT) $(OBJS) -o $(NAME)
+			$(CPP) $(CPPFLAG) $(OBJS) -o $(NAME)
 			@printf "\n\n$(BOLD)========$(shell bash ../rbw.sh " Templates ")"
 			@printf "$(BOLD)========\n\n$(BLINK)$(PGREEN)\t   READY!$(RESET)\n\n"
 			@printf "$(BOLD)===========================\n\n$(RESET)"
